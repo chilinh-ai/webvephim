@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rạp chiếu - WBANVE</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/1179/1179120.png">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    .cinema-card {
+      border-radius: 12px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .cinema-card:hover {
+      transform: translateY(-5px);
+    }
+    .cinema-image {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+    }
+    .cinema-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .cinema-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .cinema-card:hover .cinema-overlay {
+      opacity: 1;
+    }
+    .btn-view {
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      background: #dc2626;
+      color: white;
+    }
+    .filter-section {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .filter-group {
+      margin-bottom: 1rem;
+    }
+    .filter-group:last-child {
+      margin-bottom: 0;
+    }
+    .filter-label {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #374151;
+    }
+    .filter-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .filter-option {
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      background: #f3f4f6;
+      color: #4b5563;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .filter-option:hover, .filter-option.active {
+      background: #dc2626;
+      color: white;
+    }
+    .cinema-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 1rem 0;
+    }
+    .footer-section {
+      transition: transform 0.3s ease;
+    }
+    .footer-section:hover {
+      transform: translateY(-5px);
+    }
+    .social-links a {
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .social-links a:hover {
+      transform: translateY(-3px);
+      color: #dc2626;
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .footer-section {
+      padding: 1rem;
+    }
+    .footer-section h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    .footer-section p {
+      color: #9ca3af;
+      line-height: 1.6;
+    }
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer-section ul li {
+      margin-bottom: 0.75rem;
+    }
+    .footer-section ul li a {
+      color: #9ca3af;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer-section ul li a:hover {
+      color: #dc2626;
+    }
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .social-links a {
+      color: #9ca3af;
+      font-size: 1.25rem;
+      transition: all 0.3s ease;
+    }
+    .social-links a:hover {
+      color: #dc2626;
+      transform: translateY(-3px);
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #374151;
+      color: #9ca3af;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <!-- Header -->
+  <header class="main-header bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4">
+      <!-- Top header -->
+      <div class="flex items-center justify-between py-4 border-b border-gray-100">
+        <a href="index.html" class="logo flex items-center space-x-2">
+          <img src="https://cdn-icons-png.flaticon.com/512/1179/1179120.png" alt="Logo" class="h-10 w-auto">
+          <span class="text-2xl font-bold text-red-600 tracking-wide">WBANVE</span>
+        </a>
+
+        <div class="flex items-center space-x-4">
+          <div class="relative">
+            <input type="text" placeholder="Tìm kiếm rạp..." class="w-64 pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:border-red-500 focus:ring-1 focus:ring-red-500">
+            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+          </div>
+          <button aria-label="Vietnamese language" class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:ring-2 hover:ring-red-600 focus:outline-none">
+            <img alt="Vietnamese flag icon" class="w-5 h-auto" src="https://storage.googleapis.com/a1aa/image/c6a59d7c-4b04-4304-b74a-d43348b3c681.jpg">
+          </button>
+          <a href="#" class="btn-login border border-red-600 text-red-600 px-4 py-1 rounded hover:bg-red-600 hover:text-white transition">Đăng nhập</a>
+          <a href="#" class="btn-register bg-red-600 text-white px-4 py-1 rounded hover:bg-red-700 transition">Đăng ký</a>
+        </div>
+      </div>
+
+      <!-- Bottom header -->
+      <nav class="main-nav hidden md:flex items-center justify-center py-4 space-x-8">
+        <a href="index.html" class="hover:text-red-600 transition font-medium">Trang chủ</a>
+        <a href="phim.html" class="hover:text-red-600 transition font-medium">Phim</a>
+        <a href="rapphim.html" class="text-red-600 font-medium">Rạp chiếu</a>
+        <a href="tintuc.html" class="hover:text-red-600 transition font-medium">Tin tức</a>
+        <a href="khuyenmai.html" class="hover:text-red-600 transition font-medium">Khuyến mãi</a>
+        <a href="lienhe.html" class="hover:text-red-600 transition font-medium">Liên hệ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="max-w-[1200px] mx-auto px-4 py-3 text-white text-sm font-normal bg-red-600">
+    <nav aria-label="Breadcrumb" class="flex items-center space-x-1">
+      <a href="index.html" class="hover:text-white/80">Trang chủ</a>
+      <span class="text-white/70">/</span>
+      <span class="font-semibold">Rạp chiếu</span>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <main class="max-w-[1200px] mx-auto px-4 py-8">
+    <div class="flex flex-col lg:flex-row gap-8">
+      <!-- Filters Sidebar -->
+      <aside class="w-full lg:w-64 flex-shrink-0">
+        <div class="filter-section">
+          <div class="filter-group">
+            <h3 class="filter-label">Khu vực</h3>
+            <div class="filter-options">
+              <span class="filter-option active">Tất cả</span>
+              <span class="filter-option">Quận 1</span>
+              <span class="filter-option">Quận 2</span>
+              <span class="filter-option">Quận 3</span>
+              <span class="filter-option">Quận 4</span>
+              <span class="filter-option">Quận 5</span>
+              <span class="filter-option">Quận 6</span>
+              <span class="filter-option">Quận 7</span>
+              <span class="filter-option">Quận 8</span>
+              <span class="filter-option">Quận 9</span>
+              <span class="filter-option">Quận 10</span>
+              <span class="filter-option">Quận 11</span>
+              <span class="filter-option">Quận 12</span>
+              <span class="filter-option">Gò Vấp</span>
+              <span class="filter-option">Tân Bình</span>
+              <span class="filter-option">Bình Thạnh</span>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h3 class="filter-label">Hệ thống rạp</h3>
+            <div class="filter-options">
+              <span class="filter-option active">Tất cả</span>
+              <span class="filter-option">Galaxy</span>
+              <span class="filter-option">CGV</span>
+              <span class="filter-option">Lotte</span>
+              <span class="filter-option">BHD</span>
+              <span class="filter-option">CineStar</span>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h3 class="filter-label">Tiện ích</h3>
+            <div class="filter-options">
+              <span class="filter-option active">Tất cả</span>
+              <span class="filter-option">IMAX</span>
+              <span class="filter-option">4DX</span>
+              <span class="filter-option">Dolby Atmos</span>
+              <span class="filter-option">SCREENX</span>
+              <span class="filter-option">Gold Class</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Cinema Grid -->
+      <div class="flex-1">
+        <div class="flex justify-between items-center mb-6">
+          <h1 class="text-2xl font-bold">Tất cả rạp chiếu</h1>
+          <div class="flex items-center space-x-4">
+            <select class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-red-500">
+              <option>Sắp xếp theo</option>
+              <option>Gần nhất</option>
+              <option>A-Z</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="cinema-grid">
+          <!-- Cinema cards will be dynamically loaded here -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12 mt-12">
+    <div class="max-w-[1200px] mx-auto px-4">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Về chúng tôi</h3>
+          <p>WBANVE là hệ thống đặt vé xem phim trực tuyến hiện đại, tiện lợi và an toàn hàng đầu Việt Nam.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Liên kết</h3>
+          <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="phim.html">Phim</a></li>
+            <li><a href="rapphim.html">Rạp chiếu</a></li>
+            <li><a href="#">Tin tức</a></li>
+            <li><a href="#">Khuyến mãi</a></li>
+            <li><a href="#">Liên hệ</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Hỗ trợ</h3>
+          <ul>
+            <li><a href="#">Câu hỏi thường gặp</a></li>
+            <li><a href="#">Điều khoản sử dụng</a></li>
+            <li><a href="#">Chính sách bảo mật</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Liên hệ</h3>
+          <ul>
+            <li><i class="fas fa-phone-alt mr-2"></i>Hotline: 1900 xxxx</li>
+            <li><i class="fas fa-envelope mr-2"></i>Email: support@example.com</li>
+            <li><i class="fas fa-map-marker-alt mr-2"></i>Địa chỉ: 123 Đường ABC, Quận XYZ, TP.HCM</li>
+          </ul>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 WBANVE. Tất cả quyền được bảo lưu.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+    <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold">Đăng nhập</h2>
+        <button onclick="closeModal('loginModal')" class="text-gray-500 hover:text-gray-700">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <form id="loginForm" onsubmit="handleLogin(event)">
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="loginEmail">
+            Email
+          </label>
+          <input type="email" id="loginEmail" required
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-6">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="loginPassword">
+            Mật khẩu
+          </label>
+          <input type="password" id="loginPassword" required
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="flex items-center justify-between mb-4">
+          <button type="submit" id="loginButton" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+            Đăng nhập
+          </button>
+          <div id="loginSpinner" class="hidden">
+            <i class="fas fa-spinner fa-spin text-red-600 text-xl"></i>
+          </div>
+        </div>
+        <div class="text-center">
+          <a href="#" onclick="showModal('forgotPasswordModal'); closeModal('loginModal')" class="text-red-600 hover:text-red-700 text-sm">
+            Quên mật khẩu?
+          </a>
+        </div>
+      </form>
+      <div class="mt-4 text-center">
+        <p class="text-gray-600">Chưa có tài khoản? 
+          <a href="#" onclick="showModal('registerModal'); closeModal('loginModal')" class="text-red-600 hover:text-red-700">
+            Đăng ký ngay
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Register Modal -->
+  <div id="registerModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+    <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold">Đăng ký</h2>
+        <button onclick="closeModal('registerModal')" class="text-gray-500 hover:text-gray-700">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <form id="registerForm" onsubmit="handleRegister(event)">
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="registerName">
+            Họ và tên
+          </label>
+          <input type="text" id="registerName" required
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="registerEmail">
+            Email
+          </label>
+          <input type="email" id="registerEmail" required
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="registerPassword">
+            Mật khẩu
+          </label>
+          <input type="password" id="registerPassword" required
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-6">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="registerConfirmPassword">
+            Xác nhận mật khẩu
+          </label>
+          <input type="password" id="registerConfirmPassword" required
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="flex items-center justify-between mb-4">
+          <button type="submit" id="registerButton" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+            Đăng ký
+          </button>
+          <div id="registerSpinner" class="hidden">
+            <i class="fas fa-spinner fa-spin text-red-600 text-xl"></i>
+          </div>
+        </div>
+      </form>
+      <div class="mt-4 text-center">
+        <p class="text-gray-600">Đã có tài khoản? 
+          <a href="#" onclick="showModal('loginModal'); closeModal('registerModal')" class="text-red-600 hover:text-red-700">
+            Đăng nhập
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Forgot Password Modal -->
+  <div id="forgotPasswordModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+    <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold">Quên mật khẩu</h2>
+        <button onclick="closeModal('forgotPasswordModal')" class="text-gray-500 hover:text-gray-700">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <form id="forgotPasswordForm" onsubmit="handleForgotPassword(event)">
+        <div class="mb-6">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="forgotPasswordEmail">
+            Email
+          </label>
+          <input type="email" id="forgotPasswordEmail" required
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="flex items-center justify-between mb-4">
+          <button type="submit" id="forgotPasswordButton" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+            Gửi link đặt lại mật khẩu
+          </button>
+          <div id="forgotPasswordSpinner" class="hidden">
+            <i class="fas fa-spinner fa-spin text-red-600 text-xl"></i>
+          </div>
+        </div>
+      </form>
+      <div class="mt-4 text-center">
+        <p class="text-gray-600">Đã nhớ mật khẩu? 
+          <a href="#" onclick="showModal('loginModal'); closeModal('forgotPasswordModal')" class="text-red-600 hover:text-red-700">
+            Đăng nhập
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="module">
+    // Import Firebase functions
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+    import { getAuth, signOut, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyATE49XCQGPrrw1zst5vBihoRuu2Ak1KHs",
+      authDomain: "webdatvexemphim-6f5a7.firebaseapp.com",
+      projectId: "webdatvexemphim-6f5a7",
+      storageBucket: "webdatvexemphim-6f5a7.firebasestorage.app",
+      messagingSenderId: "463304798196",
+      appId: "1:463304798196:web:4176c92111c925b1ca93a1",
+      measurementId: "G-J14FBB9ZBG",
+      databaseURL: "https://webdatvexemphim-6f5a7-default-rtdb.firebaseio.com"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const database = getDatabase(app);
+    const auth = getAuth(app);
+
+    // Global variables for filters
+    let allCinemas = [];
+    let currentFilters = {
+      district: 'Tất cả',
+      system: 'Tất cả',
+      amenities: []
+    };
+
+    // Function to create cinema card HTML
+    function createCinemaCard(cinema) {
+      return `
+        <div class="cinema-card">
+          <div class="cinema-image">
+            <img src="${cinema.image || 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=800&q=80'}" alt="${cinema.name}">
+            <div class="cinema-overlay">
+              <a href="#" class="btn-view">Xem lịch chiếu</a>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-semibold text-lg mb-2">${cinema.name}</h3>
+            <p class="text-gray-600 mb-2">${cinema.address}</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              ${cinema.amenities?.map(amenity => `
+                <span class="bg-gray-100 px-2 py-1 rounded text-sm">${amenity}</span>
+              `).join('')}
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="text-sm text-gray-500">
+                <i class="fas fa-phone-alt mr-2"></i>${cinema.phone}
+              </div>
+              <a href="#" class="text-red-600 hover:text-red-700 font-medium">Chi tiết</a>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Function to filter cinemas
+    function filterCinemas() {
+      let filteredCinemas = [...allCinemas];
+
+      // Filter by district
+      if (currentFilters.district !== 'Tất cả') {
+        filteredCinemas = filteredCinemas.filter(cinema => cinema.district === currentFilters.district);
+      }
+
+      // Filter by system
+      if (currentFilters.system !== 'Tất cả') {
+        filteredCinemas = filteredCinemas.filter(cinema => cinema.system === currentFilters.system);
+      }
+
+      // Filter by amenities
+      if (currentFilters.amenities.length > 0) {
+        filteredCinemas = filteredCinemas.filter(cinema => 
+          currentFilters.amenities.every(amenity => cinema.amenities.includes(amenity))
+        );
+      }
+
+      return filteredCinemas;
+    }
+
+    // Function to update cinema display
+    function updateCinemaDisplay() {
+      const filteredCinemas = filterCinemas();
+      const cinemaGrid = document.querySelector('.cinema-grid');
+      cinemaGrid.innerHTML = filteredCinemas.map(cinema => createCinemaCard(cinema)).join('');
+    }
+
+    // Function to handle filter clicks
+    function setupFilterListeners() {
+      // District filters
+      document.querySelectorAll('.filter-group:nth-child(1) .filter-option').forEach(option => {
+        option.addEventListener('click', () => {
+          document.querySelectorAll('.filter-group:nth-child(1) .filter-option').forEach(opt => opt.classList.remove('active'));
+          option.classList.add('active');
+          currentFilters.district = option.textContent;
+          updateCinemaDisplay();
+        });
+      });
+
+      // System filters
+      document.querySelectorAll('.filter-group:nth-child(2) .filter-option').forEach(option => {
+        option.addEventListener('click', () => {
+          document.querySelectorAll('.filter-group:nth-child(2) .filter-option').forEach(opt => opt.classList.remove('active'));
+          option.classList.add('active');
+          currentFilters.system = option.textContent;
+          updateCinemaDisplay();
+        });
+      });
+
+      // Amenities filters
+      document.querySelectorAll('.filter-group:nth-child(3) .filter-option').forEach(option => {
+        option.addEventListener('click', () => {
+          const amenity = option.textContent;
+          if (amenity === 'Tất cả') {
+            currentFilters.amenities = [];
+            document.querySelectorAll('.filter-group:nth-child(3) .filter-option').forEach(opt => opt.classList.remove('active'));
+            option.classList.add('active');
+          } else {
+            option.classList.toggle('active');
+            if (option.classList.contains('active')) {
+              currentFilters.amenities.push(amenity);
+            } else {
+              currentFilters.amenities = currentFilters.amenities.filter(a => a !== amenity);
+            }
+          }
+          updateCinemaDisplay();
+        });
+      });
+
+      // Sort select
+      document.querySelector('select').addEventListener('change', (e) => {
+        const sortBy = e.target.value;
+        if (sortBy === 'A-Z') {
+          allCinemas.sort((a, b) => a.name.localeCompare(b.name, 'vi'));
+        } else if (sortBy === 'Gần nhất') {
+          // Sort by coordinates (you can implement distance calculation here)
+          allCinemas.sort((a, b) => {
+            const distA = Math.sqrt(Math.pow(a.coordinates.lat, 2) + Math.pow(a.coordinates.lng, 2));
+            const distB = Math.sqrt(Math.pow(b.coordinates.lat, 2) + Math.pow(b.coordinates.lng, 2));
+            return distA - distB;
+          });
+        }
+        updateCinemaDisplay();
+      });
+    }
+
+    // Load cinemas from Firebase
+    async function loadCinemas() {
+      try {
+        const cinemasRef = ref(database, 'popular/cinemas');
+        onValue(cinemasRef, (snapshot) => {
+          const data = snapshot.val();
+          console.log('Raw data from Firebase:', data);
+          
+          if (!data) {
+            console.log('No cinema data found');
+            return;
+          }
+
+          // Convert object to array if needed
+          allCinemas = Array.isArray(data) ? data : Object.values(data);
+          console.log('Processed cinemas:', allCinemas);
+          
+          // Sort cinemas by name initially
+          allCinemas.sort((a, b) => (a.name || '').localeCompare(b.name || '', 'vi', {sensitivity: 'base'}));
+          
+          // Update display
+          updateCinemaDisplay();
+        }, (error) => {
+          console.error('Error reading cinema data:', error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Lỗi!',
+            text: 'Không thể tải dữ liệu rạp chiếu. Vui lòng thử lại sau.',
+            confirmButtonColor: '#dc2626'
+          });
+        });
+      } catch (error) {
+        console.error('Error loading cinemas:', error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: 'Không thể tải dữ liệu rạp chiếu. Vui lòng thử lại sau.',
+          confirmButtonColor: '#dc2626'
+        });
+      }
+    }
+
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      loadCinemas();
+      setupFilterListeners();
+    });
+
+    // Kiểm tra trạng thái đăng nhập khi load lại trang
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        document.querySelector('.btn-login').classList.add('hidden');
+        document.querySelector('.btn-register').classList.add('hidden');
+        if (!document.querySelector('.user-menu')) {
+          const userMenu = document.createElement('div');
+          userMenu.className = 'relative user-menu';
+          userMenu.innerHTML = `
+            <button onclick="toggleUserMenu()" class="flex items-center space-x-2 text-gray-700 hover:text-red-600">
+              <i class="fas fa-user-circle text-xl"></i>
+              <span>${user.email}</span>
+              <i class="fas fa-chevron-down text-sm"></i>
+            </button>
+            <div id="userDropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden z-50">
+              <button onclick="handleLogout()" class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
+                <i class="fas fa-sign-out-alt mr-2"></i>Đăng xuất
+              </button>
+            </div>
+          `;
+          document.querySelector('.flex.items-center.space-x-4').appendChild(userMenu);
+        }
+      } else {
+        document.querySelector('.btn-login').classList.remove('hidden');
+        document.querySelector('.btn-register').classList.remove('hidden');
+        const userMenu = document.querySelector('.user-menu');
+        if (userMenu) userMenu.remove();
+      }
+    });
+
+    // Toggle user menu
+    window.toggleUserMenu = function() {
+      const dropdown = document.getElementById('userDropdown');
+      dropdown.classList.toggle('hidden');
+      document.addEventListener('click', function closeDropdown(e) {
+        if (!e.target.closest('.relative')) {
+          dropdown.classList.add('hidden');
+          document.removeEventListener('click', closeDropdown);
+        }
+      });
+    }
+
+    // Đăng xuất
+    window.handleLogout = async function() {
+      try {
+        await signOut(auth);
+        await Swal.fire({
+          icon: 'success',
+          title: 'Thành công!',
+          text: 'Đăng xuất thành công!',
+          confirmButtonColor: '#dc2626'
+        });
+        location.reload();
+      } catch (error) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: 'Đăng xuất thất bại!',
+          confirmButtonColor: '#dc2626'
+        });
+      }
+    }
+
+    // Định nghĩa các hàm xử lý modal trong phạm vi global
+    window.showModal = function(modalId) {
+      document.getElementById(modalId).classList.remove('hidden');
+    }
+
+    window.closeModal = function(modalId) {
+      document.getElementById(modalId).classList.add('hidden');
+    }
+
+    // Login form submission
+    document.getElementById('loginForm').onsubmit = async function(e) {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+      // Show loading state
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang xử lý...';
+      submitBtn.disabled = true;
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        await Swal.fire({
+          icon: 'success',
+          title: 'Thành công!',
+          text: 'Đăng nhập thành công!',
+          confirmButtonColor: '#dc2626'
+        });
+        closeModal('loginModal');
+        location.reload();
+      } catch (err) {
+        let errorMessage = 'Đăng nhập thất bại!';
+        if (err.code === 'auth/user-not-found') {
+          errorMessage = 'Email không tồn tại!';
+        } else if (err.code === 'auth/wrong-password') {
+          errorMessage = 'Mật khẩu không đúng!';
+        } else if (err.code === 'auth/invalid-email') {
+          errorMessage = 'Email không hợp lệ!';
+        }
+        await Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: errorMessage,
+          confirmButtonColor: '#dc2626'
+        });
+      } finally {
+        // Reset button state
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
+    }
+
+    // Register form submission
+    document.getElementById('registerForm').onsubmit = async function(e) {
+      e.preventDefault();
+      const email = document.getElementById('registerEmail').value;
+      const password = document.getElementById('registerPassword').value;
+      const password2 = document.getElementById('registerConfirmPassword').value;
+      // Validate password
+      if (password.length < 6) {
+        await Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: 'Mật khẩu phải có ít nhất 6 ký tự!',
+          confirmButtonColor: '#dc2626'
+        });
+        return;
+      }
+      if (password !== password2) {
+        await Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: 'Mật khẩu không khớp!',
+          confirmButtonColor: '#dc2626'
+        });
+        return;
+      }
+      // Show loading state
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang xử lý...';
+      submitBtn.disabled = true;
+      try {
+        await createUserWithEmailAndPassword(auth, email, password);
+        await Swal.fire({
+          icon: 'success',
+          title: 'Thành công!',
+          text: 'Đăng ký thành công!',
+          confirmButtonColor: '#dc2626'
+        });
+        closeModal('registerModal');
+        location.reload();
+      } catch (err) {
+        let errorMessage = 'Đăng ký thất bại!';
+        if (err.code === 'auth/email-already-in-use') {
+          errorMessage = 'Email đã được sử dụng!';
+        } else if (err.code === 'auth/invalid-email') {
+          errorMessage = 'Email không hợp lệ!';
+        } else if (err.code === 'auth/weak-password') {
+          errorMessage = 'Mật khẩu quá yếu!';
+        }
+        await Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: errorMessage,
+          confirmButtonColor: '#dc2626'
+        });
+      } finally {
+        // Reset button state
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
+    }
+
+    // Forgot password form submission
+    document.getElementById('forgotPasswordForm').onsubmit = async function(e) {
+      e.preventDefault();
+      const email = document.getElementById('forgotPasswordEmail').value;
+      // Show loading state
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang xử lý...';
+      submitBtn.disabled = true;
+      try {
+        await sendPasswordResetEmail(auth, email);
+        await Swal.fire({
+          icon: 'success',
+          title: 'Thành công!',
+          text: 'Đã gửi liên kết đặt lại mật khẩu vào email của bạn!',
+          confirmButtonColor: '#dc2626'
+        });
+        closeModal('forgotPasswordModal');
+      } catch (err) {
+        let errorMessage = 'Không gửi được email!';
+        if (err.code === 'auth/user-not-found') {
+          errorMessage = 'Email không tồn tại!';
+        } else if (err.code === 'auth/invalid-email') {
+          errorMessage = 'Email không hợp lệ!';
+        }
+        await Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: errorMessage,
+          confirmButtonColor: '#dc2626'
+        });
+      } finally {
+        // Reset button state
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
+    }
+
+    // Gán sự kiện mở modal cho nút đăng nhập/đăng ký giống index.html
+    window.showModal = function(modalId) {
+      document.getElementById(modalId).classList.remove('hidden');
+    }
+    window.closeModal = function(modalId) {
+      document.getElementById(modalId).classList.add('hidden');
+    }
+    document.querySelector('.btn-login').addEventListener('click', () => showModal('loginModal'));
+    document.querySelector('.btn-register').addEventListener('click', () => showModal('registerModal'));
+  </script>
+</body>
+</html> 
