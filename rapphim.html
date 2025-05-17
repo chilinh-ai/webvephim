@@ -628,7 +628,7 @@
     // Load cinemas from Firebase
     async function loadCinemas() {
       try {
-        const cinemasRef = ref(database, 'popular/cinemas');
+        const cinemasRef = ref(database, 'cinemas');
         onValue(cinemasRef, (snapshot) => {
           const data = snapshot.val();
           console.log('Raw data from Firebase:', data);

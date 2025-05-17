@@ -772,8 +772,8 @@
           const data = snapshot.val();
           console.log('Raw data from Firebase:', data);
           
-          // Get the popular movies array from the data object
-          const popularMovies = data?.popular || [];
+          // Data is already an array, no need to access .popular
+          const popularMovies = Array.isArray(data) ? data : [];
           console.log('Popular movies:', popularMovies);
           
           // Remove duplicate movies based on ID
