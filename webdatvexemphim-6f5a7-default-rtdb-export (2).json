@@ -1,4 +1,178 @@
 {
+  "cinemas": [
+    {
+      "address": "Tầng 3, Aeon Mall Bình Tân, Số 1 Đường số 17A, Khu phố 11, Phường Bình Trị Đông B, Quận Bình Tân, TP.HCM",
+      "amenities": [
+        "IMAX",
+        "4DX",
+        "Dolby Atmos",
+        "Gold Class"
+      ],
+      "coordinates": {
+        "lat": 10.7371,
+        "lng": 106.5927
+      },
+      "district": "Bình Tân",
+      "id": "cgv-aeon-mall-binh-tan",
+      "image": "https://www.aeonmall-binhtan.com.vn/wp-content/uploads/2018/10/cgv-at-aeonmall-binhtan.png",
+      "name": "CGV Aeon Mall Bình Tân",
+      "phone": "1900 6017",
+      "system": "CGV"
+    },
+    {
+      "address": "Tầng 5, Crescent Mall, 101 Tôn Dật Tiên, Phường Tân Phú, Quận 7, TP.HCM",
+      "amenities": [
+        "IMAX",
+        "4DX",
+        "Dolby Atmos"
+      ],
+      "coordinates": {
+        "lat": 10.7297,
+        "lng": 106.7167
+      },
+      "district": "Quận 7",
+      "id": "cgv-crescent-mall",
+      "image": "https://iguov8nhvyobj.vcdn.cloud/media/site/cache/1/980x415/b58515f018eb873dafa430b6f9ae0c1e/5/_/5.jpg",
+      "name": "CGV Crescent Mall",
+      "phone": "1900 6017",
+      "system": "CGV"
+    },
+    {
+      "address": "116 Nguyễn Du, Phường Bến Thành, Quận 1, TP.HCM",
+      "amenities": [
+        "Dolby Atmos",
+        "SCREENX"
+      ],
+      "coordinates": {
+        "lat": 10.7757,
+        "lng": 106.7004
+      },
+      "district": "Quận 1",
+      "id": "galaxy-nguyen-du",
+      "image": "https://cdn.galaxycine.vn/media/2023/10/23/galaxy-nguyen-du-1_1698051240852.jpg",
+      "name": "Galaxy Nguyễn Du",
+      "phone": "1900 2224",
+      "system": "Galaxy"
+    },
+    {
+      "address": "271 Nguyễn Trãi, Phường Nguyễn Cư Trinh, Quận 1, TP.HCM",
+      "amenities": [
+        "Dolby Atmos"
+      ],
+      "coordinates": {
+        "lat": 10.7627,
+        "lng": 106.6884
+      },
+      "district": "Quận 1",
+      "id": "galaxy-quoc-thanh",
+      "image": "https://api-website.cinestar.com.vn/media/wysiwyg/CinemaImage/01-Quoc-Thanh-masthead.jpg",
+      "name": "Galaxy Quốc Thanh",
+      "phone": "1900 2224",
+      "system": "Galaxy"
+    },
+    {
+      "address": "Tầng 13, Diamond Plaza, 34 Lê Duẩn, Phường Bến Nghé, Quận 1, TP.HCM",
+      "amenities": [
+        "4DX",
+        "Dolby Atmos"
+      ],
+      "coordinates": {
+        "lat": 10.7769,
+        "lng": 106.7009
+      },
+      "district": "Quận 1",
+      "id": "lotte-cinema-diamond",
+      "image": "https://thegioidienanh.vn/stores/news_dataimages/phuonght/122016/12/09/5030_LC_Diamond_Prestige_3.jpg",
+      "name": "Lotte Cinema Diamond",
+      "phone": "1900 1234",
+      "system": "Lotte"
+    },
+    {
+      "address": "Tầng 5, Bitexco Financial Tower, 2 Hải Triều, Phường Bến Nghé, Quận 1, TP.HCM",
+      "amenities": [
+        "Dolby Atmos",
+        "Gold Class"
+      ],
+      "coordinates": {
+        "lat": 10.7717,
+        "lng": 106.7044
+      },
+      "district": "Quận 1",
+      "id": "bhd-star-bitexco",
+      "image": "https://rapchieuphim.com/photos/3/Rap-BHD-Star-Cineplex-ICON-68.jpg",
+      "name": "BHD Star Bitexco",
+      "phone": "1900 2099",
+      "system": "BHD"
+    },
+    {
+      "address": "Tầng 3, Thảo Điền Pearl, 12 Quốc Hương, Phường Thảo Điền, Quận 2, TP.HCM",
+      "amenities": [
+        "Dolby Atmos"
+      ],
+      "coordinates": {
+        "lat": 10.8027,
+        "lng": 106.7317
+      },
+      "district": "Quận 2",
+      "id": "bhd-star-thao-dien",
+      "image": "https://www.bhdstar.vn/wp-content/uploads/2023/12/0000000005.png",
+      "name": "BHD Star Thảo Điền",
+      "phone": "1900 2099",
+      "system": "BHD"
+    },
+    {
+      "address": "Tầng 3, Landmark 81, 772 Điện Biên Phủ, Phường 22, Quận Bình Thạnh, TP.HCM",
+      "amenities": [
+        "IMAX",
+        "4DX",
+        "Dolby Atmos",
+        "Gold Class"
+      ],
+      "coordinates": {
+        "lat": 10.7947,
+        "lng": 106.7217
+      },
+      "district": "Bình Thạnh",
+      "id": "cgv-landmark-81",
+      "image": "https://thelandmark81.com.vn/wp-content/uploads/2023/09/CGV-Landmark-81.jpg",
+      "name": "CGV Landmark 81",
+      "phone": "1900 6017",
+      "system": "CGV"
+    },
+    {
+      "address": "Tầng 3, Co.opmart Foodcosa, 304A Quang Trung, Phường 10, Quận Gò Vấp, TP.HCM",
+      "amenities": [
+        "Dolby Atmos"
+      ],
+      "coordinates": {
+        "lat": 10.8317,
+        "lng": 106.6717
+      },
+      "district": "Gò Vấp",
+      "id": "galaxy-quang-trung",
+      "image": "https://cdn.galaxycine.vn/media/2019/5/6/rapgiave-hinhrap-quang-trung-1_1557133544324.jpg",
+      "name": "Galaxy Quang Trung",
+      "phone": "1900 2224",
+      "system": "Galaxy"
+    },
+    {
+      "address": "Tầng 4, Lotte Mart Gò Vấp, 242 Nguyễn Văn Lượng, Phường 10, Quận Gò Vấp, TP.HCM",
+      "amenities": [
+        "4DX",
+        "Dolby Atmos"
+      ],
+      "coordinates": {
+        "lat": 10.8417,
+        "lng": 106.6717
+      },
+      "district": "Gò Vấp",
+      "id": "lotte-cinema-go-vap",
+      "image": "https://phongcachmoc.vn/upload/images/cong-trinh/cafe/lotte-cinema-go-vap/noi-that-phong-cho-lotte-cinema-6.jpg",
+      "name": "Lotte Cinema Gò Vấp",
+      "phone": "1900 1234",
+      "system": "Lotte"
+    }
+  ],
   "coming_soon": [
     {
       "created_at": "2025-05-16T15:31:51.199958",
@@ -312,6 +486,140 @@
       "vote_count": 2754
     }
   ],
+  "news": {
+    "1709123456789": {
+      "category": "Tin điện ảnh",
+      "comments": 423,
+      "content": "Oppenheimer không chỉ là một bộ phim về lịch sử, mà còn là một kiệt tác kỹ thuật và nghệ thuật. Điểm nổi bật đầu tiên phải kể đến là công nghệ quay phim IMAX 70mm, cho phép khán giả trải nghiệm những cảnh quay hoành tráng với độ phân giải cực cao. Christopher Nolan đã sử dụng kỹ thuật này để tạo ra những cảnh nổ bom nguyên tử đầy ám ảnh, kết hợp với âm thanh Dolby Atmos tạo nên trải nghiệm đa giác quan.\n\nVề phần diễn xuất, Cillian Murphy đã dành 6 tháng để nghiên cứu về J. Robert Oppenheimer, từ cách nói chuyện đến cử chỉ. Anh còn giảm 20kg để phù hợp với hình ảnh của nhà khoa học gầy gò. Robert Downey Jr. cũng mang đến một màn thể hiện xuất sắc trong vai Lewis Strauss, với những biểu cảm tinh tế thể hiện sự phức tạp của nhân vật.\n\nPhần âm nhạc của Ludwig Göransson cũng là một yếu tố quan trọng, kết hợp giữa âm thanh điện tử và nhạc cụ truyền thống, tạo nên bầu không khí căng thẳng và ám ảnh xuyên suốt phim. Đặc biệt, âm thanh của vụ nổ nguyên tử được tạo ra bằng cách kết hợp nhiều lớp âm thanh khác nhau, từ tiếng nổ thực tế đến âm thanh điện tử.\n\nThiết kế sản xuất của Ruth De Jong đã tái hiện chính xác thời kỳ những năm 1940, từ phòng thí nghiệm Los Alamos đến các tòa nhà chính phủ. Mỗi chi tiết đều được nghiên cứu kỹ lưỡng để đảm bảo tính chân thực lịch sử. Đặc biệt, phòng thí nghiệm Los Alamos được dựng lại với tỷ lệ 1:1, sử dụng các tài liệu lịch sử và hình ảnh thời đó làm tài liệu tham khảo.",
+      "createdAt": "2024-03-10T08:30:00Z",
+      "date": "2024-03-10",
+      "description": "Một phân tích toàn diện về những yếu tố kỹ thuật và nghệ thuật đã giúp Oppenheimer trở thành bộ phim thống trị giải Oscar 2024 với 7 giải thưởng.",
+      "image": "https://media.vneconomy.vn/images/upload/2024/03/11/oscar1.jpg",
+      "isFeatured": true,
+      "title": "Phân tích chuyên sâu: Tại sao Oppenheimer thống trị giải Oscar 2024?",
+      "views": 25000
+    },
+    "1709123456790": {
+      "category": "Review phim",
+      "comments": 312,
+      "content": "Dune: Part Two là một kiệt tác điện ảnh đích thực, nơi Denis Villeneuve đã đưa tầm nhìn của mình lên một tầm cao mới. Bộ phim được quay hoàn toàn bằng máy quay IMAX, cho phép khán giả trải nghiệm những cảnh quay hoành tráng với độ phân giải cực cao. Đặc biệt, các cảnh quay trên sa mạc được thực hiện vào thời điểm hoàng hôn và bình minh để tận dụng ánh sáng tự nhiên, tạo ra những khung hình đẹp mắt và ấn tượng.\n\nThiết kế sản xuất của phim là một công trình đồ sộ. Để tạo ra thế giới Arrakis, đoàn làm phim đã xây dựng các bối cảnh thực tế với quy mô lớn, từ thành phố Arrakeen đến các khu định cư của người Fremen. Các bộ trang phục được thiết kế cẩn thận, đặc biệt là stillsuit - bộ đồ bảo hộ của người Fremen, được làm từ loại vải đặc biệt có khả năng tái chế nước và điều hòa nhiệt độ.\n\nPhần kỹ xảo của phim cũng đáng chú ý. Các cảnh chiến đấu với sandworm được tạo ra bằng sự kết hợp giữa quay thực tế và CGI. Đặc biệt, để tạo ra hiệu ứng cát di chuyển, đoàn làm phim đã sử dụng công nghệ mô phỏng hạt (particle simulation) tiên tiến, cho phép tạo ra hàng triệu hạt cát di chuyển một cách tự nhiên.\n\nÂm thanh của phim cũng là một yếu tố quan trọng. Nhà soạn nhạc Hans Zimmer đã tạo ra một bản nhạc nền độc đáo, kết hợp giữa âm thanh điện tử và nhạc cụ truyền thống. Đặc biệt, âm thanh của sandworm được tạo ra bằng cách kết hợp nhiều loại âm thanh khác nhau, từ tiếng động đất đến tiếng gầm của động vật hoang dã.",
+      "createdAt": "2024-03-01T10:15:00Z",
+      "date": "2024-03-01",
+      "description": "Phân tích chi tiết về các yếu tố kỹ thuật và nghệ thuật đã làm nên thành công của Dune: Part Two, từ quay phim đến thiết kế sản xuất.",
+      "image": "https://danviet.mediacdn.vn/296231569849192448/2024/2/16/mv5bnmy1m2fjngitzjazzs00ntexltk5ogetowfhmzm4nwu2ndkyxkeyxkfqcgdeqxvymdm2ndm2mqv1fmjpgux2160-17080978121681908422876.jpg",
+      "isFeatured": true,
+      "title": "Phân tích kỹ thuật: Dune: Part Two - Kiệt tác khoa học viễn tưởng mới",
+      "views": 18000
+    },
+    "1709123456791": {
+      "category": "Phỏng vấn",
+      "comments": 189,
+      "content": "Trong cuộc phỏng vấn độc quyền, đạo diễn Trần Anh Hùng đã chia sẻ những góc nhìn sâu sắc về quá trình sáng tạo The Taste of Things. 'Ẩm thực không chỉ là nấu ăn, mà còn là nghệ thuật, là văn hóa, là tình yêu,' ông nói. Để truyền tải được điều này lên màn ảnh, đoàn làm phim đã phải đối mặt với nhiều thách thức kỹ thuật.\n\nMột trong những thách thức lớn nhất là việc quay phim trong nhà bếp. Để đảm bảo chất lượng hình ảnh, đoàn làm phim đã sử dụng máy quay RED Komodo 6K với ống kính anamorphic, cho phép quay được những cảnh cận với độ sâu trường ảnh lớn. Ánh sáng được thiết kế cẩn thận để tôn lên màu sắc và kết cấu của món ăn, sử dụng kết hợp ánh sáng tự nhiên và đèn LED.\n\nPhần âm thanh cũng được đầu tư kỹ lưỡng. Để thu được âm thanh chân thực của quá trình nấu ăn, đoàn làm phim đã sử dụng nhiều microphone định hướng, đặt ở các vị trí khác nhau trong nhà bếp. Âm thanh được xử lý tại phòng thu Dolby Atmos, tạo ra trải nghiệm âm thanh không gian cho khán giả.\n\nĐặc biệt, để tạo ra hiệu ứng hơi nước và mùi hương, đoàn làm phim đã phát triển một hệ thống phun sương đặc biệt, cho phép kiểm soát chính xác lượng hơi nước và hương liệu trong mỗi cảnh quay.",
+      "createdAt": "2024-02-15T14:20:00Z",
+      "date": "2024-02-15",
+      "description": "Cuộc trò chuyện chi tiết với đạo diễn Trần Anh Hùng về quá trình sáng tạo và những thách thức kỹ thuật trong việc đưa ẩm thực lên màn ảnh.",
+      "image": "https://vcdn1-giaitri.vnecdn.net/2024/03/20/td5-1970-2-1710865284.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=6OWwkxiGI7nsjdL4PoKIvg",
+      "isFeatured": false,
+      "title": "Phỏng vấn chuyên sâu: Đạo diễn Trần Anh Hùng và nghệ thuật điện ảnh trong The Taste of Things",
+      "views": 12000
+    },
+    "1709123456792": {
+      "category": "Sự kiện",
+      "comments": 245,
+      "content": "Lễ hội phim quốc tế Hà Nội 2024 không chỉ là một sự kiện văn hóa, mà còn là cơ hội để điện ảnh Việt Nam tiếp cận với những xu hướng và công nghệ mới nhất trong ngành. Sự kiện này quy tụ hơn 100 bộ phim từ 30 quốc gia, mang đến cho khán giả Việt Nam cơ hội thưởng thức những tác phẩm điện ảnh đặc sắc từ khắp nơi trên thế giới.\n\nMột trong những điểm nổi bật của lễ hội là chuỗi hội thảo chuyên đề về công nghệ điện ảnh. Các chuyên gia quốc tế sẽ chia sẻ về những xu hướng mới trong quay phim, kỹ xảo, và âm thanh. Đặc biệt, có các workshops về Virtual Production - kỹ thuật quay phim ảo đang được sử dụng rộng rãi trong ngành điện ảnh thế giới.\n\nPhần thiết kế sản xuất của lễ hội cũng đáng chú ý. Các rạp chiếu được trang bị hệ thống âm thanh Dolby Atmos và màn hình 4K, đảm bảo chất lượng trình chiếu tốt nhất cho khán giả. Không gian triển lãm được thiết kế với công nghệ thực tế ảo (VR), cho phép khán giả trải nghiệm quá trình sản xuất phim một cách trực quan.\n\nLễ hội cũng tổ chức các buổi giao lưu giữa các nhà làm phim Việt Nam và quốc tế, tạo cơ hội để trao đổi kinh nghiệm và hợp tác trong tương lai. Đặc biệt, có các chương trình đào tạo chuyên sâu về kỹ thuật quay phim, dựng phim, và kỹ xảo, giúp nâng cao trình độ cho các nhà làm phim Việt Nam.",
+      "createdAt": "2024-02-20T09:45:00Z",
+      "date": "2024-02-20",
+      "description": "Một góc nhìn toàn diện về tác động của Lễ hội phim quốc tế Hà Nội 2024 đối với sự phát triển của điện ảnh Việt Nam.",
+      "image": "https://i.ex-cdn.com/vovgiaothong.vn/files/content/2024/11/12/a44i3875-0917.jpg",
+      "isFeatured": true,
+      "title": "Phân tích chuyên sâu: Lễ hội phim quốc tế Hà Nội 2024 và tương lai điện ảnh Việt Nam",
+      "views": 15000
+    },
+    "1709123456793": {
+      "category": "Khuyến mãi",
+      "comments": 356,
+      "content": "CGV Cinema đang dẫn đầu trong việc áp dụng công nghệ mới vào hệ thống rạp chiếu. Một trong những điểm nổi bật là công nghệ ScreenX - màn hình ba mặt, cho phép khán giả trải nghiệm phim với góc nhìn 270 độ. Công nghệ này đặc biệt hiệu quả với các phim hành động và khoa học viễn tưởng, tạo ra trải nghiệm xem phim đắm chìm.\n\nHệ thống âm thanh cũng được nâng cấp với công nghệ Dolby Atmos, cho phép tạo ra âm thanh không gian 3D. Mỗi rạp ScreenX được trang bị hơn 60 loa, được bố trí trên trần, tường và sàn, tạo ra trải nghiệm âm thanh đa chiều. Đặc biệt, hệ thống này có khả năng điều chỉnh âm thanh theo vị trí ngồi của khán giả, đảm bảo chất lượng âm thanh tốt nhất cho mọi vị trí.\n\nCông nghệ 4DX cũng đang được áp dụng tại một số rạp CGV. Hệ thống này kết hợp giữa chuyển động ghế, hiệu ứng môi trường (gió, mưa, sương mù) và âm thanh không gian, tạo ra trải nghiệm xem phim đa giác quan. Mỗi ghế 4DX được trang bị 20 hiệu ứng khác nhau, được điều khiển bởi một hệ thống máy tính phức tạp.\n\nĐể nâng cao trải nghiệm khách hàng, CGV cũng đang triển khai hệ thống đặt vé thông minh, cho phép khách hàng chọn vị trí ngồi và thanh toán trực tuyến. Hệ thống này tích hợp với các ứng dụng di động, cho phép khách hàng dễ dàng quản lý vé và nhận thông báo về các chương trình khuyến mãi.",
+      "createdAt": "2024-03-01T08:00:00Z",
+      "date": "2024-03-01",
+      "description": "Tìm hiểu về những công nghệ tiên tiến đang được áp dụng tại các rạp CGV và tác động của chúng đến trải nghiệm xem phim.",
+      "image": "https://cdn.moveek.com/storage/media/cache/large/31fe22efb64d534686fe9cdde1cf98f8f8201485.jpg",
+      "isFeatured": false,
+      "title": "Phân tích kỹ thuật: Công nghệ mới trong hệ thống rạp chiếu CGV",
+      "views": 20000
+    },
+    "1709123456794": {
+      "category": "Review phim",
+      "comments": 278,
+      "content": "Kung Fu Panda 4 đánh dấu một bước tiến mới trong công nghệ hoạt hình. Bộ phim sử dụng công nghệ hoạt hình 3D tiên tiến, kết hợp với kỹ thuật motion capture để tạo ra những chuyển động tự nhiên và mượt mà. Đặc biệt, các cảnh võ thuật được thực hiện bởi các võ sư thực tế, sau đó được chuyển đổi thành hoạt hình với độ chính xác cao.\n\nPhần thiết kế nhân vật cũng đáng chú ý. Mỗi nhân vật được tạo ra với hơn 100.000 sợi lông, được mô phỏng bằng công nghệ fur simulation tiên tiến. Các hiệu ứng vật lý như gió, nước, và lửa được tạo ra bằng công nghệ mô phỏng hạt (particle simulation), cho phép tạo ra những hiệu ứng tự nhiên và sống động.\n\nPhần ánh sáng và màu sắc của phim cũng được xử lý cẩn thận. Công nghệ global illumination được sử dụng để tạo ra ánh sáng tự nhiên, trong khi hệ thống màu sắc được thiết kế để tạo ra bảng màu phong phú và hài hòa. Đặc biệt, các cảnh chiến đấu được thiết kế với màu sắc tương phản mạnh, tạo ra hiệu ứng thị giác ấn tượng.\n\nÂm thanh của phim cũng được đầu tư kỹ lưỡng. Nhạc nền kết hợp giữa âm thanh truyền thống Trung Quốc và âm thanh điện tử hiện đại, tạo ra một bầu không khí độc đáo. Các hiệu ứng âm thanh được tạo ra bằng công nghệ foley, kết hợp với âm thanh điện tử, tạo ra trải nghiệm âm thanh phong phú và đa dạng.",
+      "createdAt": "2024-03-15T11:30:00Z",
+      "date": "2024-03-15",
+      "description": "Phân tích chi tiết về các kỹ thuật hoạt hình và công nghệ mới được sử dụng trong Kung Fu Panda 4.",
+      "image": "https://vcdn1-giaitri.vnecdn.net/2024/03/11/kungfu-1-jpeg-1710151655-4173-1710151800.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=iJLCGym1AwA88UsPOKzSVQ",
+      "isFeatured": false,
+      "title": "Phân tích kỹ thuật: Kung Fu Panda 4 - Nghệ thuật hoạt hình mới",
+      "views": 16500
+    },
+    "1709123456795": {
+      "category": "Tin điện ảnh",
+      "comments": 356,
+      "content": "Thành công của 'Mai' không chỉ đến từ câu chuyện cảm động, mà còn nhờ vào sự đầu tư kỹ lưỡng về mặt kỹ thuật. Đạo diễn Trần Thanh Huy đã sử dụng máy quay RED Komodo 6K với ống kính anamorphic để tạo ra hình ảnh điện ảnh chất lượng cao. Công nghệ quay phim này cho phép thu được hình ảnh với độ phân giải cao và độ sâu trường ảnh lớn, tạo ra những khung hình đẹp mắt và ấn tượng.\n\nPhần ánh sáng của phim cũng được thiết kế cẩn thận. Đạo diễn hình ảnh đã sử dụng kết hợp ánh sáng tự nhiên và đèn LED, tạo ra bầu không khí phù hợp với từng cảnh phim. Đặc biệt, các cảnh quay trong bệnh viện được thiết kế với ánh sáng lạnh, tạo ra cảm giác cô lập và cô đơn, trong khi các cảnh quay trong gia đình được thiết kế với ánh sáng ấm, tạo ra cảm giác ấm áp và gần gũi.\n\nPhần âm thanh được xử lý tại phòng thu Dolby Atmos, mang đến trải nghiệm âm thanh không gian cho khán giả. Nhạc nền được sáng tác bởi nhạc sĩ Đỗ Hồng Quân, kết hợp giữa âm thanh điện tử và nhạc cụ truyền thống, tạo ra một bầu không khí cảm xúc sâu sắc.\n\nDiễn xuất cũng là một điểm sáng của phim. Phạm Như Ý đã dành 3 tháng để nghiên cứu về bệnh Alzheimer và cách nó ảnh hưởng đến người bệnh. Cô còn tham gia các buổi trị liệu với bệnh nhân thật để hiểu rõ hơn về căn bệnh này. Kết quả là một màn thể hiện xuất sắc, chân thực và đầy cảm xúc.",
+      "createdAt": "2024-02-28T15:45:00Z",
+      "date": "2024-02-28",
+      "description": "Phân tích chi tiết về các yếu tố kỹ thuật và nghệ thuật đã làm nên thành công của phim 'Mai'.",
+      "image": "https://images2.thanhnien.vn/528068263637045248/2024/2/1/2-17067786169481476352875.jpeg",
+      "isFeatured": true,
+      "title": "Phân tích chuyên sâu: Sự đột phá kỹ thuật trong phim 'Mai'",
+      "views": 22000
+    },
+    "1709123456796": {
+      "category": "Tin điện ảnh",
+      "comments": 423,
+      "content": "Oppenheimer không chỉ là một bộ phim về lịch sử, mà còn là một kiệt tác kỹ thuật và nghệ thuật. Điểm nổi bật đầu tiên phải kể đến là công nghệ quay phim IMAX 70mm, cho phép khán giả trải nghiệm những cảnh quay hoành tráng với độ phân giải cực cao. Christopher Nolan đã sử dụng kỹ thuật này để tạo ra những cảnh nổ bom nguyên tử đầy ám ảnh, kết hợp với âm thanh Dolby Atmos tạo nên trải nghiệm đa giác quan.\n\nVề phần diễn xuất, Cillian Murphy đã dành 6 tháng để nghiên cứu về J. Robert Oppenheimer, từ cách nói chuyện đến cử chỉ. Anh còn giảm 20kg để phù hợp với hình ảnh của nhà khoa học gầy gò. Robert Downey Jr. cũng mang đến một màn thể hiện xuất sắc trong vai Lewis Strauss, với những biểu cảm tinh tế thể hiện sự phức tạp của nhân vật.\n\nPhần âm nhạc của Ludwig Göransson cũng là một yếu tố quan trọng, kết hợp giữa âm thanh điện tử và nhạc cụ truyền thống, tạo nên bầu không khí căng thẳng và ám ảnh xuyên suốt phim.\n\nThiết kế sản xuất của Ruth De Jong đã tái hiện chính xác thời kỳ những năm 1940, từ phòng thí nghiệm Los Alamos đến các tòa nhà chính phủ. Mỗi chi tiết đều được nghiên cứu kỹ lưỡng để đảm bảo tính chân thực lịch sử.",
+      "createdAt": "2024-03-11T09:15:00Z",
+      "date": "2024-03-11",
+      "description": "Một góc nhìn chi tiết về những yếu tố làm nên thành công vang dội của Oppenheimer tại giải Oscar 2024, từ kỹ thuật quay phim đến diễn xuất.",
+      "image": "https://nld.mediacdn.vn/zoom/700_438/291774122806476800/2024/3/11/dao-dien-christopher-1710164960204726716688-0-0-352-563-crop-17101657514132090218679.jpg",
+      "isFeatured": true,
+      "title": "Phân tích chuyên sâu: Tại sao Oppenheimer xứng đáng với 7 giải Oscar?",
+      "views": 25000
+    },
+    "1709123456797": {
+      "category": "Phỏng vấn",
+      "comments": 312,
+      "content": "Quay phim Dune: Part Two là một thách thức lớn đối với đoàn làm phim. Đạo diễn Denis Villeneuve đã chọn quay tại sa mạc Wadi Rum ở Jordan và Abu Dhabi, nơi có cảnh quan tương tự như hành tinh Arrakis trong tiểu thuyết. Tuy nhiên, nhiệt độ có thể lên đến 50°C vào ban ngày, buộc đoàn làm phim phải làm việc chủ yếu vào sáng sớm và chiều tối.\n\nĐể tạo ra những cảnh quay hoành tráng, đoàn làm phim đã sử dụng kết hợp giữa quay thực tế và kỹ xảo. Các cảnh quay trên sa mạc được thực hiện với máy quay IMAX, trong khi các cảnh chiến đấu với sandworm được tạo ra bằng CGI. Đặc biệt, để tạo ra hiệu ứng 'stillsuit' - bộ đồ bảo hộ đặc biệt của người Fremen, đoàn làm phim đã phát triển một loại vải đặc biệt có khả năng làm mát và thấm hút mồ hôi.\n\nTimothée Chalamet đã phải trải qua khóa huấn luyện võ thuật kéo dài 3 tháng để thực hiện các cảnh chiến đấu. Anh cũng học cách điều khiển sandboard - một loại ván trượt đặc biệt trên cát. Zendaya thì dành nhiều thời gian nghiên cứu văn hóa và ngôn ngữ của người Fremen để thể hiện nhân vật Chani một cách chân thực nhất.\n\nPhần âm thanh của phim cũng là một thách thức lớn. Để tạo ra âm thanh của sandworm, đội ngũ âm thanh đã kết hợp nhiều loại âm thanh khác nhau, từ tiếng động đất đến tiếng gầm của động vật hoang dã.",
+      "createdAt": "2024-03-05T14:30:00Z",
+      "date": "2024-03-05",
+      "description": "Phóng sự đặc biệt về quá trình sản xuất Dune: Part Two, tiết lộ những khó khăn và giải pháp sáng tạo của đoàn làm phim.",
+      "image": "https://photo.znews.vn/w660/Uploaded/mdf_uswreo/2024_03_05/dune_movie_behind_the_scenes1.jpg",
+      "isFeatured": true,
+      "title": "Hậu trường Dune: Part Two - Những thách thức khi quay phim trên sa mạc",
+      "views": 18000
+    },
+    "1709123456798": {
+      "category": "Tin điện ảnh",
+      "comments": 278,
+      "content": "Năm 2024 chứng kiến sự phát triển vượt bậc của công nghệ trong ngành điện ảnh. Một trong những xu hướng nổi bật là việc sử dụng AI trong quá trình sản xuất phim. Các công cụ AI có thể giúp tạo ra storyboard, dựng cảnh, và thậm chí là tạo ra diễn viên ảo. Tuy nhiên, điều này cũng đặt ra nhiều câu hỏi về đạo đức và quyền sở hữu trí tuệ.\n\nVirtual Production - kỹ thuật quay phim ảo đã được sử dụng trong The Mandalorian - đang ngày càng phổ biến. Công nghệ này sử dụng màn hình LED khổng lồ để tạo ra phông nền động, cho phép đạo diễn và diễn viên thấy được cảnh quay cuối cùng ngay trong quá trình quay. Điều này giúp tiết kiệm thời gian và chi phí hậu kỳ.\n\nCông nghệ quay phim cũng có những bước tiến đáng kể. Máy quay 8K đang trở nên phổ biến hơn, cho phép các nhà làm phim có nhiều lựa chọn hơn trong khâu hậu kỳ. Công nghệ HDR (High Dynamic Range) cũng được cải tiến, mang đến hình ảnh với độ tương phản và màu sắc chân thực hơn.\n\nÂm thanh không gian (Spatial Audio) là một xu hướng mới, cho phép khán giả trải nghiệm âm thanh theo không gian 3D. Công nghệ này đặc biệt hiệu quả trong các rạp chiếu phim IMAX và Dolby Cinema.",
+      "createdAt": "2024-03-08T11:45:00Z",
+      "date": "2024-03-08",
+      "description": "Tổng quan về những công nghệ mới đang thay đổi ngành công nghiệp điện ảnh, từ trí tuệ nhân tạo đến kỹ thuật quay phim ảo.",
+      "image": "https://advertisingvietnam.com/cdn-cgi/image/width=1000,quality=75,fit=cover,format=auto/https://media-api.advertisingvietnam.com/oapi/v1/media?uuid=ac89c9b1-85ae-4ba4-83d9-6562fd7c4a54",
+      "isFeatured": true,
+      "title": "Công nghệ mới trong điện ảnh 2024: Từ AI đến Virtual Production",
+      "views": 16500
+    },
+    "1709123456799": {
+      "category": "Tin điện ảnh",
+      "comments": 356,
+      "content": "Thành công của 'Mai' không chỉ là một câu chuyện về doanh thu, mà còn là dấu hiệu cho thấy điện ảnh Việt Nam đang bước vào một giai đoạn mới. Với doanh thu 200 tỷ đồng, phim đã chứng minh rằng khán giả Việt Nam sẵn sàng chi trả cho những tác phẩm chất lượng.\n\nMột trong những yếu tố làm nên thành công của 'Mai' là sự đầu tư kỹ lưỡng vào kỹ thuật. Đạo diễn Trần Thanh Huy đã sử dụng máy quay RED Komodo 6K và ống kính anamorphic để tạo ra hình ảnh điện ảnh chất lượng cao. Phần âm thanh được xử lý tại phòng thu Dolby Atmos, mang đến trải nghiệm âm thanh không gian cho khán giả.\n\nDiễn xuất cũng là một điểm sáng của phim. Phạm Như Ý đã dành 3 tháng để nghiên cứu về bệnh Alzheimer và cách nó ảnh hưởng đến người bệnh. Cô còn tham gia các buổi trị liệu với bệnh nhân thật để hiểu rõ hơn về căn bệnh này.\n\nThành công của 'Mai' đã mở ra nhiều cơ hội cho điện ảnh Việt Nam. Các nhà đầu tư đang quan tâm hơn đến việc rót vốn vào các dự án phim Việt. Các rạp chiếu phim cũng dành nhiều suất chiếu hơn cho phim Việt. Tuy nhiên, vẫn còn nhiều thách thức cần vượt qua, từ việc đào tạo nhân lực đến việc xây dựng hệ thống phân phối phim hiệu quả.",
+      "createdAt": "2024-03-01T16:20:00Z",
+      "date": "2024-03-01",
+      "description": "Một góc nhìn sâu sắc về sự phát triển của điện ảnh Việt Nam, từ những thách thức đến cơ hội trong tương lai.",
+      "image": "https://nhn.1cdn.vn/2024/02/27/fa5be00d12585528390f3c0c8e6fc13d.jpg",
+      "isFeatured": true,
+      "title": "Phân tích: Sự trỗi dậy của điện ảnh Việt Nam sau thành công của 'Mai'",
+      "views": 22000
+    }
+  },
   "now_showing": [
     {
       "created_at": "2025-05-16T15:32:02.891703",
@@ -1660,7 +1968,7 @@
       "status": "Released",
       "title": "లైలా",
       "updated_at": "2025-05-16T22:56:18.102214",
-      "vote_average": 5.0,
+      "vote_average": 5,
       "vote_count": 3
     },
     {
@@ -1872,7 +2180,7 @@
       "status": "Released",
       "title": "Desert Dawn",
       "updated_at": "2025-05-16T22:56:21.814516",
-      "vote_average": 9.0,
+      "vote_average": 9,
       "vote_count": 3
     },
     {
@@ -2032,7 +2340,7 @@
       "status": "Released",
       "title": "Karol G: Ngày Mai Thật Đẹp",
       "updated_at": "2025-05-16T22:56:24.468289",
-      "vote_average": 8.0,
+      "vote_average": 8,
       "vote_count": 75
     },
     {
@@ -2548,7 +2856,7 @@
       "status": "Post Production",
       "title": "Lilo & Stitch",
       "updated_at": "2025-05-16T22:56:34.160499",
-      "vote_average": 0.0,
+      "vote_average": 0,
       "vote_count": 0
     },
     {
@@ -2632,7 +2940,7 @@
       "status": "Released",
       "title": "Hãy Hỏi Tôi Điều Bạn Muốn",
       "updated_at": "2025-05-16T22:56:35.782362",
-      "vote_average": 6.0,
+      "vote_average": 6,
       "vote_count": 164
     },
     {
@@ -3764,7 +4072,7 @@
       "status": "Released",
       "title": "Lọ Lem Thời Hiện Đại",
       "updated_at": "2025-05-16T22:56:58.523762",
-      "vote_average": 7.0,
+      "vote_average": 7,
       "vote_count": 2149
     },
     {
@@ -3912,7 +4220,7 @@
       "status": "Post Production",
       "title": "Ám Ảnh Kinh Hoàng: Nghi Lễ Cuối Cùng",
       "updated_at": "2025-05-16T22:57:01.801642",
-      "vote_average": 0.0,
+      "vote_average": 0,
       "vote_count": 0
     },
     {
@@ -3964,281 +4272,5 @@
       "email": "tbui52750@gmail.com",
       "name": "nguyễn hoàng anh kiệt"
     }
-  },
-  "cinemas": [
-  {
-    "id": "cgv-aeon-mall-binh-tan",
-    "name": "CGV Aeon Mall Bình Tân",
-    "address": "Tầng 3, Aeon Mall Bình Tân, Số 1 Đường số 17A, Khu phố 11, Phường Bình Trị Đông B, Quận Bình Tân, TP.HCM",
-    "phone": "1900 6017",
-    "image": "https://www.cgv.vn/media/catalog/product/cache/1/image/1800x/7125211775b19fceb0b86e655b2c7f95/c/g/cgv-aeon-mall-binh-tan.jpg",
-    "amenities": ["IMAX", "4DX", "Dolby Atmos", "Gold Class"],
-    "district": "Bình Tân",
-    "system": "CGV",
-    "coordinates": {
-      "lat": 10.7371,
-      "lng": 106.5927
-    }
-  },
-  {
-    "id": "cgv-crescent-mall",
-    "name": "CGV Crescent Mall",
-    "address": "Tầng 5, Crescent Mall, 101 Tôn Dật Tiên, Phường Tân Phú, Quận 7, TP.HCM",
-    "phone": "1900 6017",
-    "image": "https://www.cgv.vn/media/catalog/product/cache/1/image/1800x/7125211775b19fceb0b86e655b2c7f95/c/g/cgv-crescent-mall.jpg",
-    "amenities": ["IMAX", "4DX", "Dolby Atmos"],
-    "district": "Quận 7",
-    "system": "CGV",
-    "coordinates": {
-      "lat": 10.7297,
-      "lng": 106.7167
-    }
-  },
-  {
-    "id": "galaxy-nguyen-du",
-    "name": "Galaxy Nguyễn Du",
-    "address": "116 Nguyễn Du, Phường Bến Thành, Quận 1, TP.HCM",
-    "phone": "1900 2224",
-    "image": "https://www.galaxycine.vn/media/catalog/product/cache/1/image/1800x/7125211775b19fceb0b86e655b2c7f95/g/a/galaxy-nguyen-du.jpg",
-    "amenities": ["Dolby Atmos", "SCREENX"],
-    "district": "Quận 1",
-    "system": "Galaxy",
-    "coordinates": {
-      "lat": 10.7757,
-      "lng": 106.7004
-    }
-  },
-  {
-    "id": "galaxy-quoc-thanh",
-    "name": "Galaxy Quốc Thanh",
-    "address": "271 Nguyễn Trãi, Phường Nguyễn Cư Trinh, Quận 1, TP.HCM",
-    "phone": "1900 2224",
-    "image": "https://www.galaxycine.vn/media/catalog/product/cache/1/image/1800x/7125211775b19fceb0b86e655b2c7f95/g/a/galaxy-quoc-thanh.jpg",
-    "amenities": ["Dolby Atmos"],
-    "district": "Quận 1",
-    "system": "Galaxy",
-    "coordinates": {
-      "lat": 10.7627,
-      "lng": 106.6884
-    }
-  },
-  {
-    "id": "lotte-cinema-diamond",
-    "name": "Lotte Cinema Diamond",
-    "address": "Tầng 13, Diamond Plaza, 34 Lê Duẩn, Phường Bến Nghé, Quận 1, TP.HCM",
-    "phone": "1900 1234",
-    "image": "https://www.lottecinemavn.com/media/catalog/product/cache/1/image/1800x/7125211775b19fceb0b86e655b2c7f95/l/o/lotte-cinema-diamond.jpg",
-    "amenities": ["4DX", "Dolby Atmos"],
-    "district": "Quận 1",
-    "system": "Lotte",
-    "coordinates": {
-      "lat": 10.7769,
-      "lng": 106.7009
-    }
-  },
-  {
-    "id": "bhd-star-bitexco",
-    "name": "BHD Star Bitexco",
-    "address": "Tầng 5, Bitexco Financial Tower, 2 Hải Triều, Phường Bến Nghé, Quận 1, TP.HCM",
-    "phone": "1900 2099",
-    "image": "https://www.bhdstar.vn/media/catalog/product/cache/1/image/1800x/7125211775b19fceb0b86e655b2c7f95/b/h/bhd-star-bitexco.jpg",
-    "amenities": ["Dolby Atmos", "Gold Class"],
-    "district": "Quận 1",
-    "system": "BHD",
-    "coordinates": {
-      "lat": 10.7717,
-      "lng": 106.7044
-    }
-  },
-  {
-    "id": "bhd-star-thao-dien",
-    "name": "BHD Star Thảo Điền",
-    "address": "Tầng 3, Thảo Điền Pearl, 12 Quốc Hương, Phường Thảo Điền, Quận 2, TP.HCM",
-    "phone": "1900 2099",
-    "image": "https://www.bhdstar.vn/media/catalog/product/cache/1/image/1800x/7125211775b19fceb0b86e655b2c7f95/b/h/bhd-star-thao-dien.jpg",
-    "amenities": ["Dolby Atmos"],
-    "district": "Quận 2",
-    "system": "BHD",
-    "coordinates": {
-      "lat": 10.8027,
-      "lng": 106.7317
-    }
-  },
-  {
-    "id": "cgv-landmark-81",
-    "name": "CGV Landmark 81",
-    "address": "Tầng 3, Landmark 81, 772 Điện Biên Phủ, Phường 22, Quận Bình Thạnh, TP.HCM",
-    "phone": "1900 6017",
-    "image": "https://www.cgv.vn/media/catalog/product/cache/1/image/1800x/7125211775b19fceb0b86e655b2c7f95/c/g/cgv-landmark-81.jpg",
-    "amenities": ["IMAX", "4DX", "Dolby Atmos", "Gold Class"],
-    "district": "Bình Thạnh",
-    "system": "CGV",
-    "coordinates": {
-      "lat": 10.7947,
-      "lng": 106.7217
-    }
-  },
-  {
-    "id": "galaxy-quang-trung",
-    "name": "Galaxy Quang Trung",
-    "address": "Tầng 3, Co.opmart Foodcosa, 304A Quang Trung, Phường 10, Quận Gò Vấp, TP.HCM",
-    "phone": "1900 2224",
-    "image": "https://www.galaxycine.vn/media/catalog/product/cache/1/image/1800x/7125211775b19fceb0b86e655b2c7f95/g/a/galaxy-quang-trung.jpg",
-    "amenities": ["Dolby Atmos"],
-    "district": "Gò Vấp",
-    "system": "Galaxy",
-    "coordinates": {
-      "lat": 10.8317,
-      "lng": 106.6717
-    }
-  },
-  {
-    "id": "lotte-cinema-go-vap",
-    "name": "Lotte Cinema Gò Vấp",
-    "address": "Tầng 4, Lotte Mart Gò Vấp, 242 Nguyễn Văn Lượng, Phường 10, Quận Gò Vấp, TP.HCM",
-    "phone": "1900 1234",
-    "image": "https://www.lottecinemavn.com/media/catalog/product/cache/1/image/1800x/7125211775b19fceb0b86e655b2c7f95/l/o/lotte-cinema-go-vap.jpg",
-    "amenities": ["4DX", "Dolby Atmos"],
-    "district": "Gò Vấp",
-    "system": "Lotte",
-    "coordinates": {
-      "lat": 10.8417,
-      "lng": 106.6717
-    }
   }
-  ],
-  "news": {
-      "1709123456789": {
-        "title": "Phân tích chuyên sâu: Tại sao Oppenheimer thống trị giải Oscar 2024?",
-        "category": "Tin điện ảnh",
-        "description": "Một phân tích toàn diện về những yếu tố kỹ thuật và nghệ thuật đã giúp Oppenheimer trở thành bộ phim thống trị giải Oscar 2024 với 7 giải thưởng.",
-        "content": "Oppenheimer không chỉ là một bộ phim về lịch sử, mà còn là một kiệt tác kỹ thuật và nghệ thuật. Điểm nổi bật đầu tiên phải kể đến là công nghệ quay phim IMAX 70mm, cho phép khán giả trải nghiệm những cảnh quay hoành tráng với độ phân giải cực cao. Christopher Nolan đã sử dụng kỹ thuật này để tạo ra những cảnh nổ bom nguyên tử đầy ám ảnh, kết hợp với âm thanh Dolby Atmos tạo nên trải nghiệm đa giác quan.\n\nVề phần diễn xuất, Cillian Murphy đã dành 6 tháng để nghiên cứu về J. Robert Oppenheimer, từ cách nói chuyện đến cử chỉ. Anh còn giảm 20kg để phù hợp với hình ảnh của nhà khoa học gầy gò. Robert Downey Jr. cũng mang đến một màn thể hiện xuất sắc trong vai Lewis Strauss, với những biểu cảm tinh tế thể hiện sự phức tạp của nhân vật.\n\nPhần âm nhạc của Ludwig Göransson cũng là một yếu tố quan trọng, kết hợp giữa âm thanh điện tử và nhạc cụ truyền thống, tạo nên bầu không khí căng thẳng và ám ảnh xuyên suốt phim. Đặc biệt, âm thanh của vụ nổ nguyên tử được tạo ra bằng cách kết hợp nhiều lớp âm thanh khác nhau, từ tiếng nổ thực tế đến âm thanh điện tử.\n\nThiết kế sản xuất của Ruth De Jong đã tái hiện chính xác thời kỳ những năm 1940, từ phòng thí nghiệm Los Alamos đến các tòa nhà chính phủ. Mỗi chi tiết đều được nghiên cứu kỹ lưỡng để đảm bảo tính chân thực lịch sử. Đặc biệt, phòng thí nghiệm Los Alamos được dựng lại với tỷ lệ 1:1, sử dụng các tài liệu lịch sử và hình ảnh thời đó làm tài liệu tham khảo.",
-        "date": "2024-03-10",
-        "image": "https://example.com/oppenheimer-oscars.jpg",
-        "isFeatured": true,
-        "views": 25000,
-        "comments": 423,
-        "createdAt": "2024-03-10T08:30:00Z"
-      },
-      "1709123456790": {
-        "title": "Phân tích kỹ thuật: Dune: Part Two - Kiệt tác khoa học viễn tưởng mới",
-        "category": "Review phim",
-        "description": "Phân tích chi tiết về các yếu tố kỹ thuật và nghệ thuật đã làm nên thành công của Dune: Part Two, từ quay phim đến thiết kế sản xuất.",
-        "content": "Dune: Part Two là một kiệt tác điện ảnh đích thực, nơi Denis Villeneuve đã đưa tầm nhìn của mình lên một tầm cao mới. Bộ phim được quay hoàn toàn bằng máy quay IMAX, cho phép khán giả trải nghiệm những cảnh quay hoành tráng với độ phân giải cực cao. Đặc biệt, các cảnh quay trên sa mạc được thực hiện vào thời điểm hoàng hôn và bình minh để tận dụng ánh sáng tự nhiên, tạo ra những khung hình đẹp mắt và ấn tượng.\n\nThiết kế sản xuất của phim là một công trình đồ sộ. Để tạo ra thế giới Arrakis, đoàn làm phim đã xây dựng các bối cảnh thực tế với quy mô lớn, từ thành phố Arrakeen đến các khu định cư của người Fremen. Các bộ trang phục được thiết kế cẩn thận, đặc biệt là stillsuit - bộ đồ bảo hộ của người Fremen, được làm từ loại vải đặc biệt có khả năng tái chế nước và điều hòa nhiệt độ.\n\nPhần kỹ xảo của phim cũng đáng chú ý. Các cảnh chiến đấu với sandworm được tạo ra bằng sự kết hợp giữa quay thực tế và CGI. Đặc biệt, để tạo ra hiệu ứng cát di chuyển, đoàn làm phim đã sử dụng công nghệ mô phỏng hạt (particle simulation) tiên tiến, cho phép tạo ra hàng triệu hạt cát di chuyển một cách tự nhiên.\n\nÂm thanh của phim cũng là một yếu tố quan trọng. Nhà soạn nhạc Hans Zimmer đã tạo ra một bản nhạc nền độc đáo, kết hợp giữa âm thanh điện tử và nhạc cụ truyền thống. Đặc biệt, âm thanh của sandworm được tạo ra bằng cách kết hợp nhiều loại âm thanh khác nhau, từ tiếng động đất đến tiếng gầm của động vật hoang dã.",
-        "date": "2024-03-01",
-        "image": "https://example.com/dune-part-two.jpg",
-        "isFeatured": true,
-        "views": 18000,
-        "comments": 312,
-        "createdAt": "2024-03-01T10:15:00Z"
-      },
-      "1709123456791": {
-        "title": "Phỏng vấn chuyên sâu: Đạo diễn Trần Anh Hùng và nghệ thuật điện ảnh trong The Taste of Things",
-        "category": "Phỏng vấn",
-        "description": "Cuộc trò chuyện chi tiết với đạo diễn Trần Anh Hùng về quá trình sáng tạo và những thách thức kỹ thuật trong việc đưa ẩm thực lên màn ảnh.",
-        "content": "Trong cuộc phỏng vấn độc quyền, đạo diễn Trần Anh Hùng đã chia sẻ những góc nhìn sâu sắc về quá trình sáng tạo The Taste of Things. 'Ẩm thực không chỉ là nấu ăn, mà còn là nghệ thuật, là văn hóa, là tình yêu,' ông nói. Để truyền tải được điều này lên màn ảnh, đoàn làm phim đã phải đối mặt với nhiều thách thức kỹ thuật.\n\nMột trong những thách thức lớn nhất là việc quay phim trong nhà bếp. Để đảm bảo chất lượng hình ảnh, đoàn làm phim đã sử dụng máy quay RED Komodo 6K với ống kính anamorphic, cho phép quay được những cảnh cận với độ sâu trường ảnh lớn. Ánh sáng được thiết kế cẩn thận để tôn lên màu sắc và kết cấu của món ăn, sử dụng kết hợp ánh sáng tự nhiên và đèn LED.\n\nPhần âm thanh cũng được đầu tư kỹ lưỡng. Để thu được âm thanh chân thực của quá trình nấu ăn, đoàn làm phim đã sử dụng nhiều microphone định hướng, đặt ở các vị trí khác nhau trong nhà bếp. Âm thanh được xử lý tại phòng thu Dolby Atmos, tạo ra trải nghiệm âm thanh không gian cho khán giả.\n\nĐặc biệt, để tạo ra hiệu ứng hơi nước và mùi hương, đoàn làm phim đã phát triển một hệ thống phun sương đặc biệt, cho phép kiểm soát chính xác lượng hơi nước và hương liệu trong mỗi cảnh quay.",
-        "date": "2024-02-15",
-        "image": "https://example.com/tran-anh-hung.jpg",
-        "isFeatured": false,
-        "views": 12000,
-        "comments": 189,
-        "createdAt": "2024-02-15T14:20:00Z"
-      },
-      "1709123456792": {
-        "title": "Phân tích chuyên sâu: Lễ hội phim quốc tế Hà Nội 2024 và tương lai điện ảnh Việt Nam",
-        "category": "Sự kiện",
-        "description": "Một góc nhìn toàn diện về tác động của Lễ hội phim quốc tế Hà Nội 2024 đối với sự phát triển của điện ảnh Việt Nam.",
-        "content": "Lễ hội phim quốc tế Hà Nội 2024 không chỉ là một sự kiện văn hóa, mà còn là cơ hội để điện ảnh Việt Nam tiếp cận với những xu hướng và công nghệ mới nhất trong ngành. Sự kiện này quy tụ hơn 100 bộ phim từ 30 quốc gia, mang đến cho khán giả Việt Nam cơ hội thưởng thức những tác phẩm điện ảnh đặc sắc từ khắp nơi trên thế giới.\n\nMột trong những điểm nổi bật của lễ hội là chuỗi hội thảo chuyên đề về công nghệ điện ảnh. Các chuyên gia quốc tế sẽ chia sẻ về những xu hướng mới trong quay phim, kỹ xảo, và âm thanh. Đặc biệt, có các workshops về Virtual Production - kỹ thuật quay phim ảo đang được sử dụng rộng rãi trong ngành điện ảnh thế giới.\n\nPhần thiết kế sản xuất của lễ hội cũng đáng chú ý. Các rạp chiếu được trang bị hệ thống âm thanh Dolby Atmos và màn hình 4K, đảm bảo chất lượng trình chiếu tốt nhất cho khán giả. Không gian triển lãm được thiết kế với công nghệ thực tế ảo (VR), cho phép khán giả trải nghiệm quá trình sản xuất phim một cách trực quan.\n\nLễ hội cũng tổ chức các buổi giao lưu giữa các nhà làm phim Việt Nam và quốc tế, tạo cơ hội để trao đổi kinh nghiệm và hợp tác trong tương lai. Đặc biệt, có các chương trình đào tạo chuyên sâu về kỹ thuật quay phim, dựng phim, và kỹ xảo, giúp nâng cao trình độ cho các nhà làm phim Việt Nam.",
-        "date": "2024-02-20",
-        "image": "https://example.com/hiff-2024.jpg",
-        "isFeatured": true,
-        "views": 15000,
-        "comments": 245,
-        "createdAt": "2024-02-20T09:45:00Z"
-      },
-      "1709123456793": {
-        "title": "Phân tích kỹ thuật: Công nghệ mới trong hệ thống rạp chiếu CGV",
-        "category": "Khuyến mãi",
-        "description": "Tìm hiểu về những công nghệ tiên tiến đang được áp dụng tại các rạp CGV và tác động của chúng đến trải nghiệm xem phim.",
-        "content": "CGV Cinema đang dẫn đầu trong việc áp dụng công nghệ mới vào hệ thống rạp chiếu. Một trong những điểm nổi bật là công nghệ ScreenX - màn hình ba mặt, cho phép khán giả trải nghiệm phim với góc nhìn 270 độ. Công nghệ này đặc biệt hiệu quả với các phim hành động và khoa học viễn tưởng, tạo ra trải nghiệm xem phim đắm chìm.\n\nHệ thống âm thanh cũng được nâng cấp với công nghệ Dolby Atmos, cho phép tạo ra âm thanh không gian 3D. Mỗi rạp ScreenX được trang bị hơn 60 loa, được bố trí trên trần, tường và sàn, tạo ra trải nghiệm âm thanh đa chiều. Đặc biệt, hệ thống này có khả năng điều chỉnh âm thanh theo vị trí ngồi của khán giả, đảm bảo chất lượng âm thanh tốt nhất cho mọi vị trí.\n\nCông nghệ 4DX cũng đang được áp dụng tại một số rạp CGV. Hệ thống này kết hợp giữa chuyển động ghế, hiệu ứng môi trường (gió, mưa, sương mù) và âm thanh không gian, tạo ra trải nghiệm xem phim đa giác quan. Mỗi ghế 4DX được trang bị 20 hiệu ứng khác nhau, được điều khiển bởi một hệ thống máy tính phức tạp.\n\nĐể nâng cao trải nghiệm khách hàng, CGV cũng đang triển khai hệ thống đặt vé thông minh, cho phép khách hàng chọn vị trí ngồi và thanh toán trực tuyến. Hệ thống này tích hợp với các ứng dụng di động, cho phép khách hàng dễ dàng quản lý vé và nhận thông báo về các chương trình khuyến mãi.",
-        "date": "2024-03-01",
-        "image": "https://example.com/cgv-promotion.jpg",
-        "isFeatured": false,
-        "views": 20000,
-        "comments": 356,
-        "createdAt": "2024-03-01T08:00:00Z"
-      },
-      "1709123456794": {
-        "title": "Phân tích kỹ thuật: Kung Fu Panda 4 - Nghệ thuật hoạt hình mới",
-        "category": "Review phim",
-        "description": "Phân tích chi tiết về các kỹ thuật hoạt hình và công nghệ mới được sử dụng trong Kung Fu Panda 4.",
-        "content": "Kung Fu Panda 4 đánh dấu một bước tiến mới trong công nghệ hoạt hình. Bộ phim sử dụng công nghệ hoạt hình 3D tiên tiến, kết hợp với kỹ thuật motion capture để tạo ra những chuyển động tự nhiên và mượt mà. Đặc biệt, các cảnh võ thuật được thực hiện bởi các võ sư thực tế, sau đó được chuyển đổi thành hoạt hình với độ chính xác cao.\n\nPhần thiết kế nhân vật cũng đáng chú ý. Mỗi nhân vật được tạo ra với hơn 100.000 sợi lông, được mô phỏng bằng công nghệ fur simulation tiên tiến. Các hiệu ứng vật lý như gió, nước, và lửa được tạo ra bằng công nghệ mô phỏng hạt (particle simulation), cho phép tạo ra những hiệu ứng tự nhiên và sống động.\n\nPhần ánh sáng và màu sắc của phim cũng được xử lý cẩn thận. Công nghệ global illumination được sử dụng để tạo ra ánh sáng tự nhiên, trong khi hệ thống màu sắc được thiết kế để tạo ra bảng màu phong phú và hài hòa. Đặc biệt, các cảnh chiến đấu được thiết kế với màu sắc tương phản mạnh, tạo ra hiệu ứng thị giác ấn tượng.\n\nÂm thanh của phim cũng được đầu tư kỹ lưỡng. Nhạc nền kết hợp giữa âm thanh truyền thống Trung Quốc và âm thanh điện tử hiện đại, tạo ra một bầu không khí độc đáo. Các hiệu ứng âm thanh được tạo ra bằng công nghệ foley, kết hợp với âm thanh điện tử, tạo ra trải nghiệm âm thanh phong phú và đa dạng.",
-        "date": "2024-03-15",
-        "image": "https://example.com/kung-fu-panda-4.jpg",
-        "isFeatured": false,
-        "views": 16500,
-        "comments": 278,
-        "createdAt": "2024-03-15T11:30:00Z"
-      },
-      "1709123456795": {
-        "title": "Phân tích chuyên sâu: Sự đột phá kỹ thuật trong phim 'Mai'",
-        "category": "Tin điện ảnh",
-        "description": "Phân tích chi tiết về các yếu tố kỹ thuật và nghệ thuật đã làm nên thành công của phim 'Mai'.",
-        "content": "Thành công của 'Mai' không chỉ đến từ câu chuyện cảm động, mà còn nhờ vào sự đầu tư kỹ lưỡng về mặt kỹ thuật. Đạo diễn Trần Thanh Huy đã sử dụng máy quay RED Komodo 6K với ống kính anamorphic để tạo ra hình ảnh điện ảnh chất lượng cao. Công nghệ quay phim này cho phép thu được hình ảnh với độ phân giải cao và độ sâu trường ảnh lớn, tạo ra những khung hình đẹp mắt và ấn tượng.\n\nPhần ánh sáng của phim cũng được thiết kế cẩn thận. Đạo diễn hình ảnh đã sử dụng kết hợp ánh sáng tự nhiên và đèn LED, tạo ra bầu không khí phù hợp với từng cảnh phim. Đặc biệt, các cảnh quay trong bệnh viện được thiết kế với ánh sáng lạnh, tạo ra cảm giác cô lập và cô đơn, trong khi các cảnh quay trong gia đình được thiết kế với ánh sáng ấm, tạo ra cảm giác ấm áp và gần gũi.\n\nPhần âm thanh được xử lý tại phòng thu Dolby Atmos, mang đến trải nghiệm âm thanh không gian cho khán giả. Nhạc nền được sáng tác bởi nhạc sĩ Đỗ Hồng Quân, kết hợp giữa âm thanh điện tử và nhạc cụ truyền thống, tạo ra một bầu không khí cảm xúc sâu sắc.\n\nDiễn xuất cũng là một điểm sáng của phim. Phạm Như Ý đã dành 3 tháng để nghiên cứu về bệnh Alzheimer và cách nó ảnh hưởng đến người bệnh. Cô còn tham gia các buổi trị liệu với bệnh nhân thật để hiểu rõ hơn về căn bệnh này. Kết quả là một màn thể hiện xuất sắc, chân thực và đầy cảm xúc.",
-        "date": "2024-02-28",
-        "image": "https://example.com/mai-movie.jpg",
-        "isFeatured": true,
-        "views": 22000,
-        "comments": 356,
-        "createdAt": "2024-02-28T15:45:00Z"
-      },
-      "1709123456796": {
-        "title": "Phân tích chuyên sâu: Tại sao Oppenheimer xứng đáng với 7 giải Oscar?",
-        "category": "Tin điện ảnh",
-        "description": "Một góc nhìn chi tiết về những yếu tố làm nên thành công vang dội của Oppenheimer tại giải Oscar 2024, từ kỹ thuật quay phim đến diễn xuất.",
-        "content": "Oppenheimer không chỉ là một bộ phim về lịch sử, mà còn là một kiệt tác kỹ thuật và nghệ thuật. Điểm nổi bật đầu tiên phải kể đến là công nghệ quay phim IMAX 70mm, cho phép khán giả trải nghiệm những cảnh quay hoành tráng với độ phân giải cực cao. Christopher Nolan đã sử dụng kỹ thuật này để tạo ra những cảnh nổ bom nguyên tử đầy ám ảnh, kết hợp với âm thanh Dolby Atmos tạo nên trải nghiệm đa giác quan.\n\nVề phần diễn xuất, Cillian Murphy đã dành 6 tháng để nghiên cứu về J. Robert Oppenheimer, từ cách nói chuyện đến cử chỉ. Anh còn giảm 20kg để phù hợp với hình ảnh của nhà khoa học gầy gò. Robert Downey Jr. cũng mang đến một màn thể hiện xuất sắc trong vai Lewis Strauss, với những biểu cảm tinh tế thể hiện sự phức tạp của nhân vật.\n\nPhần âm nhạc của Ludwig Göransson cũng là một yếu tố quan trọng, kết hợp giữa âm thanh điện tử và nhạc cụ truyền thống, tạo nên bầu không khí căng thẳng và ám ảnh xuyên suốt phim.\n\nThiết kế sản xuất của Ruth De Jong đã tái hiện chính xác thời kỳ những năm 1940, từ phòng thí nghiệm Los Alamos đến các tòa nhà chính phủ. Mỗi chi tiết đều được nghiên cứu kỹ lưỡng để đảm bảo tính chân thực lịch sử.",
-        "date": "2024-03-11",
-        "image": "https://example.com/oppenheimer-analysis.jpg",
-        "isFeatured": true,
-        "views": 25000,
-        "comments": 423,
-        "createdAt": "2024-03-11T09:15:00Z"
-      },
-      "1709123456797": {
-        "title": "Hậu trường Dune: Part Two - Những thách thức khi quay phim trên sa mạc",
-        "category": "Phỏng vấn",
-        "description": "Phóng sự đặc biệt về quá trình sản xuất Dune: Part Two, tiết lộ những khó khăn và giải pháp sáng tạo của đoàn làm phim.",
-        "content": "Quay phim Dune: Part Two là một thách thức lớn đối với đoàn làm phim. Đạo diễn Denis Villeneuve đã chọn quay tại sa mạc Wadi Rum ở Jordan và Abu Dhabi, nơi có cảnh quan tương tự như hành tinh Arrakis trong tiểu thuyết. Tuy nhiên, nhiệt độ có thể lên đến 50°C vào ban ngày, buộc đoàn làm phim phải làm việc chủ yếu vào sáng sớm và chiều tối.\n\nĐể tạo ra những cảnh quay hoành tráng, đoàn làm phim đã sử dụng kết hợp giữa quay thực tế và kỹ xảo. Các cảnh quay trên sa mạc được thực hiện với máy quay IMAX, trong khi các cảnh chiến đấu với sandworm được tạo ra bằng CGI. Đặc biệt, để tạo ra hiệu ứng 'stillsuit' - bộ đồ bảo hộ đặc biệt của người Fremen, đoàn làm phim đã phát triển một loại vải đặc biệt có khả năng làm mát và thấm hút mồ hôi.\n\nTimothée Chalamet đã phải trải qua khóa huấn luyện võ thuật kéo dài 3 tháng để thực hiện các cảnh chiến đấu. Anh cũng học cách điều khiển sandboard - một loại ván trượt đặc biệt trên cát. Zendaya thì dành nhiều thời gian nghiên cứu văn hóa và ngôn ngữ của người Fremen để thể hiện nhân vật Chani một cách chân thực nhất.\n\nPhần âm thanh của phim cũng là một thách thức lớn. Để tạo ra âm thanh của sandworm, đội ngũ âm thanh đã kết hợp nhiều loại âm thanh khác nhau, từ tiếng động đất đến tiếng gầm của động vật hoang dã.",
-        "date": "2024-03-05",
-        "image": "https://example.com/dune-behind-scenes.jpg",
-        "isFeatured": true,
-        "views": 18000,
-        "comments": 312,
-        "createdAt": "2024-03-05T14:30:00Z"
-      },
-      "1709123456798": {
-        "title": "Công nghệ mới trong điện ảnh 2024: Từ AI đến Virtual Production",
-        "category": "Tin điện ảnh",
-        "description": "Tổng quan về những công nghệ mới đang thay đổi ngành công nghiệp điện ảnh, từ trí tuệ nhân tạo đến kỹ thuật quay phim ảo.",
-        "content": "Năm 2024 chứng kiến sự phát triển vượt bậc của công nghệ trong ngành điện ảnh. Một trong những xu hướng nổi bật là việc sử dụng AI trong quá trình sản xuất phim. Các công cụ AI có thể giúp tạo ra storyboard, dựng cảnh, và thậm chí là tạo ra diễn viên ảo. Tuy nhiên, điều này cũng đặt ra nhiều câu hỏi về đạo đức và quyền sở hữu trí tuệ.\n\nVirtual Production - kỹ thuật quay phim ảo đã được sử dụng trong The Mandalorian - đang ngày càng phổ biến. Công nghệ này sử dụng màn hình LED khổng lồ để tạo ra phông nền động, cho phép đạo diễn và diễn viên thấy được cảnh quay cuối cùng ngay trong quá trình quay. Điều này giúp tiết kiệm thời gian và chi phí hậu kỳ.\n\nCông nghệ quay phim cũng có những bước tiến đáng kể. Máy quay 8K đang trở nên phổ biến hơn, cho phép các nhà làm phim có nhiều lựa chọn hơn trong khâu hậu kỳ. Công nghệ HDR (High Dynamic Range) cũng được cải tiến, mang đến hình ảnh với độ tương phản và màu sắc chân thực hơn.\n\nÂm thanh không gian (Spatial Audio) là một xu hướng mới, cho phép khán giả trải nghiệm âm thanh theo không gian 3D. Công nghệ này đặc biệt hiệu quả trong các rạp chiếu phim IMAX và Dolby Cinema.",
-        "date": "2024-03-08",
-        "image": "https://example.com/cinema-tech-2024.jpg",
-        "isFeatured": true,
-        "views": 16500,
-        "comments": 278,
-        "createdAt": "2024-03-08T11:45:00Z"
-      },
-      "1709123456799": {
-        "title": "Phân tích: Sự trỗi dậy của điện ảnh Việt Nam sau thành công của 'Mai'",
-        "category": "Tin điện ảnh",
-        "description": "Một góc nhìn sâu sắc về sự phát triển của điện ảnh Việt Nam, từ những thách thức đến cơ hội trong tương lai.",
-        "content": "Thành công của 'Mai' không chỉ là một câu chuyện về doanh thu, mà còn là dấu hiệu cho thấy điện ảnh Việt Nam đang bước vào một giai đoạn mới. Với doanh thu 200 tỷ đồng, phim đã chứng minh rằng khán giả Việt Nam sẵn sàng chi trả cho những tác phẩm chất lượng.\n\nMột trong những yếu tố làm nên thành công của 'Mai' là sự đầu tư kỹ lưỡng vào kỹ thuật. Đạo diễn Trần Thanh Huy đã sử dụng máy quay RED Komodo 6K và ống kính anamorphic để tạo ra hình ảnh điện ảnh chất lượng cao. Phần âm thanh được xử lý tại phòng thu Dolby Atmos, mang đến trải nghiệm âm thanh không gian cho khán giả.\n\nDiễn xuất cũng là một điểm sáng của phim. Phạm Như Ý đã dành 3 tháng để nghiên cứu về bệnh Alzheimer và cách nó ảnh hưởng đến người bệnh. Cô còn tham gia các buổi trị liệu với bệnh nhân thật để hiểu rõ hơn về căn bệnh này.\n\nThành công của 'Mai' đã mở ra nhiều cơ hội cho điện ảnh Việt Nam. Các nhà đầu tư đang quan tâm hơn đến việc rót vốn vào các dự án phim Việt. Các rạp chiếu phim cũng dành nhiều suất chiếu hơn cho phim Việt. Tuy nhiên, vẫn còn nhiều thách thức cần vượt qua, từ việc đào tạo nhân lực đến việc xây dựng hệ thống phân phối phim hiệu quả.",
-        "date": "2024-03-01",
-        "image": "https://example.com/vietnamese-cinema.jpg",
-        "isFeatured": true,
-        "views": 22000,
-        "comments": 356,
-        "createdAt": "2024-03-01T16:20:00Z"
-      }
-    }
-  } 
+}
