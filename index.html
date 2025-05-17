@@ -1676,15 +1676,30 @@
       submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang xử lý...';
       submitBtn.disabled = true;
       try {
-        await signInWithEmailAndPassword(auth, email, password);
-        await Swal.fire({
-          icon: 'success',
-          title: 'Thành công!',
-          text: 'Đăng nhập thành công!',
-          confirmButtonColor: '#dc2626'
-        });
-        closeModal('loginModal');
-        location.reload();
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+
+        // Kiểm tra nếu là tài khoản admin
+        if (user.email === 'quantriwebvephim@gmail.com') {
+          await Swal.fire({
+            icon: 'success',
+            title: 'Thành công!',
+            text: 'Đăng nhập thành công!',
+            confirmButtonColor: '#dc2626'
+          });
+          closeModal('loginModal');
+          // Chuyển hướng đến trang admin
+          window.location.href = 'admin/admin.html';
+        } else {
+          await Swal.fire({
+            icon: 'success',
+            title: 'Thành công!',
+            text: 'Đăng nhập thành công!',
+            confirmButtonColor: '#dc2626'
+          });
+          closeModal('loginModal');
+          location.reload();
+        }
       } catch (err) {
         let errorMessage = 'Đăng nhập thất bại!';
         if (err.code === 'auth/user-not-found') {
