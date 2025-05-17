@@ -135,17 +135,33 @@
       if (!booking) {
         document.getElementById('result').innerHTML = '<span class="text-red-600 font-bold">Không tìm thấy thông tin đặt vé!</span>';
       } else {
-        onAuthStateChanged(auth, (user) => {
-          if (user) {
+        onAuthStateChanged(auth, async (user) => {
+          if (!user) {
+            showFail();
+            return;
+          }
+
+          try {
+            // Thêm thông tin user và payment
             booking.userId = user.uid;
             booking.userEmail = user.email;
-          }
-          booking.vnpay = vnpayParams;
-          const bookingRef = ref(database, `bookings/${booking.cinema}/${booking.date}/${booking.showtime}/${Date.now()}`);
-          set(bookingRef, booking).then(() => {
+            booking.vnpay = vnpayParams;
+            booking.status = 'completed';
+            booking.paymentTime = new Date().toISOString();
+
+            // Lưu booking theo cấu trúc: bookings/cinema/date/showtime/timestamp
+            const bookingRef = ref(database, `bookings/${booking.cinema}/${booking.date}/${booking.showtime}/${Date.now()}`);
+            
+            // Thử lưu booking
+            await set(bookingRef, booking);
+            
+            // Nếu thành công, hiển thị thông báo
             showSuccess(booking, vnpayParams);
             localStorage.removeItem('pendingBooking');
-          });
+          } catch (error) {
+            console.error('Error saving booking:', error);
+            showFail();
+          }
         });
       }
     } else {
