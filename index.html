@@ -304,6 +304,7 @@
         <a href="tintuc.html" class="hover:text-red-600 transition font-medium">Tin tức</a>
         <a href="khuyenmai.html" class="hover:text-red-600 transition font-medium">Khuyến mãi</a>
         <a href="lienhe.html" class="hover:text-red-600 transition font-medium">Liên hệ</a>
+        <a href="user.html" class="hover:text-red-600 transition font-medium">Tài khoản</a>
       </nav>
     </div>
     <!-- Mobile menu -->
@@ -317,6 +318,7 @@
       <a href="tintuc.html" class="hover:text-red-600 transition">Tin tức</a>
       <a href="khuyenmai.html" class="hover:text-red-600 transition">Khuyến mãi</a>
       <a href="lienhe.html" class="hover:text-red-600 transition">Liên hệ</a>
+      <a href="user.html" class="hover:text-red-600 transition">Tài khoản</a>
       <div class="flex space-x-2 mt-4">
         <a href="#" class="btn-login border border-red-600 text-red-600 px-4 py-1 rounded hover:bg-red-600 hover:text-white transition">Đăng nhập</a>
         <a href="#" class="btn-register bg-red-600 text-white px-4 py-1 rounded hover:bg-red-700 transition">Đăng ký</a>
@@ -1402,7 +1404,6 @@
               <img src="${movie.images?.poster || ''}" alt="${movie.title}" class="w-full h-[400px] object-cover transform group-hover:scale-110 transition duration-500">
               <div class="movie-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div class="flex flex-col items-center justify-center h-full space-y-4">
-                  <a href="#" class="btn-book bg-red-600 text-white px-8 py-3 rounded-md hover:bg-red-700 transition">Đặt vé</a>
                   ${movie.videos?.trailer ? `
                     <a href="${movie.videos.trailer}" class="btn-trailer bg-white/20 backdrop-blur-sm text-white px-8 py-3 rounded-md hover:bg-white/30 transition">Xem trailer</a>
                   ` : ''}
@@ -1441,19 +1442,6 @@
                   ${movie.genres?.map(genre => `
                     <span class="bg-gray-100 px-2 py-1 rounded">${genre}</span>
                   `).join('') || ''}
-                </div>
-              </div>
-              <div class="border-t pt-4">
-                <div class="flex items-center justify-between">
-                  <div class="showtimes text-sm">
-                    <span class="font-medium">Suất chiếu:</span>
-                    <div class="flex flex-wrap gap-2 mt-2">
-                      ${movie.showtimes?.map(time => `
-                        <a href="#" class="bg-gray-100 hover:bg-red-600 hover:text-white px-3 py-1 rounded transition">${time}</a>
-                      `).join('') || ''}
-                    </div>
-                  </div>
-                  <a href="#" class="text-red-600 hover:text-red-700 font-medium">Chi tiết</a>
                 </div>
               </div>
             </div>
