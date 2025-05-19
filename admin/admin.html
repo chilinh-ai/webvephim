@@ -89,6 +89,18 @@
                             <span>Quản lý đặt vé</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="#reviews" class="flex items-center p-2 hover:bg-gray-700 rounded" onclick="showSection('reviews')">
+                            <i class="fas fa-comments w-6"></i>
+                            <span>Quản lý đánh giá</span>
+                        </a>
+                    </li>
+                    <li class="mt-8">
+                        <a href="#" class="flex items-center p-2 hover:bg-gray-700 rounded text-red-400" onclick="handleLogout()">
+                            <i class="fas fa-sign-out-alt w-6"></i>
+                            <span>Đăng xuất</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -369,6 +381,40 @@
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200" id="bookingsList">
                         <!-- Booking rows will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Reviews Section -->
+        <div id="reviews" class="section hidden">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold">Quản lý đánh giá</h2>
+                <div class="flex space-x-4">
+                    <input type="text" id="filterReview" placeholder="Tìm kiếm..." class="px-4 py-2 border rounded">
+                    <select id="filterSubject" class="px-4 py-2 border rounded">
+                        <option value="">Tất cả chủ đề</option>
+                        <option value="feedback">Phản hồi</option>
+                        <option value="complaint">Khiếu nại</option>
+                        <option value="suggestion">Đề xuất</option>
+                    </select>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow overflow-hidden">
+                <table class="min-w-full">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Thời gian</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Họ tên</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Số điện thoại</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Chủ đề</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nội dung</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200" id="reviewsList">
+                        <!-- Review rows will be inserted here -->
                     </tbody>
                 </table>
             </div>
@@ -1117,6 +1163,153 @@
             });
         }
 
+        // Load reviews
+        function loadReviews() {
+            const reviewsRef = ref(database, 'contacts');
+            onValue(reviewsRef, (snapshot) => {
+                const reviewsObj = snapshot.val() || {};
+                const reviewsList = document.getElementById('reviewsList');
+                
+                // Convert to array and sort by timestamp
+                let reviewsArr = Object.entries(reviewsObj).map(([id, review]) => ({
+                    id,
+                    ...review,
+                    timestamp: new Date(review.timestamp).toLocaleString('vi-VN')
+                })).sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+                // Apply filters
+                const filterText = document.getElementById('filterReview')?.value?.toLowerCase() || '';
+                const filterSubject = document.getElementById('filterSubject')?.value || '';
+
+                if (filterText) {
+                    reviewsArr = reviewsArr.filter(review => 
+                        review.name?.toLowerCase().includes(filterText) ||
+                        review.email?.toLowerCase().includes(filterText) ||
+                        review.message?.toLowerCase().includes(filterText)
+                    );
+                }
+
+                if (filterSubject) {
+                    reviewsArr = reviewsArr.filter(review => review.subject === filterSubject);
+                }
+
+                reviewsList.innerHTML = reviewsArr.map(review => `
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="text-sm text-gray-500">${review.timestamp}</div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="text-sm font-medium text-gray-900">${review.name}</div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="text-sm text-gray-500">${review.email}</div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="text-sm text-gray-500">${review.phone}</div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
+                                ${review.subject === 'feedback' ? 'bg-green-100 text-green-800' : 
+                                  review.subject === 'complaint' ? 'bg-red-100 text-red-800' : 
+                                  'bg-blue-100 text-blue-800'}">
+                                ${review.subject}
+                            </span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="text-sm text-gray-500 max-w-xs truncate">${review.message}</div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                            <button onclick="viewReview('${review.id}')" class="text-indigo-600 hover:text-indigo-900 mr-3">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button onclick="deleteReview('${review.id}')" class="text-red-600 hover:text-red-900">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `).join('');
+            });
+        }
+
+        // View review details
+        window.viewReview = async (id) => {
+            try {
+                const reviewRef = ref(database, `contacts/${id}`);
+                const snapshot = await get(reviewRef);
+                const review = snapshot.val();
+
+                if (!review) {
+                    Swal.fire({
+                        title: 'Không tìm thấy!',
+                        text: 'Không tìm thấy thông tin đánh giá.',
+                        icon: 'error'
+                    });
+                    return;
+                }
+
+                Swal.fire({
+                    title: 'Chi tiết đánh giá',
+                    html: `
+                        <div class="text-left">
+                            <p><strong>Thời gian:</strong> ${new Date(review.timestamp).toLocaleString('vi-VN')}</p>
+                            <p><strong>Họ tên:</strong> ${review.name}</p>
+                            <p><strong>Email:</strong> ${review.email}</p>
+                            <p><strong>Số điện thoại:</strong> ${review.phone}</p>
+                            <p><strong>Chủ đề:</strong> ${review.subject}</p>
+                            <p><strong>Nội dung:</strong></p>
+                            <p class="mt-2 p-4 bg-gray-50 rounded">${review.message}</p>
+                        </div>
+                    `,
+                    width: '600px'
+                });
+            } catch (error) {
+                console.error('Error viewing review:', error);
+                Swal.fire({
+                    title: 'Lỗi!',
+                    text: 'Không thể xem thông tin đánh giá.',
+                    icon: 'error'
+                });
+            }
+        }
+
+        // Delete review
+        window.deleteReview = async (id) => {
+            try {
+                const result = await Swal.fire({
+                    title: 'Xác nhận xóa?',
+                    text: "Bạn không thể hoàn tác sau khi xóa!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#dc2626',
+                    cancelButtonColor: '#6b7280',
+                    confirmButtonText: 'Xóa',
+                    cancelButtonText: 'Hủy'
+                });
+
+                if (result.isConfirmed) {
+                    const reviewRef = ref(database, `contacts/${id}`);
+                    await remove(reviewRef);
+
+                    Swal.fire({
+                        title: 'Đã xóa!',
+                        text: 'Đánh giá đã được xóa thành công.',
+                        icon: 'success'
+                    });
+                }
+            } catch (error) {
+                console.error('Error deleting review:', error);
+                Swal.fire({
+                    title: 'Lỗi!',
+                    text: 'Không thể xóa đánh giá.',
+                    icon: 'error'
+                });
+            }
+        }
+
+        // Add event listeners for filters
+        document.getElementById('filterReview')?.addEventListener('input', loadReviews);
+        document.getElementById('filterSubject')?.addEventListener('change', loadReviews);
+
         // Initialize all data when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
             loadDashboardData();
@@ -1125,6 +1318,7 @@
             loadUsers();
             loadNews();
             loadBookings();
+            loadReviews(); // Add this line
         });
 
         // Export functions to window object
@@ -2146,6 +2340,34 @@
             loadDashboardData();
             updateCharts();
         });
+
+        // Add logout function
+        window.handleLogout = async () => {
+            try {
+                const result = await Swal.fire({
+                    title: 'Xác nhận đăng xuất?',
+                    text: "Bạn có chắc chắn muốn đăng xuất?",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#dc2626',
+                    cancelButtonColor: '#6b7280',
+                    confirmButtonText: 'Đăng xuất',
+                    cancelButtonText: 'Hủy'
+                });
+
+                if (result.isConfirmed) {
+                    await auth.signOut();
+                    window.location.href = '../index.html';
+                }
+            } catch (error) {
+                console.error('Error logging out:', error);
+                Swal.fire({
+                    title: 'Lỗi!',
+                    text: 'Không thể đăng xuất. Vui lòng thử lại.',
+                    icon: 'error'
+                });
+            }
+        }
     </script>
 </body>
 </html> 

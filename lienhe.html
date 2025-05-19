@@ -496,7 +496,7 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getDatabase } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+    import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
     import { getAuth, signOut, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
@@ -731,6 +731,99 @@
         submitBtn.disabled = false;
       }
     }
+
+    // Xử lý form liên hệ
+    document.querySelector('.contact-form form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      // Lấy giá trị từ form
+      const name = this.querySelector('input[type="text"]').value;
+      const email = this.querySelector('input[type="email"]').value;
+      const phone = this.querySelector('input[type="tel"]').value;
+      const subject = this.querySelector('select').value;
+      const message = this.querySelector('textarea').value;
+
+      // Validate form
+      if (!name || !email || !phone || !subject || !message) {
+        await Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: 'Vui lòng điền đầy đủ thông tin!',
+          confirmButtonColor: '#dc2626'
+        });
+        return;
+      }
+
+      // Validate email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        await Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: 'Email không hợp lệ!',
+          confirmButtonColor: '#dc2626'
+        });
+        return;
+      }
+
+      // Validate phone
+      const phoneRegex = /^[0-9]{10,11}$/;
+      if (!phoneRegex.test(phone)) {
+        await Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: 'Số điện thoại không hợp lệ!',
+          confirmButtonColor: '#dc2626'
+        });
+        return;
+      }
+
+      // Show loading state
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang gửi...';
+      submitBtn.disabled = true;
+
+      try {
+        // Tạo object dữ liệu
+        const contactData = {
+          name: name,
+          email: email,
+          phone: phone,
+          subject: subject,
+          message: message,
+          timestamp: new Date().toISOString()
+        };
+
+        // Lưu vào Firebase
+        const contactsRef = ref(database, 'contacts');
+        await push(contactsRef, contactData);
+
+        // Thông báo thành công
+        await Swal.fire({
+          icon: 'success',
+          title: 'Thành công!',
+          text: 'Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất có thể.',
+          confirmButtonColor: '#dc2626'
+        });
+
+        // Reset form
+        this.reset();
+
+      } catch (error) {
+        console.error('Error:', error);
+        await Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: 'Có lỗi xảy ra. Vui lòng thử lại sau!',
+          confirmButtonColor: '#dc2626'
+        });
+      } finally {
+        // Reset button state
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
+    });
   </script>
 </body>
 </html> 

@@ -1,0 +1,49 @@
+{
+  "rules": {
+    ".read": "auth != null && auth.token.email === 'quantriwebvephim@gmail.com'",
+    ".write": "auth != null && auth.token.email === 'quantriwebvephim@gmail.com'",
+    "contacts": {
+      ".read": "auth != null && auth.token.email === 'quantriwebvephim@gmail.com'",
+      ".write": true
+    },
+    "cinemas": {
+      ".read": true,
+      ".write": "auth != null && auth.token.email === 'quantriwebvephim@gmail.com'"
+    },
+    "coming_soon": {
+      ".read": true,
+      ".write": "auth != null && auth.token.email === 'quantriwebvephim@gmail.com'"
+    },
+    "now_showing": {
+      ".read": true,
+      ".write": "auth != null && auth.token.email === 'quantriwebvephim@gmail.com'"
+    },
+    "popular": {
+      ".read": true,
+      ".write": "auth != null && auth.token.email === 'quantriwebvephim@gmail.com'"
+    },
+    "news": {
+      ".read": true,
+      ".write": "auth != null && auth.token.email === 'quantriwebvephim@gmail.com'"
+    },
+    "users": {
+      "$uid": {
+        ".read": true,
+        ".write": "$uid === auth.uid || auth.token.email === 'quantriwebvephim@gmail.com'"
+      }
+    },
+    "bookings": {
+      ".read": true,
+      "$cinema": {
+        "$date": {
+          "$showtime": {
+            "$bookingId": {
+              ".write": "auth != null",
+              ".read": true
+            }
+          }
+        }
+      }
+    }
+  }
+} 
