@@ -122,7 +122,7 @@
               Vui lòng chọn đầy đủ thông tin để xem tóm tắt đơn đặt vé.
             </div>
           </div>
-          <button type="button" id="payVNPayBtn" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 font-semibold w-full mt-2">Thanh toán VNPay</button>
+          <button type="button" id="payVNPayBtn" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 font-semibold w-full mt-2" disabled>Thanh toán VNPay</button>
         </form>
       </section>
     </div>
@@ -630,20 +630,18 @@
     let occupiedSeats = new Set();
 
     // Load occupied seats from Firebase
-    async function loadOccupiedSeats(cinemaId, date, showtime) {
+    async function loadOccupiedSeats(cinemaName, date, showtime) {
       try {
-        const seatsRef = ref(database, `bookings/${cinemaId}/${date}/${showtime}`);
+        const seatsRef = ref(database, `bookings/${cinemaName}/${date}/${showtime}`);
         onValue(seatsRef, (snapshot) => {
           const bookings = snapshot.val() || {};
           occupiedSeats.clear();
-          
-          // Collect all occupied seats from bookings
+          // Chỉ lấy ghế từ các booking đã completed
           Object.values(bookings).forEach(booking => {
-            if (booking.seats) {
+            if (booking.status === 'completed' && booking.seats) {
               booking.seats.forEach(seat => occupiedSeats.add(seat));
             }
           });
-          
           renderSeats();
           updateSummary();
         });
@@ -660,6 +658,14 @@
 
     function renderSeats() {
       seatMap.innerHTML = '';
+      
+      // Add screen
+      const screen = document.createElement('div');
+      screen.className = 'screen w-full mb-4';
+      screen.textContent = 'Màn hình';
+      seatMap.appendChild(screen);
+      
+      // Add seats
       for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
           const seatNum = r * cols + c + 1;
@@ -734,10 +740,15 @@
       const count = document.getElementById('ticketCount').value;
       const seats = selectedSeats.join(', ');
       let html = '';
+      const payBtn = document.getElementById('payVNPayBtn');
       if (!date || !showtime || !cinema || selectedSeats.length != count) {
         html = 'Vui lòng chọn đầy đủ thông tin để xem tóm tắt đơn đặt vé.';
+        payBtn.disabled = true;
+        payBtn.classList.add('opacity-50', 'cursor-not-allowed');
       } else {
         html = `<b>Phim:</b> ${movie}<br><b>Rạp:</b> ${cinema}<br><b>Ngày:</b> ${date}<br><b>Suất chiếu:</b> ${showtime}<br><b>Số vé:</b> ${count}<br><b>Ghế:</b> ${seats}<br><b>Tổng tiền:</b> ${(count*75000).toLocaleString()}đ`;
+        payBtn.disabled = false;
+        payBtn.classList.remove('opacity-50', 'cursor-not-allowed');
       }
       document.getElementById('summary').innerHTML = html;
     }
@@ -745,8 +756,6 @@
     // Update the booking form submission to handle seat locking and authentication
     document.getElementById('bookingForm').onsubmit = async function(e) {
       e.preventDefault();
-
-      // Check if user is logged in
       const user = auth.currentUser;
       if (!user) {
         Swal.fire({
@@ -764,7 +773,6 @@
         });
         return;
       }
-
       if (selectedSeats.length != document.getElementById('ticketCount').value) {
         Swal.fire({
           icon: 'error',
@@ -774,27 +782,23 @@
         });
         return;
       }
-
       const cinemaSelect = document.getElementById('cinemaSelect');
       const selectedCinema = cinemaSelect.options[cinemaSelect.selectedIndex];
-      const cinemaId = selectedCinema.value;
       const cinemaName = selectedCinema.textContent;
+      const cinemaId = selectedCinema.value;
       const cinemaAmenities = JSON.parse(selectedCinema.dataset.amenities || '[]');
       const date = document.getElementById('dateSelect').value;
       const showtime = document.getElementById('showtimeSelect').value;
-
-      // Check if any selected seats have been taken
-      const seatsRef = ref(database, `bookings/${cinemaId}/${date}/${showtime}`);
+      // Kiểm tra ghế đã đặt
+      const seatsRef = ref(database, `bookings/${cinemaName}/${date}/${showtime}`);
       const snapshot = await get(seatsRef);
       const bookings = snapshot.val() || {};
-      
       const takenSeats = new Set();
       Object.values(bookings).forEach(booking => {
-        if (booking.seats) {
+        if (booking.status === 'completed' && booking.seats) {
           booking.seats.forEach(seat => takenSeats.add(seat));
         }
       });
-
       const conflictSeats = selectedSeats.filter(seat => takenSeats.has(seat));
       if (conflictSeats.length > 0) {
         Swal.fire({
@@ -805,11 +809,11 @@
         });
         return;
       }
-
-      // Create booking data
+      // Tạo booking data
       const bookingData = {
         movie: document.getElementById('movieTitle').textContent,
         cinema: cinemaName,
+        cinemaId: cinemaId,
         date: date,
         showtime: showtime,
         seats: selectedSeats,
@@ -819,9 +823,8 @@
         userId: user.uid,
         userEmail: user.email
       };
-
-      // Save booking to Firebase
-      const bookingRef = ref(database, `bookings/${cinemaId}/${date}/${showtime}/${Date.now()}`);
+      // Lưu booking vào Firebase
+      const bookingRef = ref(database, `bookings/${cinemaName}/${date}/${showtime}/${Date.now()}`);
       set(bookingRef, bookingData)
         .then(() => {
           Swal.fire({
@@ -848,24 +851,30 @@
     document.getElementById('cinemaSelect').addEventListener('change', function() {
       const date = document.getElementById('dateSelect').value;
       const showtime = document.getElementById('showtimeSelect').value;
+      const selectedCinema = this.options[this.selectedIndex];
+      const cinemaName = selectedCinema.textContent;
       if (date && showtime) {
-        loadOccupiedSeats(this.value, date, showtime);
+        loadOccupiedSeats(cinemaName, date, showtime);
       }
     });
 
     document.getElementById('dateSelect').addEventListener('change', function() {
-      const cinema = document.getElementById('cinemaSelect').value;
+      const cinemaSelect = document.getElementById('cinemaSelect');
+      const selectedCinema = cinemaSelect.options[cinemaSelect.selectedIndex];
+      const cinemaName = selectedCinema.textContent;
       const showtime = document.getElementById('showtimeSelect').value;
-      if (cinema && showtime) {
-        loadOccupiedSeats(cinema, this.value, showtime);
+      if (cinemaName && showtime) {
+        loadOccupiedSeats(cinemaName, this.value, showtime);
       }
     });
 
     document.getElementById('showtimeSelect').addEventListener('change', function() {
-      const cinema = document.getElementById('cinemaSelect').value;
+      const cinemaSelect = document.getElementById('cinemaSelect');
+      const selectedCinema = cinemaSelect.options[cinemaSelect.selectedIndex];
+      const cinemaName = selectedCinema.textContent;
       const date = document.getElementById('dateSelect').value;
-      if (cinema && date) {
-        loadOccupiedSeats(cinema, date, this.value);
+      if (cinemaName && date) {
+        loadOccupiedSeats(cinemaName, date, this.value);
       }
     });
 
@@ -873,6 +882,18 @@
       loadCinemas();
       renderSeats();
       updateSummary();
+      // Chỉ cho phép chọn ngày hôm nay trở đi
+      const dateInput = document.getElementById('dateSelect');
+      const today = new Date();
+      const yyyy = today.getFullYear();
+      const mm = String(today.getMonth() + 1).padStart(2, '0');
+      const dd = String(today.getDate()).padStart(2, '0');
+      const todayStr = `${yyyy}-${mm}-${dd}`;
+      dateInput.min = todayStr;
+      // Nếu giá trị mặc định nhỏ hơn hôm nay thì set lại là hôm nay
+      if (!dateInput.value || dateInput.value < todayStr) {
+        dateInput.value = todayStr;
+      }
     });
 
     // Fade in hiệu ứng khi vào trang
