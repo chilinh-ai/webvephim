@@ -509,9 +509,6 @@
         <div class="cinema-card">
           <div class="cinema-image">
             <img src="${cinema.image || 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=800&q=80'}" alt="${cinema.name}">
-            <div class="cinema-overlay">
-              <a href="#" class="btn-view">Xem lịch chiếu</a>
-            </div>
           </div>
           <div class="p-6">
             <h3 class="font-semibold text-lg mb-2">${cinema.name}</h3>
@@ -521,11 +518,10 @@
                 <span class="bg-gray-100 px-2 py-1 rounded text-sm">${amenity}</span>
               `).join('')}
             </div>
-            <div class="flex items-center justify-between">
+            <div class="flex items-center">
               <div class="text-sm text-gray-500">
                 <i class="fas fa-phone-alt mr-2"></i>${cinema.phone}
               </div>
-              <a href="#" class="text-red-600 hover:text-red-700 font-medium">Chi tiết</a>
             </div>
           </div>
         </div>
