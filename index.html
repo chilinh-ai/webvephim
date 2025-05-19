@@ -1021,7 +1021,7 @@
           <div>
             <div class="flex items-center justify-between mb-8">
               <h2 class="text-3xl font-bold section-title">Ưu đãi & Khuyến mãi</h2>
-              <a href="#" class="text-red-600 hover:text-red-700 font-medium">Xem tất cả</a>
+              <a href="khuyenmai.html" class="text-red-600 hover:text-red-700 font-medium">Xem tất cả</a>
             </div>
             <div class="grid grid-cols-1 gap-6">
               <!-- Promo Item 1 -->
@@ -1040,11 +1040,7 @@
                   </div>
                   <p class="text-gray-600 mb-4">Áp dụng cho tất cả các suất chiếu từ thứ 2 đến thứ 6. Không áp dụng các ngày lễ và các suất chiếu đặc biệt.</p>
                   <div class="flex items-center justify-between">
-                    <button class="bg-red-600 text-white px-6 py-2 rounded-md hover:bg-red-700 transition">Nhận ưu đãi</button>
-                    <div class="flex items-center text-gray-500">
-                      <i class="fas fa-share-alt mr-2"></i>
-                      <span>Chia sẻ</span>
-                    </div>
+                    <!-- Đã xóa nút Nhận ưu đãi -->
                   </div>
                 </div>
               </div>
@@ -1065,11 +1061,7 @@
                   </div>
                   <p class="text-gray-600 mb-4">Ưu đãi đặc biệt dành cho khách hàng đăng ký thành viên mới. Áp dụng cho lần đặt vé đầu tiên.</p>
                   <div class="flex items-center justify-between">
-                    <button class="bg-red-600 text-white px-6 py-2 rounded-md hover:bg-red-700 transition">Đăng ký ngay</button>
-                    <div class="flex items-center text-gray-500">
-                      <i class="fas fa-share-alt mr-2"></i>
-                      <span>Chia sẻ</span>
-                    </div>
+                    <!-- Đã xóa nút Đăng ký ngay -->
                   </div>
                 </div>
               </div>
@@ -1344,7 +1336,6 @@
             </div>
             <div class="flex items-center justify-between">
               <span class="text-gray-600"><i class="fas fa-phone mr-2"></i>${cinema.phone}</span>
-              <a href="#" class="text-red-600 hover:text-red-700 font-semibold">Xem lịch chiếu</a>
             </div>
           </div>
         </div>
@@ -1397,6 +1388,13 @@
 
     // Function to create movie card HTML
     function createMovieCard(movie, type = 'now-showing') {
+      // Xử lý genres: mảng object hoặc mảng string
+      let genres = [];
+      if (Array.isArray(movie.genres)) {
+        genres = movie.genres.map(genre =>
+          typeof genre === 'object' && genre !== null && genre.name ? genre.name : genre
+        );
+      }
       if (type === 'now-showing') {
         return `
           <div class="movie-card group">
@@ -1423,23 +1421,10 @@
             <div class="movie-info p-6 bg-white">
               <div class="flex items-start justify-between mb-2">
                 <h3 class="font-bold text-xl">${movie.title}</h3>
-                <div class="flex items-center space-x-1">
-                  <i class="fas fa-star text-yellow-400"></i>
-                  <span class="font-semibold">${movie.rating || '0.0'}</span>
-                  <span class="text-gray-500">/10</span>
-                </div>
               </div>
               <div class="movie-meta text-sm text-gray-600 mb-4">
-                <div class="flex items-center mb-2">
-                  <i class="fas fa-clock mr-2"></i>
-                  <span>${movie.duration || '0'} phút</span>
-                </div>
-                <div class="flex items-center mb-2">
-                  <i class="fas fa-calendar mr-2"></i>
-                  <span>Khởi chiếu: ${movie.releaseDate || 'N/A'}</span>
-                </div>
                 <div class="flex items-center flex-wrap gap-2">
-                  ${movie.genres?.map(genre => `
+                  ${genres.map(genre => `
                     <span class="bg-gray-100 px-2 py-1 rounded">${genre}</span>
                   `).join('') || ''}
                 </div>
@@ -1460,11 +1445,8 @@
             </div>
             <div class="movie-info p-4">
               <h3 class="font-semibold text-lg mb-2">${movie.title}</h3>
-              <div class="movie-meta text-sm text-gray-600 mb-2">
-                <span>Khởi chiếu: ${movie.releaseDate || 'N/A'}</span>
-              </div>
               <div class="movie-genres text-sm text-gray-600">
-                ${movie.genres?.map(genre => `
+                ${genres.map(genre => `
                   <span class="mr-2">${genre}</span>
                 `).join('') || ''}
               </div>

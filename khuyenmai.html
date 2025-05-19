@@ -838,6 +838,36 @@
         submitBtn.disabled = false;
       }
     }
+
+    // Xử lý tab khuyến mãi
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.promo-tab');
+      const cards = document.querySelectorAll('.promo-card');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          // Đổi active tab
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+
+          const tabText = tab.textContent.trim();
+
+          cards.forEach(card => {
+            if (tabText === 'Tất cả') {
+              card.style.display = '';
+            } else {
+              // Lấy badge trên card
+              const badge = card.querySelector('.promo-badge');
+              if (badge && badge.textContent.trim() === tabText) {
+                card.style.display = '';
+              } else {
+                card.style.display = 'none';
+              }
+            }
+          });
+        });
+      });
+    });
   </script>
 </body>
 </html> 
