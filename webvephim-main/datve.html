@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đặt vé - WBANVE</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/1179/1179120.png">
+  <link rel="stylesheet" href="mobile.css" media="(max-width: 768px)">
+  <link rel="stylesheet" href="anbottom-nav-mobile.css">
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background-color: #f5f5f5; margin: 0; padding: 0; }
+    .ticket-summary { background: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); padding: 2rem; }
+    .form-section { background: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); padding: 2rem; margin-bottom: 2rem; }
+    .seat { width: 36px; height: 36px; border-radius: 6px; background: #e5e7eb; display: flex; align-items: center; justify-content: center; cursor: pointer; margin: 2px; transition: background 0.2s; }
+    .seat.selected { background: #dc2626; color: #fff; }
+    .seat.occupied { background: #9ca3af; color: #fff; cursor: not-allowed; }
+    .screen { background: #d1d5db; border-radius: 8px; height: 24px; margin: 1rem 0; text-align: center; line-height: 24px; font-weight: 600; color: #374151; }
+    .footer-section { transition: transform 0.3s ease; }
+    .footer-section:hover { transform: translateY(-5px); }
+    .social-links a { transition: transform 0.3s, color 0.3s; }
+    .social-links a:hover { transform: translateY(-3px); color: #dc2626; }
+    .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+    .footer-section { padding: 1rem; }
+    .footer-section h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; color: #fff; }
+    .footer-section p { color: #9ca3af; line-height: 1.6; }
+    .footer-section ul { list-style: none; padding: 0; }
+    .footer-section ul li { margin-bottom: 0.75rem; }
+    .footer-section ul li a { color: #9ca3af; text-decoration: none; transition: color 0.3s; }
+    .footer-section ul li a:hover { color: #dc2626; }
+    .social-links { display: flex; gap: 1rem; margin-top: 1rem; }
+    .social-links a { color: #9ca3af; font-size: 1.25rem; transition: all 0.3s; }
+    .social-links a:hover { color: #dc2626; transform: translateY(-3px); }
+    .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid #374151; color: #9ca3af; }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <!-- Header -->
+  <header class="main-header bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between py-4 border-b border-gray-100">
+        <a href="index.html" class="logo flex items-center space-x-2">
+          <img src="https://cdn-icons-png.flaticon.com/512/1179/1179120.png" alt="Logo" class="h-10 w-auto">
+          <span class="text-2xl font-bold text-red-600 tracking-wide">WBANVE</span>
+        </a>
+        <div class="flex items-center space-x-4">
+          <a href="#" class="btn-login border border-red-600 text-red-600 px-4 py-1 rounded hover:bg-red-600 hover:text-white transition">Đăng nhập</a>
+          <a href="#" class="btn-register bg-red-600 text-white px-4 py-1 rounded hover:bg-red-700 transition">Đăng ký</a>
+        </div>
+      </div>
+      <nav class="main-nav hidden md:flex items-center justify-center py-4 space-x-8">
+        <a href="index.html" class="hover:text-red-600 transition font-medium">Trang chủ</a>
+        <a href="phim.html" class="hover:text-red-600 transition font-medium">Phim</a>
+        <a href="rapphim.html" class="hover:text-red-600 transition font-medium">Rạp chiếu</a>
+        <a href="tintuc.html" class="hover:text-red-600 transition font-medium">Tin tức</a>
+        <a href="khuyenmai.html" class="hover:text-red-600 transition font-medium">Khuyến mãi</a>
+        <a href="lienhe.html" class="hover:text-red-600 transition font-medium">Liên hệ</a>
+        <a href="user.html" class="hover:text-red-600 transition font-medium">Tài khoản</a>
+      </nav>
+    </div>
+  </header>
+  <div class="max-w-[1200px] mx-auto px-4 py-3 text-white text-sm font-normal bg-red-600">
+    <nav aria-label="Breadcrumb" class="flex items-center space-x-1">
+      <a href="index.html" class="hover:text-white/80">Trang chủ</a>
+      <span class="text-white/70">/</span>
+      <a href="phim.html" class="hover:text-white/80">Phim</a>
+      <span class="text-white/70">/</span>
+      <span class="font-semibold">Đặt vé</span>
+    </nav>
+  </div>
+  <main class="max-w-[1200px] mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Thông tin phim -->
+      <section class="md:col-span-1">
+        <div class="ticket-summary">
+          <img id="moviePoster" src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=400&q=80" alt="Poster phim" class="w-full h-64 object-cover rounded-lg mb-4">
+          <h2 id="movieTitle" class="text-2xl font-bold mb-2">Tên phim</h2>
+          <div class="text-gray-600 mb-2">Thể loại: <span id="movieGenres">Hành động, Phiêu lưu</span></div>
+          <div class="text-gray-600 mb-2">Thời lượng: <span id="movieDuration">120 phút</span></div>
+          <div class="text-gray-600 mb-2">Khởi chiếu: <span id="movieRelease">01/01/2024</span></div>
+        </div>
+      </section>
+      <!-- Form đặt vé -->
+      <section class="md:col-span-2">
+        <form id="bookingForm" class="form-section">
+          <h3 class="text-xl font-bold mb-4">Chọn thông tin đặt vé</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label class="block font-semibold mb-1">Chọn rạp</label>
+              <select id="cinemaSelect" class="w-full border rounded px-3 py-2">
+                <option value="">Chọn rạp chiếu</option>
+              </select>
+            </div>
+            <div>
+              <label class="block font-semibold mb-1">Chọn ngày</label>
+              <input type="date" id="dateSelect" class="w-full border rounded px-3 py-2" required>
+            </div>
+            <div>
+              <label class="block font-semibold mb-1">Chọn suất chiếu</label>
+              <select id="showtimeSelect" class="w-full border rounded px-3 py-2">
+                <option>10:00</option>
+                <option>12:30</option>
+                <option>15:00</option>
+                <option>18:00</option>
+                <option>20:30</option>
+              </select>
+            </div>
+            <div>
+              <label class="block font-semibold mb-1">Số lượng vé</label>
+              <input type="number" id="ticketCount" min="1" max="10" value="1" class="w-full border rounded px-3 py-2" required>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="block font-semibold mb-1">Chọn ghế</label>
+            <div id="seatMap" class="flex flex-wrap max-w-md">
+              <!-- Ghế sẽ được render ở đây bằng JS -->
+            </div>
+            <div class="text-sm text-gray-500 mt-2">Nhấn để chọn ghế. Ghế xám là đã có người đặt.</div>
+          </div>
+          <div class="mb-4">
+            <h4 class="font-semibold mb-2">Tóm tắt đơn đặt vé</h4>
+            <div id="summary" class="bg-gray-50 rounded p-3 text-gray-700">
+              Vui lòng chọn đầy đủ thông tin để xem tóm tắt đơn đặt vé.
+            </div>
+          </div>
+          <button type="button" id="payVNPayBtn" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 font-semibold w-full mt-2" disabled>Thanh toán VNPay</button>
+        </form>
+      </section>
+    </div>
+  </main>
+  <!-- Footer giống các trang khác -->
+  <footer class="bg-gray-900 text-white py-12 mt-12">
+    <div class="max-w-[1200px] mx-auto px-4">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Về chúng tôi</h3>
+          <p>WBANVE là hệ thống đặt vé xem phim trực tuyến hiện đại, tiện lợi và an toàn hàng đầu Việt Nam.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Liên kết</h3>
+          <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="phim.html">Phim</a></li>
+            <li><a href="#">Rạp chiếu</a></li>
+            <li><a href="#">Tin tức</a></li>
+            <li><a href="#">Khuyến mãi</a></li>
+            <li><a href="#">Liên hệ</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Hỗ trợ</h3>
+          <ul>
+            <li><a href="#">Câu hỏi thường gặp</a></li>
+            <li><a href="#">Điều khoản sử dụng</a></li>
+            <li><a href="#">Chính sách bảo mật</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Liên hệ</h3>
+          <ul>
+            <li><i class="fas fa-phone-alt mr-2"></i>Hotline: 1900 xxxx</li>
+            <li><i class="fas fa-envelope mr-2"></i>Email: support@example.com</li>
+            <li><i class="fas fa-map-marker-alt mr-2"></i>Địa chỉ: 123 Đường ABC, Quận XYZ, TP.HCM</li>
+          </ul>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 WBANVE. Tất cả quyền được bảo lưu.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- Modal đăng nhập/đăng ký giống các trang khác -->
+  <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold">Đăng nhập</h2>
+        <button onclick="closeModal('loginModal')" class="text-gray-500 hover:text-gray-700">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <form id="loginForm" onsubmit="handleLogin(event)">
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-6">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="loginPassword">Mật khẩu</label>
+          <input type="password" id="loginPassword" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="flex items-center justify-between mb-4">
+          <button type="submit" id="loginButton" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Đăng nhập</button>
+          <div id="loginSpinner" class="hidden"><i class="fas fa-spinner fa-spin text-red-600 text-xl"></i></div>
+        </div>
+        <div class="text-center">
+          <a href="#" onclick="showModal('forgotPasswordModal'); closeModal('loginModal')" class="text-red-600 hover:text-red-700 text-sm">Quên mật khẩu?</a>
+        </div>
+      </form>
+      <div class="mt-4 text-center">
+        <p class="text-gray-600">Chưa có tài khoản? <a href="#" onclick="showModal('registerModal'); closeModal('loginModal')" class="text-red-600 hover:text-red-700">Đăng ký ngay</a></p>
+      </div>
+    </div>
+  </div>
+  <div id="registerModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold">Đăng ký</h2>
+        <button onclick="closeModal('registerModal')" class="text-gray-500 hover:text-gray-700">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <form id="registerForm" onsubmit="handleRegister(event)">
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="registerName">Họ và tên</label>
+          <input type="text" id="registerName" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="registerEmail">Email</label>
+          <input type="email" id="registerEmail" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="registerPassword">Mật khẩu</label>
+          <input type="password" id="registerPassword" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-6">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="registerConfirmPassword">Xác nhận mật khẩu</label>
+          <input type="password" id="registerConfirmPassword" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="flex items-center justify-between mb-4">
+          <button type="submit" id="registerButton" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Đăng ký</button>
+          <div id="registerSpinner" class="hidden"><i class="fas fa-spinner fa-spin text-red-600 text-xl"></i></div>
+        </div>
+      </form>
+      <div class="mt-4 text-center">
+        <p class="text-gray-600">Đã có tài khoản? <a href="#" onclick="showModal('loginModal'); closeModal('registerModal')" class="text-red-600 hover:text-red-700">Đăng nhập</a></p>
+      </div>
+    </div>
+  </div>
+  <div id="forgotPasswordModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold">Quên mật khẩu</h2>
+        <button onclick="closeModal('forgotPasswordModal')" class="text-gray-500 hover:text-gray-700">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <form id="forgotPasswordForm" onsubmit="handleForgotPassword(event)">
+        <div class="mb-6">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="forgotPasswordEmail">Email</label>
+          <input type="email" id="forgotPasswordEmail" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="flex items-center justify-between mb-4">
+          <button type="submit" id="forgotPasswordButton" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Gửi link đặt lại mật khẩu</button>
+          <div id="forgotPasswordSpinner" class="hidden"><i class="fas fa-spinner fa-spin text-red-600 text-xl"></i></div>
+        </div>
+      </form>
+      <div class="mt-4 text-center">
+        <p class="text-gray-600">Đã nhớ mật khẩu? <a href="#" onclick="showModal('loginModal'); closeModal('forgotPasswordModal')" class="text-red-600 hover:text-red-700">Đăng nhập</a></p>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script type="module">
+    // Import Firebase functions
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getDatabase, ref, onValue, set, get } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyATE49XCQGPrrw1zst5vBihoRuu2Ak1KHs",
+      authDomain: "webdatvexemphim-6f5a7.firebaseapp.com",
+      projectId: "webdatvexemphim-6f5a7",
+      storageBucket: "webdatvexemphim-6f5a7.firebasestorage.app",
+      messagingSenderId: "463304798196",
+      appId: "1:463304798196:web:4176c92111c925b1ca93a1",
+      measurementId: "G-J14FBB9ZBG",
+      databaseURL: "https://webdatvexemphim-6f5a7-default-rtdb.firebaseio.com"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const database = getDatabase(app);
+    const auth = getAuth(app);
+
+    // Load cinemas from Firebase
+    async function loadCinemas() {
+      try {
+        const cinemasRef = ref(database, 'cinemas');
+        onValue(cinemasRef, (snapshot) => {
+          const cinemas = snapshot.val() || [];
+          const cinemaSelect = document.getElementById('cinemaSelect');
+          cinemaSelect.innerHTML = '<option value="">Chọn rạp chiếu</option>';
+          
+          cinemas.forEach(cinema => {
+            const option = document.createElement('option');
+            option.value = cinema.id;
+            option.textContent = `${cinema.name} - ${cinema.district}`;
+            option.dataset.amenities = JSON.stringify(cinema.amenities);
+            cinemaSelect.appendChild(option);
+          });
+
+          // Add event listener for cinema selection
+          cinemaSelect.addEventListener('change', function() {
+            const selectedOption = this.options[this.selectedIndex];
+            const amenities = selectedOption.dataset.amenities ? JSON.parse(selectedOption.dataset.amenities) : [];
+            
+            // Update showtime options based on cinema amenities
+            const showtimeSelect = document.getElementById('showtimeSelect');
+            showtimeSelect.innerHTML = '';
+            
+            // Add standard showtimes
+            const standardShowtimes = ['10:00', '12:30', '15:00', '18:00', '20:30'];
+            standardShowtimes.forEach(time => {
+              const option = document.createElement('option');
+              option.value = time;
+              option.textContent = time;
+              showtimeSelect.appendChild(option);
+            });
+
+            // Add special format showtimes if available
+            if (amenities.includes('IMAX')) {
+              const imaxOption = document.createElement('option');
+              imaxOption.value = '21:30';
+              imaxOption.textContent = '21:30 (IMAX)';
+              showtimeSelect.appendChild(imaxOption);
+            }
+            if (amenities.includes('4DX')) {
+              const fourDXOption = document.createElement('option');
+              fourDXOption.value = '22:00';
+              fourDXOption.textContent = '22:00 (4DX)';
+              showtimeSelect.appendChild(fourDXOption);
+            }
+
+            updateSummary();
+          });
+        });
+      } catch (error) {
+        console.error('Error loading cinemas:', error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: 'Không thể tải danh sách rạp chiếu. Vui lòng thử lại sau.',
+          confirmButtonColor: '#dc2626'
+        });
+      }
+    }
+
+    // Show/hide spinner and button
+    function toggleLoading(buttonId, spinnerId, isLoading) {
+      const button = document.getElementById(buttonId);
+      const spinner = document.getElementById(spinnerId);
+      
+      if (isLoading) {
+        button.classList.add('hidden');
+        spinner.classList.remove('hidden');
+      } else {
+        button.classList.remove('hidden');
+        spinner.classList.add('hidden');
+      }
+    }
+
+    // Handle Register
+    window.handleRegister = async function(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('registerName').value;
+      const email = document.getElementById('registerEmail').value;
+      const password = document.getElementById('registerPassword').value;
+      const confirmPassword = document.getElementById('registerConfirmPassword').value;
+
+      if (password !== confirmPassword) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: 'Mật khẩu xác nhận không khớp!',
+          confirmButtonColor: '#dc2626'
+        });
+        return;
+      }
+
+      try {
+        toggleLoading('registerButton', 'registerSpinner', true);
+        
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        
+        // Store additional user data in Realtime Database
+        const userRef = ref(database, 'users/' + user.uid);
+        await set(userRef, {
+          name: name,
+          email: email,
+          createdAt: new Date().toISOString()
+        });
+
+        await Swal.fire({
+          icon: 'success',
+          title: 'Thành công!',
+          text: 'Đăng ký tài khoản thành công!',
+          confirmButtonColor: '#dc2626'
+        });
+        
+        closeModal('registerModal');
+        showModal('loginModal');
+      } catch (error) {
+        let errorMessage = 'Đăng ký thất bại!';
+        switch (error.code) {
+          case 'auth/email-already-in-use':
+            errorMessage = 'Email đã được sử dụng!';
+            break;
+          case 'auth/invalid-email':
+            errorMessage = 'Email không hợp lệ!';
+            break;
+          case 'auth/weak-password':
+            errorMessage = 'Mật khẩu quá yếu!';
+            break;
+        }
+        Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: errorMessage,
+          confirmButtonColor: '#dc2626'
+        });
+      } finally {
+        toggleLoading('registerButton', 'registerSpinner', false);
+      }
+    }
+
+    // Handle Login
+    window.handleLogin = async function(event) {
+      event.preventDefault();
+      
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+
+      try {
+        toggleLoading('loginButton', 'loginSpinner', true);
+        
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        
+        await Swal.fire({
+          icon: 'success',
+          title: 'Thành công!',
+          text: 'Đăng nhập thành công!',
+          confirmButtonColor: '#dc2626'
+        });
+        
+        closeModal('loginModal');
+        
+        // Update UI for logged in user
+        document.querySelector('.btn-login').classList.add('hidden');
+        document.querySelector('.btn-register').classList.add('hidden');
+        
+        // Add user menu
+        const userMenu = document.createElement('div');
+        userMenu.className = 'relative user-menu';
+        userMenu.innerHTML = `
+          <button onclick="toggleUserMenu()" class="flex items-center space-x-2 text-gray-700 hover:text-red-600">
+            <i class="fas fa-user-circle text-xl"></i>
+            <span>${user.email}</span>
+            <i class="fas fa-chevron-down text-sm"></i>
+          </button>
+          <div id="userDropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden z-50">
+            <button onclick="handleLogout()" class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
+              <i class="fas fa-sign-out-alt mr-2"></i>Đăng xuất
+            </button>
+          </div>
+        `;
+        document.querySelector('.flex.items-center.space-x-4').appendChild(userMenu);
+        
+      } catch (error) {
+        let errorMessage = 'Đăng nhập thất bại!';
+        switch (error.code) {
+          case 'auth/user-not-found':
+          case 'auth/wrong-password':
+            errorMessage = 'Email hoặc mật khẩu không đúng!';
+            break;
+          case 'auth/invalid-email':
+            errorMessage = 'Email không hợp lệ!';
+            break;
+        }
+        Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: errorMessage,
+          confirmButtonColor: '#dc2626'
+        });
+      } finally {
+        toggleLoading('loginButton', 'loginSpinner', false);
+      }
+    }
+
+    // Handle Forgot Password
+    window.handleForgotPassword = async function(event) {
+      event.preventDefault();
+      
+      const email = document.getElementById('forgotPasswordEmail').value;
+
+      try {
+        toggleLoading('forgotPasswordButton', 'forgotPasswordSpinner', true);
+        
+        await sendPasswordResetEmail(auth, email);
+        
+        await Swal.fire({
+          icon: 'success',
+          title: 'Thành công!',
+          text: 'Link đặt lại mật khẩu đã được gửi đến email của bạn!',
+          confirmButtonColor: '#dc2626'
+        });
+        
+        closeModal('forgotPasswordModal');
+        showModal('loginModal');
+      } catch (error) {
+        let errorMessage = 'Gửi email thất bại!';
+        switch (error.code) {
+          case 'auth/user-not-found':
+            errorMessage = 'Không tìm thấy tài khoản với email này!';
+            break;
+          case 'auth/invalid-email':
+            errorMessage = 'Email không hợp lệ!';
+            break;
+        }
+        Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: errorMessage,
+          confirmButtonColor: '#dc2626'
+        });
+      } finally {
+        toggleLoading('forgotPasswordButton', 'forgotPasswordSpinner', false);
+      }
+    }
+
+    // Handle Logout
+    window.handleLogout = async function() {
+      try {
+        await signOut(auth);
+        await Swal.fire({
+          icon: 'success',
+          title: 'Thành công!',
+          text: 'Đăng xuất thành công!',
+          confirmButtonColor: '#dc2626'
+        });
+        location.reload();
+      } catch (error) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: 'Đăng xuất thất bại!',
+          confirmButtonColor: '#dc2626'
+        });
+      }
+    }
+
+    // Modal functions
+    window.showModal = function(modalId) {
+      document.getElementById(modalId).classList.remove('hidden');
+      document.getElementById(modalId).classList.add('flex');
+    }
+
+    window.closeModal = function(modalId) {
+      document.getElementById(modalId).classList.add('hidden');
+      document.getElementById(modalId).classList.remove('flex');
+    }
+
+    // Add click event listeners to login/register buttons
+    document.querySelector('.btn-login').addEventListener('click', () => showModal('loginModal'));
+    document.querySelector('.btn-register').addEventListener('click', () => showModal('registerModal'));
+
+    // Add toggle user menu function
+    window.toggleUserMenu = function() {
+      const dropdown = document.getElementById('userDropdown');
+      dropdown.classList.toggle('hidden');
+      
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function closeDropdown(e) {
+        if (!e.target.closest('.relative')) {
+          dropdown.classList.add('hidden');
+          document.removeEventListener('click', closeDropdown);
+        }
+      });
+    }
+
+    // Check auth state on page load
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in
+        document.querySelector('.btn-login').classList.add('hidden');
+        document.querySelector('.btn-register').classList.add('hidden');
+        // Add user menu if not exists
+        if (!document.querySelector('.user-menu')) {
+          const userMenu = document.createElement('div');
+          userMenu.className = 'relative user-menu';
+          userMenu.innerHTML = `
+            <button onclick="toggleUserMenu()" class="flex items-center space-x-2 text-gray-700 hover:text-red-600">
+              <i class="fas fa-user-circle text-xl"></i>
+              <span>${user.email}</span>
+              <i class="fas fa-chevron-down text-sm"></i>
+            </button>
+            <div id="userDropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden z-50">
+              <button onclick="handleLogout()" class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
+                <i class="fas fa-sign-out-alt mr-2"></i>Đăng xuất
+              </button>
+            </div>
+          `;
+          document.querySelector('.flex.items-center.space-x-4').appendChild(userMenu);
+        }
+      } else {
+        // User is signed out
+        document.querySelector('.btn-login').classList.remove('hidden');
+        document.querySelector('.btn-register').classList.remove('hidden');
+        // Remove user menu if exists
+        const userMenu = document.querySelector('.user-menu');
+        if (userMenu) userMenu.remove();
+      }
+    });
+
+    // Render seat map
+    const seatMap = document.getElementById('seatMap');
+    const rows = 5, cols = 8;
+    let selectedSeats = [];
+    let occupiedSeats = new Set();
+
+    // Load occupied seats from Firebase
+    async function loadOccupiedSeats(cinemaName, date, showtime) {
+      try {
+        const seatsRef = ref(database, `bookings/${cinemaName}/${date}/${showtime}`);
+        onValue(seatsRef, (snapshot) => {
+          const bookings = snapshot.val() || {};
+          occupiedSeats.clear();
+          // Chỉ lấy ghế từ các booking đã completed
+          Object.values(bookings).forEach(booking => {
+            if (booking.status === 'completed' && booking.seats) {
+              booking.seats.forEach(seat => occupiedSeats.add(seat));
+            }
+          });
+          renderSeats();
+          updateSummary();
+        });
+      } catch (error) {
+        console.error('Error loading occupied seats:', error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: 'Không thể tải thông tin ghế. Vui lòng thử lại sau.',
+          confirmButtonColor: '#dc2626'
+        });
+      }
+    }
+
+    function renderSeats() {
+      seatMap.innerHTML = '';
+      
+      // Add screen
+      const screen = document.createElement('div');
+      screen.className = 'screen w-full mb-4';
+      screen.textContent = 'Màn hình';
+      seatMap.appendChild(screen);
+      
+      // Add seats
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const seatNum = r * cols + c + 1;
+          const seatDiv = document.createElement('div');
+          seatDiv.className = 'seat' + 
+            (occupiedSeats.has(seatNum) ? ' occupied' : '') + 
+            (selectedSeats.includes(seatNum) ? ' selected' : '');
+          seatDiv.textContent = seatNum;
+          seatDiv.onclick = function() {
+            // Check if user is logged in
+            if (!auth.currentUser) {
+              Swal.fire({
+                icon: 'warning',
+                title: 'Vui lòng đăng nhập',
+                text: 'Bạn cần đăng nhập để chọn ghế!',
+                confirmButtonColor: '#dc2626',
+                showCancelButton: true,
+                confirmButtonText: 'Đăng nhập',
+                cancelButtonText: 'Hủy'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  showModal('loginModal');
+                }
+              });
+              return;
+            }
+
+            if (seatDiv.classList.contains('occupied')) {
+              Swal.fire({
+                icon: 'warning',
+                title: 'Ghế đã được đặt',
+                text: 'Ghế này đã được người khác đặt. Vui lòng chọn ghế khác.',
+                confirmButtonColor: '#dc2626'
+              });
+              return;
+            }
+            if (selectedSeats.includes(seatNum)) {
+              selectedSeats = selectedSeats.filter(s => s !== seatNum);
+            } else {
+              if (selectedSeats.length < parseInt(document.getElementById('ticketCount').value)) {
+                selectedSeats.push(seatNum);
+              } else {
+                Swal.fire({
+                  icon: 'warning',
+                  title: 'Chú ý',
+                  text: 'Số ghế chọn không vượt quá số vé!',
+                  confirmButtonColor: '#dc2626'
+                });
+              }
+            }
+            renderSeats();
+            updateSummary();
+          };
+          seatMap.appendChild(seatDiv);
+        }
+      }
+    }
+
+    document.getElementById('ticketCount').addEventListener('input', function() {
+      if (selectedSeats.length > this.value) {
+        selectedSeats = selectedSeats.slice(0, this.value);
+        renderSeats();
+      }
+      updateSummary();
+    });
+
+    function updateSummary() {
+      const movie = document.getElementById('movieTitle').textContent;
+      const cinema = document.getElementById('cinemaSelect').value;
+      const date = document.getElementById('dateSelect').value;
+      const showtime = document.getElementById('showtimeSelect').value;
+      const count = document.getElementById('ticketCount').value;
+      const seats = selectedSeats.join(', ');
+      let html = '';
+      const payBtn = document.getElementById('payVNPayBtn');
+      if (!date || !showtime || !cinema || selectedSeats.length != count) {
+        html = 'Vui lòng chọn đầy đủ thông tin để xem tóm tắt đơn đặt vé.';
+        payBtn.disabled = true;
+        payBtn.classList.add('opacity-50', 'cursor-not-allowed');
+      } else {
+        html = `<b>Phim:</b> ${movie}<br><b>Rạp:</b> ${cinema}<br><b>Ngày:</b> ${date}<br><b>Suất chiếu:</b> ${showtime}<br><b>Số vé:</b> ${count}<br><b>Ghế:</b> ${seats}<br><b>Tổng tiền:</b> ${(count*75000).toLocaleString()}đ`;
+        payBtn.disabled = false;
+        payBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+      }
+      document.getElementById('summary').innerHTML = html;
+    }
+
+    // Update the booking form submission to handle seat locking and authentication
+    document.getElementById('bookingForm').onsubmit = async function(e) {
+      e.preventDefault();
+      const user = auth.currentUser;
+      if (!user) {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Vui lòng đăng nhập',
+          text: 'Bạn cần đăng nhập để đặt vé!',
+          confirmButtonColor: '#dc2626',
+          showCancelButton: true,
+          confirmButtonText: 'Đăng nhập',
+          cancelButtonText: 'Hủy'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            showModal('loginModal');
+          }
+        });
+        return;
+      }
+      if (selectedSeats.length != document.getElementById('ticketCount').value) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Lỗi',
+          text: 'Vui lòng chọn đủ số ghế!',
+          confirmButtonColor: '#dc2626'
+        });
+        return;
+      }
+      const cinemaSelect = document.getElementById('cinemaSelect');
+      const selectedCinema = cinemaSelect.options[cinemaSelect.selectedIndex];
+      const cinemaName = selectedCinema.textContent;
+      const cinemaId = selectedCinema.value;
+      const cinemaAmenities = JSON.parse(selectedCinema.dataset.amenities || '[]');
+      const date = document.getElementById('dateSelect').value;
+      const showtime = document.getElementById('showtimeSelect').value;
+      // Kiểm tra ghế đã đặt
+      const seatsRef = ref(database, `bookings/${cinemaName}/${date}/${showtime}`);
+      const snapshot = await get(seatsRef);
+      const bookings = snapshot.val() || {};
+      const takenSeats = new Set();
+      Object.values(bookings).forEach(booking => {
+        if (booking.status === 'completed' && booking.seats) {
+          booking.seats.forEach(seat => takenSeats.add(seat));
+        }
+      });
+      const conflictSeats = selectedSeats.filter(seat => takenSeats.has(seat));
+      if (conflictSeats.length > 0) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: `Ghế ${conflictSeats.join(', ')} đã được đặt. Vui lòng chọn ghế khác.`,
+          confirmButtonColor: '#dc2626'
+        });
+        return;
+      }
+      // Tạo booking data
+      const bookingData = {
+        movie: document.getElementById('movieTitle').textContent,
+        cinema: cinemaName,
+        cinemaId: cinemaId,
+        date: date,
+        showtime: showtime,
+        seats: selectedSeats,
+        totalAmount: selectedSeats.length * 75000,
+        amenities: cinemaAmenities,
+        timestamp: new Date().toISOString(),
+        userId: user.uid,
+        userEmail: user.email
+      };
+      // Lưu booking vào Firebase
+      const bookingRef = ref(database, `bookings/${cinemaName}/${date}/${showtime}/${Date.now()}`);
+      set(bookingRef, bookingData)
+        .then(() => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Đặt vé thành công!',
+            text: 'Cảm ơn bạn đã đặt vé tại WBANVE!',
+            confirmButtonColor: '#dc2626'
+          }).then(() => {
+            window.location.href = 'index.html';
+          });
+        })
+        .catch(error => {
+          console.error('Error saving booking:', error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Lỗi!',
+            text: 'Không thể lưu thông tin đặt vé. Vui lòng thử lại sau.',
+            confirmButtonColor: '#dc2626'
+          });
+        });
+    };
+
+    // Update event listeners for cinema, date, and showtime selection
+    document.getElementById('cinemaSelect').addEventListener('change', function() {
+      const date = document.getElementById('dateSelect').value;
+      const showtime = document.getElementById('showtimeSelect').value;
+      const selectedCinema = this.options[this.selectedIndex];
+      const cinemaName = selectedCinema.textContent;
+      if (date && showtime) {
+        loadOccupiedSeats(cinemaName, date, showtime);
+      }
+    });
+
+    document.getElementById('dateSelect').addEventListener('change', function() {
+      const cinemaSelect = document.getElementById('cinemaSelect');
+      const selectedCinema = cinemaSelect.options[cinemaSelect.selectedIndex];
+      const cinemaName = selectedCinema.textContent;
+      const showtime = document.getElementById('showtimeSelect').value;
+      if (cinemaName && showtime) {
+        loadOccupiedSeats(cinemaName, this.value, showtime);
+      }
+    });
+
+    document.getElementById('showtimeSelect').addEventListener('change', function() {
+      const cinemaSelect = document.getElementById('cinemaSelect');
+      const selectedCinema = cinemaSelect.options[cinemaSelect.selectedIndex];
+      const cinemaName = selectedCinema.textContent;
+      const date = document.getElementById('dateSelect').value;
+      if (cinemaName && date) {
+        loadOccupiedSeats(cinemaName, date, this.value);
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      loadCinemas();
+      renderSeats();
+      updateSummary();
+      // Chỉ cho phép chọn ngày hôm nay trở đi
+      const dateInput = document.getElementById('dateSelect');
+      const today = new Date();
+      const yyyy = today.getFullYear();
+      const mm = String(today.getMonth() + 1).padStart(2, '0');
+      const dd = String(today.getDate()).padStart(2, '0');
+      const todayStr = `${yyyy}-${mm}-${dd}`;
+      dateInput.min = todayStr;
+      // Nếu giá trị mặc định nhỏ hơn hôm nay thì set lại là hôm nay
+      if (!dateInput.value || dateInput.value < todayStr) {
+        dateInput.value = todayStr;
+      }
+    });
+
+    // Fade in hiệu ứng khi vào trang
+    document.body.style.opacity = 0;
+    document.body.style.transition = 'opacity 0.5s';
+    window.onload = function() {
+      setTimeout(() => { document.body.style.opacity = 1; }, 50);
+      // Lấy dữ liệu phim từ localStorage
+      const movieData = localStorage.getItem('selectedMovie');
+      if (!movieData) {
+        Swal.fire({icon:'warning',title:'Chưa chọn phim',text:'Vui lòng chọn phim để đặt vé!',confirmButtonColor:'#dc2626'}).then(()=>{
+          window.location.href = 'phim.html';
+        });
+        return;
+      }
+      const movie = JSON.parse(movieData);
+      document.getElementById('moviePoster').src = movie.images?.poster || '';
+      document.getElementById('movieTitle').textContent = movie.title || '';
+      document.getElementById('movieGenres').textContent = (movie.genres||[]).map(g=>g.name||g).join(', ');
+      document.getElementById('movieDuration').textContent = (movie.runtime||movie.duration||'') + ' phút';
+      document.getElementById('movieRelease').textContent = movie.release_date || movie.releaseDate || '';
+      localStorage.removeItem('selectedMovie');
+    }
+
+    // --- VNPay Sandbox Payment (Client-side, có hash, chỉ dùng test) ---
+    window.vnpayCheckout = async function() {
+      const vnp_TmnCode = 'RYYVLBG4';
+      const vnp_HashSecret = 'WYBOVAW4CF6PNZPP4ZFA4FDKWARHQSG6';
+      const vnp_Url = 'https://sandbox.vnpayment.vn/paymentv2/vpcpay.html';
+      const vnp_ReturnUrl = window.location.origin + '/vnpay_return.html';
+      const orderId = Date.now();
+      const count = document.getElementById('ticketCount').value;
+      const amount = count * 75000 * 100;
+      const vnp_IpAddr = '127.0.0.1';
+      // Lưu thông tin booking chi tiết vào localStorage
+      const user = auth.currentUser;
+      const bookingData = {
+        movie: document.getElementById('movieTitle').textContent,
+        cinema: document.getElementById('cinemaSelect').options[document.getElementById('cinemaSelect').selectedIndex].textContent,
+        cinemaId: document.getElementById('cinemaSelect').value,
+        date: document.getElementById('dateSelect').value,
+        showtime: document.getElementById('showtimeSelect').value,
+        seats: selectedSeats,
+        seatCount: selectedSeats.length,
+        ticketCount: count,
+        totalAmount: selectedSeats.length * 75000,
+        timestamp: new Date().toISOString(),
+        booker: user ? (user.displayName || user.email) : '',
+        bookerEmail: user ? user.email : '',
+        // Nếu có input số điện thoại, lấy thêm
+        bookerPhone: document.getElementById('loginEmail') ? document.getElementById('loginEmail').value : ''
+      };
+      localStorage.setItem('pendingBooking', JSON.stringify(bookingData));
+      // --- Tạo URL thanh toán VNPay như cũ ---
+      const vnp_Params = {
+        vnp_Version: '2.1.0',
+        vnp_Command: 'pay',
+        vnp_TmnCode: vnp_TmnCode,
+        vnp_Locale: 'vn',
+        vnp_CurrCode: 'VND',
+        vnp_TxnRef: orderId,
+        vnp_OrderInfo: 'Thanh toan dat ve',
+        vnp_OrderType: 'other',
+        vnp_Amount: amount,
+        vnp_ReturnUrl: vnp_ReturnUrl,
+        vnp_IpAddr: vnp_IpAddr,
+        vnp_CreateDate: new Date().toISOString().replace(/[-:TZ.]/g, '').slice(0, 14)
+      };
+      const sortedParams = Object.keys(vnp_Params).sort().reduce((acc, key) => {
+        acc[key] = vnp_Params[key];
+        return acc;
+      }, {});
+      const signData = Object.keys(sortedParams)
+        .map(key => `${key}=${encodeURIComponent(sortedParams[key]).replace(/%20/g, '+')}`)
+        .join('&');
+      const hmac = window.CryptoJS.HmacSHA512(signData, vnp_HashSecret);
+      const vnp_SecureHash = hmac.toString(window.CryptoJS.enc.Hex);
+      sortedParams.vnp_SecureHash = vnp_SecureHash;
+      const paymentUrl = vnp_Url + '?' + Object.keys(sortedParams)
+        .map(key => `${key}=${encodeURIComponent(sortedParams[key]).replace(/%20/g, '+')}`)
+        .join('&');
+      window.location.href = paymentUrl;
+    }
+    document.getElementById('payVNPayBtn').onclick = window.vnpayCheckout;
+  </script>
+   <!-- Bottom Navigation cho mobile -->
+   <nav class="bottom-nav-mobile">
+    <a href="index.html" class="nav-item">
+      <i class="fas fa-home"></i>
+      <span>Trang chủ</span>
+    </a>
+    <a href="phim.html" class="nav-item">
+      <i class="fas fa-film"></i>
+      <span>Phim</span>
+    </a>
+    <a href="rapphim.html" class="nav-item">
+      <i class="fas fa-theater-masks"></i>
+      <span>Rạp</span>
+    </a>
+    <a href="tintuc.html" class="nav-item">
+      <i class="fas fa-newspaper"></i>
+      <span>Tin tức</span>
+    </a>
+    <a href="user.html" class="nav-item">
+      <i class="fas fa-user"></i>
+      <span>Tài khoản</span>
+    </a>
+  </nav>
+</body>
+</html> 

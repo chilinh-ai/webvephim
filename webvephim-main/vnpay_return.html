@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Kết quả thanh toán VNPay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body { background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); }
+    .result-card { animation: fadeInUp 0.7s cubic-bezier(.4,0,.2,1); }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .success-icon {
+      background: linear-gradient(135deg, #16a34a 0%, #4ade80 100%);
+      color: #fff;
+      border-radius: 50%;
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      margin: 0 auto 1.5rem auto;
+      box-shadow: 0 4px 16px rgba(22,163,74,0.15);
+    }
+    .fail-icon {
+      background: linear-gradient(135deg, #dc2626 0%, #f87171 100%);
+      color: #fff;
+      border-radius: 50%;
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      margin: 0 auto 1.5rem auto;
+      box-shadow: 0 4px 16px rgba(220,38,38,0.15);
+    }
+    .loading-spinner {
+      border: 4px solid #e5e7eb;
+      border-top: 4px solid #3b82f6;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      animation: spin 1s linear infinite;
+      margin: 2rem auto 1rem auto;
+    }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+    .detail-row { display: flex; justify-content: space-between; margin-bottom: 0.5rem; }
+    .detail-label { color: #64748b; font-weight: 500; }
+    .detail-value { color: #1e293b; font-weight: 600; }
+    .btn-home {
+      display: inline-block;
+      margin-top: 2rem;
+      background: linear-gradient(90deg, #ef4444 0%, #f59e42 100%);
+      color: #fff;
+      font-weight: 600;
+      padding: 0.75rem 2.5rem;
+      border-radius: 9999px;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px rgba(239,68,68,0.08);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-home:hover { background: linear-gradient(90deg, #f59e42 0%, #ef4444 100%); transform: translateY(-2px) scale(1.03); }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+  <div class="result-card bg-white rounded-2xl shadow-2xl p-8 max-w-lg w-full">
+    <div id="result" class="text-center text-lg text-gray-700">
+      <div class="loading-spinner"></div>
+      <div class="mt-4 text-base font-medium text-gray-500">Đang xử lý kết quả thanh toán...</div>
+    </div>
+  </div>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyATE49XCQGPrrw1zst5vBihoRuu2Ak1KHs",
+      authDomain: "webdatvexemphim-6f5a7.firebaseapp.com",
+      projectId: "webdatvexemphim-6f5a7",
+      storageBucket: "webdatvexemphim-6f5a7.firebasestorage.app",
+      messagingSenderId: "463304798196",
+      appId: "1:463304798196:web:4176c92111c925b1ca93a1",
+      measurementId: "G-J14FBB9ZBG",
+      databaseURL: "https://webdatvexemphim-6f5a7-default-rtdb.firebaseio.com"
+    };
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth(app);
+
+    function getVnpayParams() {
+      const params = {};
+      window.location.search.replace('?', '').split('&').forEach(pair => {
+        const [key, value] = pair.split('=');
+        params[key] = decodeURIComponent(value || '');
+      });
+      return params;
+    }
+    const vnpayParams = getVnpayParams();
+
+    function showSuccess(booking, vnpayParams) {
+      document.getElementById('result').innerHTML = `
+        <div class="success-icon"><i class="fas fa-check"></i></div>
+        <h2 class="text-2xl font-bold text-green-600 mb-2">Thanh toán thành công!</h2>
+        <div class="mb-4 text-gray-500">Cảm ơn bạn đã đặt vé tại <span class="font-semibold text-red-500">WBANVE</span></div>
+        <div class="rounded-xl bg-gray-50 p-4 mb-4">
+          <div class="detail-row"><span class="detail-label">Phim:</span><span class="detail-value">${booking.movie}</span></div>
+          <div class="detail-row"><span class="detail-label">Rạp:</span><span class="detail-value">${booking.cinema}</span></div>
+          <div class="detail-row"><span class="detail-label">Ngày:</span><span class="detail-value">${booking.date}</span></div>
+          <div class="detail-row"><span class="detail-label">Suất chiếu:</span><span class="detail-value">${booking.showtime}</span></div>
+          <div class="detail-row"><span class="detail-label">Ghế:</span><span class="detail-value">${Array.isArray(booking.seats) ? booking.seats.join(', ') : booking.seats}</span></div>
+          <div class="detail-row"><span class="detail-label">Tổng tiền:</span><span class="detail-value">${booking.totalAmount.toLocaleString()}đ</span></div>
+          <div class="detail-row"><span class="detail-label">Mã giao dịch:</span><span class="detail-value">${vnpayParams['vnp_TransactionNo'] || ''}</span></div>
+          <div class="detail-row"><span class="detail-label">Thời gian:</span><span class="detail-value">${vnpayParams['vnp_PayDate'] ? vnpayParams['vnp_PayDate'].replace(/(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/, '$3/$2/$1 $4:$5:$6') : ''}</span></div>
+        </div>
+        <a href="index.html" class="btn-home"><i class="fas fa-home mr-2"></i>Về trang chủ</a>
+      `;
+    }
+    function showFail() {
+      document.getElementById('result').innerHTML = `
+        <div class="fail-icon"><i class="fas fa-times"></i></div>
+        <h2 class="text-2xl font-bold text-red-600 mb-2">Thanh toán thất bại hoặc bị hủy!</h2>
+        <div class="mb-4 text-gray-500">Giao dịch không thành công. Vui lòng thử lại hoặc liên hệ hỗ trợ.</div>
+        <a href="index.html" class="btn-home"><i class="fas fa-home mr-2"></i>Về trang chủ</a>
+      `;
+    }
+
+    if (vnpayParams['vnp_ResponseCode'] === '00') {
+      const booking = JSON.parse(localStorage.getItem('pendingBooking'));
+      if (!booking) {
+        document.getElementById('result').innerHTML = '<span class="text-red-600 font-bold">Không tìm thấy thông tin đặt vé!</span>';
+      } else {
+        onAuthStateChanged(auth, async (user) => {
+          if (!user) {
+            showFail();
+            return;
+          }
+
+          try {
+            // Thêm thông tin user và payment
+            booking.userId = user.uid;
+            booking.userEmail = user.email;
+            booking.vnpay = vnpayParams;
+            booking.status = 'completed';
+            booking.paymentTime = new Date().toISOString();
+
+            // Lưu booking theo cấu trúc: bookings/cinema/date/showtime/timestamp
+            const bookingRef = ref(database, `bookings/${booking.cinema}/${booking.date}/${booking.showtime}/${Date.now()}`);
+            
+            // Thử lưu booking
+            await set(bookingRef, booking);
+            
+            // Nếu thành công, hiển thị thông báo
+            showSuccess(booking, vnpayParams);
+            localStorage.removeItem('pendingBooking');
+          } catch (error) {
+            console.error('Error saving booking:', error);
+            showFail();
+          }
+        });
+      }
+    } else {
+      showFail();
+    }
+  </script>
+</body>
+</html> 

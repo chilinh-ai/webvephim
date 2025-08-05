@@ -1,0 +1,1006 @@
+{
+  "popular": [
+    {
+      "id": 950387,
+      "title": "Một bộ phim Minecraft",
+      "original_title": "A Minecraft Movie",
+      "overview": "Chào mừng bạn đến với thế giới của Minecraft, nơi sự sáng tạo không chỉ giúp bạn chế tạo mà còn là yếu tố quan trọng để sống sót! Bốn kẻ lạc lõng - Garrett “The Garbage Man” Garrison (Momoa), Henry (Hansen), Natalie (Myers) và Dawn (Brooks) - bất ngờ gặp rắc rối khi họ bị kéo qua cánh cửa bí ẩn dẫn đến Overworld: một thế giới kỳ lạ được tạo bởi những khối lập phương và phát triển nhờ vào trí tưởng tượng. Để trở về nhà, họ cần phải làm chủ được thế giới này (và bảo vệ nó khỏi những thực thể tà ác như Piglins và Thây Ma) trong khi dấn thân vào chuyến phiêu lưu màu nhiệm với một thợ chế tạo chuyên nghiệp và khó lường - Steve (Black). Chuyến hành trình này sẽ thách thức sự can đảm của cả năm người, thúc đẩy họ tìm lại với những phẩm chất làm nên sự đặc biệt của riêng mình,… đồng thời là những kỹ năng cần thiết để trở lại với thế giới thật.",
+      "release_date": "2025-03-31",
+      "vote_average": 6.421,
+      "vote_count": 1067,
+      "popularity": 705.6832,
+      "runtime": 101,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 10751,
+          "name": "Phim Gia Đình"
+        },
+        {
+          "id": 35,
+          "name": "Phim Hài"
+        },
+        {
+          "id": 12,
+          "name": "Phim Phiêu Lưu"
+        },
+        {
+          "id": 14,
+          "name": "Phim Giả Tượng"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/wRrGBv4uNofBVyShxfS0iugbcm8.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/qdKGpTHVaaKaFTnRynQDg4qHdEv.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:31:39.691125",
+      "updated_at": "2025-05-16T15:31:39.691125"
+    },
+    {
+      "id": 1241436,
+      "title": "Ký Ức Chiến Tranh",
+      "original_title": "Warfare",
+      "overview": "Warfare (2025) tái hiện nhiệm vụ sinh tử của đội đặc nhiệm Navy SEAL tại Iraq vào ngày 19 tháng 11 năm 2006, khi họ chiếm giữ một ngôi nhà để giám sát khu vực. Phiến quân nhanh chóng bao vây, đẩy các binh sĩ vào cuộc giao tranh ác liệt với súng máy và lựu đạn. Bộ phim khai thác sự khắc nghiệt của chiến tranh, những hy sinh và tổn thương tâm lý mà người lính phải gánh chịu. Với cách kể chuyện chân thực, Warfare đem lại cảm giác nghẹt thở đầy ám ảnh.",
+      "release_date": "2025-04-09",
+      "vote_average": 7.1,
+      "vote_count": 296,
+      "popularity": 414.098,
+      "runtime": 95,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 10752,
+          "name": "Phim Chiến Tranh"
+        },
+        {
+          "id": 28,
+          "name": "Phim Hành Động"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/cJvUJEEQ86LSjl4gFLkYpdCJC96.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:31:40.769305",
+      "updated_at": "2025-05-16T15:31:40.769305"
+    },
+    {
+      "id": 977294,
+      "title": "Tin Soldier",
+      "original_title": "Tin Soldier",
+      "overview": "",
+      "release_date": "2025-05-22",
+      "vote_average": 5.929,
+      "vote_count": 7,
+      "popularity": 377.063,
+      "runtime": 87,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 28,
+          "name": "Phim Hành Động"
+        },
+        {
+          "id": 53,
+          "name": "Phim Gây Cấn"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/lFFDrFLXywFhy6khHes1LCFVMsL.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/jRvhP4AfFnJ03lCQhp1fie7XPSd.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:31:41.892230",
+      "updated_at": "2025-05-16T15:31:41.892230"
+    },
+    {
+      "id": 1144430,
+      "title": "Đạn Lạc 3",
+      "original_title": "Balle perdue 3",
+      "overview": "Thiên tài độ xe Lino tái xuất để dứt điểm mối thù với Areski và tên chỉ huy thối nát đã hủy hoại cuộc đời họ trong hồi kết nghẹt thở của bộ ba phim này.",
+      "release_date": "2025-05-06",
+      "vote_average": 6.738,
+      "vote_count": 101,
+      "popularity": 269.9192,
+      "runtime": 111,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 28,
+          "name": "Phim Hành Động"
+        },
+        {
+          "id": 80,
+          "name": "Phim Hình Sự"
+        },
+        {
+          "id": 53,
+          "name": "Phim Gây Cấn"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/xccJs9vGCEvch1H9SIMSjNqrLKU.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/4A5HH9HkCPqAwyYL6CnA0mxbYjn.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:31:42.949684",
+      "updated_at": "2025-05-16T15:31:42.949684"
+    },
+    {
+      "id": 1197306,
+      "title": "Mật Vụ Phụ Hồ",
+      "original_title": "A Working Man",
+      "overview": "Levon Cade - cựu biệt kích tinh nhuệ thuộc lực lượng Thủy quân Lục chiến Hoàng gia Anh. Sau khi nghỉ hưu, anh sống cuộc đời yên bình là một công nhân xây dựng tại Chicago (Mỹ). Levon có mối quan hệ rất tốt với gia đình ông chủ Joe Garcia (Michael Peña). Một ngày nọ, cô con gái tuổi teen Jenny (Arianna Rivas) của Joe bị bắt cóc khiến chàng cựu quân nhân phải sử dụng lại các kỹ năng giết chóc của mình để giúp đỡ.",
+      "release_date": "2025-03-26",
+      "vote_average": 6.511,
+      "vote_count": 665,
+      "popularity": 311.0615,
+      "runtime": 116,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 28,
+          "name": "Phim Hành Động"
+        },
+        {
+          "id": 80,
+          "name": "Phim Hình Sự"
+        },
+        {
+          "id": 53,
+          "name": "Phim Gây Cấn"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/d66EBr8bAhSbEAeTZ75YDbOToqc.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/fTrQsdMS2MUw00RnzH0r3JWHhts.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:31:44.031616",
+      "updated_at": "2025-05-16T15:31:44.031616"
+    },
+    {
+      "id": 447273,
+      "title": "Nàng Bạch Tuyết",
+      "original_title": "Snow White",
+      "overview": "Câu chuyện của Nàng Bạch Tuyết ban đầu cũng giống như cổ tích, khi nàng công chúa mới chào đời, mang niềm vui và sự ấm áp tới cả vương quốc xinh đẹp. Mẹ mất sớm, cha bao bọc nàng bằng tất cả tình yêu thương, dạy nàng phải sống không sợ hãi, công bằng, dũng cảm và chân thành. Bạch Tuyết càng lớn lên càng lay động lòng người, với vẻ đẹp thuần khiết như ánh nắng ban mai và một trái tim thiện lương, nhân hậu. Thế nhưng, những ngày tháng vui vẻ không kéo dài lâu khi cha cô cũng qua đời. Ngày hoàng hậu mới lên ngôi, bóng tối bao trùm cả vương quốc. Độc ác và đầy dã tâm, ả không có lòng khoan dung, sẵn sàng trừng phạt bất cứ ai dám làm trái lệnh. Sự ghen ghét, đố kỵ của mẹ kế đẩy Bạch Tuyết vào cảnh nguy hiểm. Nàng phải chạy trốn vào rừng sâu, nơi cuộc phiêu lưu của nàng bắt đầu với những người bạn tốt bụng mới.",
+      "release_date": "2025-03-12",
+      "vote_average": 4.351,
+      "vote_count": 752,
+      "popularity": 328.7418,
+      "runtime": 109,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 10751,
+          "name": "Phim Gia Đình"
+        },
+        {
+          "id": 14,
+          "name": "Phim Giả Tượng"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/24vmIaNTaXPXKdveylQ2C3hcWaD.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/tyfO9jHgkhypUFizRVYD0bytPjP.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:31:45.123921",
+      "updated_at": "2025-05-16T15:31:45.123921"
+    },
+    {
+      "id": 897160,
+      "title": "Cô Giáo Em Là Số 1",
+      "original_title": "용감한 시민",
+      "overview": "Si-min (do Shin Hae-sun thủ vai) là một võ sĩ quyền anh đầy triển vọng nhưng đã từ bỏ quyền thi đấu tại kỳ Thế vận hội Olympic để lấy tiền trả nợ cho cha. Từ đó, Si-min cũng nhận ra rằng, cuộc sống vốn không công bằng và “công lý không thể mài ra cơm”. Si-min gạt phăng giấc mơ trở thành võ sĩ quyền anh và quyết tâm trở thành giáo viên, với mong muốn về một cuộc sống ổn định hơn. Cô trở thành giáo viên hợp đồng của một trường trung học có tiếng cùng mục tiêu trở thành giáo viên chính thức ở đây. Để có thể nhanh chóng hoàn thành nguyện vọng, cô đã nỗ lực kìm nén cái tôi xuống đáy, luôn mỉm cười cho qua, bất chấp mọi tình huống trớ trêu xảy đến với mình. Tuy nhiên, Su-gang (do Lee Jun-young thủ vai) - kẻ cầm đầu của một băng đảng quậy phá, chuyên đi bắt nạt và hành hạ người yếu thế đã phá vỡ quy tắc của Si-min. Không thể chịu đựng được những hành vi bạo lực học đường của Su-gang, Si-min đeo lên một chiếc mặt nạ mèo và dạy cho tên côn đồ một bài học đáng nhớ.",
+      "release_date": "2023-10-25",
+      "vote_average": 7.1,
+      "vote_count": 36,
+      "popularity": 238.9575,
+      "runtime": 112,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 28,
+          "name": "Phim Hành Động"
+        },
+        {
+          "id": 18,
+          "name": "Phim Chính Kịch"
+        },
+        {
+          "id": 35,
+          "name": "Phim Hài"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/oVJDtwC41sGx5zmWiEkhqwBlopD.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/9yMmIou6xMtw2A61xiMsEcAhTrL.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:31:46.214940",
+      "updated_at": "2025-05-16T15:31:46.214940"
+    },
+    {
+      "id": 986056,
+      "title": "Biệt Đội Sấm Sét*",
+      "original_title": "Thunderbolts*",
+      "overview": "Sau khi thấy mình bị mắc kẹt trong một cái bẫy chết người, bảy người bị bỏ rơi vỡ mộng phải bắt tay vào một nhiệm vụ nguy hiểm sẽ buộc họ phải đối mặt với những góc đen tối nhất trong quá khứ của họ.",
+      "release_date": "2025-04-30",
+      "vote_average": 7.499,
+      "vote_count": 839,
+      "popularity": 255.418,
+      "runtime": 127,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 28,
+          "name": "Phim Hành Động"
+        },
+        {
+          "id": 878,
+          "name": "Phim Khoa Học Viễn Tưởng"
+        },
+        {
+          "id": 12,
+          "name": "Phim Phiêu Lưu"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/8SHwKExQ9dkR8xEmtT3y2vrHZEY.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/rthMuZfFv4fqEU4JVbgSW9wQ8rs.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:31:47.277955",
+      "updated_at": "2025-05-16T15:31:47.277955"
+    },
+    {
+      "id": 1359977,
+      "title": "Conjuring the Cult",
+      "original_title": "Conjuring the Cult",
+      "overview": "",
+      "release_date": "2024-10-01",
+      "vote_average": 4.2,
+      "vote_count": 15,
+      "popularity": 230.1112,
+      "runtime": 93,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 27,
+          "name": "Phim Kinh Dị"
+        },
+        {
+          "id": 18,
+          "name": "Phim Chính Kịch"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/t4MiAeYpjL7saYvqvcn9xtOfA4K.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/mrmaTVp7PTBkjj5G62cE9pjrENg.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:31:48.379104",
+      "updated_at": "2025-05-16T15:31:48.379104"
+    },
+    {
+      "id": 574475,
+      "title": "Lưỡi hái tử thần: Huyết thống",
+      "original_title": "Final Destination Bloodlines",
+      "overview": "",
+      "release_date": "2025-05-09",
+      "vote_average": 7.213,
+      "vote_count": 82,
+      "popularity": 241.8773,
+      "runtime": 110,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 27,
+          "name": "Phim Kinh Dị"
+        },
+        {
+          "id": 9648,
+          "name": "Phim Bí Ẩn"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/cAoktVUBhGyULRoxV6mZ2LB3x7I.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/j0NUh5irX7q2jIRtbLo8TZyRn6y.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:31:49.547031",
+      "updated_at": "2025-05-16T15:31:49.547031"
+    }
+  ],
+  "coming_soon": [
+    {
+      "id": 977294,
+      "title": "Tin Soldier",
+      "original_title": "Tin Soldier",
+      "overview": "",
+      "release_date": "2025-05-22",
+      "vote_average": 5.929,
+      "vote_count": 7,
+      "popularity": 377.063,
+      "runtime": 87,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 28,
+          "name": "Phim Hành Động"
+        },
+        {
+          "id": 53,
+          "name": "Phim Gây Cấn"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/lFFDrFLXywFhy6khHes1LCFVMsL.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/jRvhP4AfFnJ03lCQhp1fie7XPSd.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:31:51.199958",
+      "updated_at": "2025-05-16T15:31:51.199958"
+    },
+    {
+      "id": 574475,
+      "title": "Lưỡi hái tử thần: Huyết thống",
+      "original_title": "Final Destination Bloodlines",
+      "overview": "",
+      "release_date": "2025-05-09",
+      "vote_average": 7.213,
+      "vote_count": 82,
+      "popularity": 241.8773,
+      "runtime": 110,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 27,
+          "name": "Phim Kinh Dị"
+        },
+        {
+          "id": 9648,
+          "name": "Phim Bí Ẩn"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/cAoktVUBhGyULRoxV6mZ2LB3x7I.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/j0NUh5irX7q2jIRtbLo8TZyRn6y.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:31:52.266432",
+      "updated_at": "2025-05-16T15:31:52.266432"
+    },
+    {
+      "id": 1153714,
+      "title": "Cái Chết Con Kỳ Lân",
+      "original_title": "Death of a Unicorn",
+      "overview": "Trên đường đến kỳ nghỉ cuối tuần, hai cha con (Paul Rudd và Jenna Ortega) vô tình đâm phải... một con kỳ lân! Chuyện càng trở nên rắc rối khi ông chủ tỷ phú (Richard E. Grant) của người cha phát hiện ra sinh vật huyền thoại này có khả năng chữa lành kỳ diệu – và sẵn sàng làm mọi cách để khai thác nó. Một tai nạn kỳ quặc dẫn đến một chuỗi sự kiện dở khóc dở cười, nơi gia đình, lòng tham và phép màu va chạm đầy bất ngờ.",
+      "release_date": "2025-03-27",
+      "vote_average": 6.5,
+      "vote_count": 199,
+      "popularity": 122.8204,
+      "runtime": 107,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 27,
+          "name": "Phim Kinh Dị"
+        },
+        {
+          "id": 14,
+          "name": "Phim Giả Tượng"
+        },
+        {
+          "id": 35,
+          "name": "Phim Hài"
+        },
+        {
+          "id": 12,
+          "name": "Phim Phiêu Lưu"
+        },
+        {
+          "id": 878,
+          "name": "Phim Khoa Học Viễn Tưởng"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/hlnMWnbtNAyU50hiU3fkQXojsVG.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/zz6DywhCTRHxrRXCjXU71edNOUX.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:31:53.380326",
+      "updated_at": "2025-05-16T15:31:53.380326"
+    },
+    {
+      "id": 1011477,
+      "title": "Siêu Nhí Karate: Những Huyền Thoại",
+      "original_title": "Karate Kid: Legends",
+      "overview": "",
+      "release_date": "2025-05-08",
+      "vote_average": 7.32,
+      "vote_count": 25,
+      "popularity": 119.6798,
+      "runtime": 94,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 28,
+          "name": "Phim Hành Động"
+        },
+        {
+          "id": 12,
+          "name": "Phim Phiêu Lưu"
+        },
+        {
+          "id": 18,
+          "name": "Phim Chính Kịch"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/ckI6bmQDvvGy20FPTIW1kfGKGRK.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/tGjo4L15aELqZGqQH3ThZQGMKmL.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:31:54.559354",
+      "updated_at": "2025-05-16T15:31:54.559354"
+    },
+    {
+      "id": 1233413,
+      "title": "Tội Đồ",
+      "original_title": "Sinners",
+      "overview": "Cố gắng bỏ lại cuộc sống đầy rắc rối của mình, hai anh em sinh đôi trở về quê hương để bắt đầu lại, chỉ để phát hiện ra rằng một cái ác thậm chí còn lớn hơn đang chờ đợi để chào đón họ trở lại.",
+      "release_date": "2025-04-16",
+      "vote_average": 7.6,
+      "vote_count": 690,
+      "popularity": 114.5808,
+      "runtime": 138,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 27,
+          "name": "Phim Kinh Dị"
+        },
+        {
+          "id": 53,
+          "name": "Phim Gây Cấn"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/x3KxN6LUDbIdNwcsjrgizt7nTZU.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/nAxGnGHOsfzufThz20zgmRwKur3.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:31:55.656760",
+      "updated_at": "2025-05-16T15:31:55.656760"
+    },
+    {
+      "id": 575265,
+      "title": "Nhiệm Vụ: Bất Khả Thi - Nghiệp Báo Cuối Cùng",
+      "original_title": "Mission: Impossible - The Final Reckoning",
+      "overview": "Sau khi thoát khỏi vụ tai nạn tàu hỏa thảm khốc, Ethan nhận ra The Entity đang được giấu trên một chiếc tàu ngầm cũ của Nga, nhưng một kẻ thù trong quá khứ của anh tên là Gabriel cũng đang truy đuổi.",
+      "release_date": "2025-05-17",
+      "vote_average": 8.6,
+      "vote_count": 5,
+      "popularity": 101.183,
+      "runtime": 170,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 28,
+          "name": "Phim Hành Động"
+        },
+        {
+          "id": 12,
+          "name": "Phim Phiêu Lưu"
+        },
+        {
+          "id": 53,
+          "name": "Phim Gây Cấn"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/wxnbCpRKs8FV1SLZYA0mj1x26f9.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/7ONMDhnErvpkKvkZqM82ud7bzcT.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:31:56.742338",
+      "updated_at": "2025-05-16T15:31:56.742338"
+    },
+    {
+      "id": 552524,
+      "title": "Lilo & Stitch",
+      "original_title": "Lilo & Stitch",
+      "overview": "",
+      "release_date": "2025-05-21",
+      "vote_average": 0.0,
+      "vote_count": 0,
+      "popularity": 59.032,
+      "runtime": 108,
+      "status": "Post Production",
+      "genres": [
+        {
+          "id": 10751,
+          "name": "Phim Gia Đình"
+        },
+        {
+          "id": 35,
+          "name": "Phim Hài"
+        },
+        {
+          "id": 878,
+          "name": "Phim Khoa Học Viễn Tưởng"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/aOfmWQHIdunw4Xnc4ZL7DUDDgNl.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/eCqIpFpYIcZpCBexU3y8BfZKR7f.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:31:57.824418",
+      "updated_at": "2025-05-16T15:31:57.824418"
+    },
+    {
+      "id": 1083968,
+      "title": "Locked",
+      "original_title": "Locked",
+      "overview": "",
+      "release_date": "2025-03-20",
+      "vote_average": 6.3,
+      "vote_count": 132,
+      "popularity": 48.7835,
+      "runtime": 95,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 53,
+          "name": "Phim Gây Cấn"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/hhkiqXpfpufwxVrdSftzeKIANl3.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/r4X2xRrWleVgx0kahP27xRmm3ia.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:31:58.900733",
+      "updated_at": "2025-05-16T15:31:58.900733"
+    },
+    {
+      "id": 1244944,
+      "title": "Người Đàn Bà Ngoài Sân",
+      "original_title": "The Woman in the Yard",
+      "overview": "Góa phụ Ramona cố gắng nuôi dạy hai con sau khi chồng mất, nhưng sự xuất hiện của một người phụ nữ có năng lực siêu nhiên khiến mọi thứ đảo lộn.",
+      "release_date": "2025-03-27",
+      "vote_average": 6.261,
+      "vote_count": 155,
+      "popularity": 48.3932,
+      "runtime": 87,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 27,
+          "name": "Phim Kinh Dị"
+        },
+        {
+          "id": 9648,
+          "name": "Phim Bí Ẩn"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/n0WS2TsNcS6dtaZKzxipyO7LuCJ.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/3lEV4CoKoeT2cZ4fbKEJugZcw6Z.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:32:00.006902",
+      "updated_at": "2025-05-16T15:32:00.006902"
+    },
+    {
+      "id": 519182,
+      "title": "Kẻ Trộm Mặt Trăng 4",
+      "original_title": "Despicable Me 4",
+      "overview": "Tiếp nối những sự kiện trong phần ba Despicable Me 3 (2017), giờ đây Gru (Steve Carrell lồng tiếng) đã hoàn lương, hạn chế tham gia các hoạt động phi pháp. Ngoài vợ Lucy Wilde và các cô con gái nuôi Margo, Edith, Agnes, giờ đây gia đình Gru còn đón thêm thành viên mới là nhóc tì Gru Junior - con trai đầu lòng của anh. Tuy nhiên, sự an toàn của gia đình Gru nhanh chóng bị đe dọa khi kẻ thù cũ của anh là Maxime Le Mal (Will Ferrell lồng tiếng) đã trốn khỏi nhà tù, hắn lên kế hoạch trả thù và thanh toán nợ cũ với Gru. Đồng hành với Maxime còn có người yêu Valentina của gã. Do đó, Gru buộc phải đứng lên đối mặt với kẻ thù để bảo vệ gia đình và các Minions.",
+      "release_date": "2024-06-20",
+      "vote_average": 7.045,
+      "vote_count": 2754,
+      "popularity": 42.4491,
+      "runtime": 94,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 16,
+          "name": "Phim Hoạt Hình"
+        },
+        {
+          "id": 10751,
+          "name": "Phim Gia Đình"
+        },
+        {
+          "id": 35,
+          "name": "Phim Hài"
+        },
+        {
+          "id": 878,
+          "name": "Phim Khoa Học Viễn Tưởng"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/lYr8DyAz9HeQX4ZFOhYWEYwKe2h.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/lgkPzcOSnTvjeMnuFzozRO5HHw1.jpg"
+      },
+      "videos": {
+        "trailer": "https://www.themoviedb.org/movie/519182/videos"
+      },
+      "created_at": "2025-05-16T15:32:01.103930",
+      "updated_at": "2025-05-16T15:32:01.103930"
+    }
+  ],
+  "now_showing": [
+    {
+      "id": 950387,
+      "title": "Một bộ phim Minecraft",
+      "original_title": "A Minecraft Movie",
+      "overview": "Chào mừng bạn đến với thế giới của Minecraft, nơi sự sáng tạo không chỉ giúp bạn chế tạo mà còn là yếu tố quan trọng để sống sót! Bốn kẻ lạc lõng - Garrett “The Garbage Man” Garrison (Momoa), Henry (Hansen), Natalie (Myers) và Dawn (Brooks) - bất ngờ gặp rắc rối khi họ bị kéo qua cánh cửa bí ẩn dẫn đến Overworld: một thế giới kỳ lạ được tạo bởi những khối lập phương và phát triển nhờ vào trí tưởng tượng. Để trở về nhà, họ cần phải làm chủ được thế giới này (và bảo vệ nó khỏi những thực thể tà ác như Piglins và Thây Ma) trong khi dấn thân vào chuyến phiêu lưu màu nhiệm với một thợ chế tạo chuyên nghiệp và khó lường - Steve (Black). Chuyến hành trình này sẽ thách thức sự can đảm của cả năm người, thúc đẩy họ tìm lại với những phẩm chất làm nên sự đặc biệt của riêng mình,… đồng thời là những kỹ năng cần thiết để trở lại với thế giới thật.",
+      "release_date": "2025-03-31",
+      "vote_average": 6.421,
+      "vote_count": 1067,
+      "popularity": 705.6832,
+      "runtime": 101,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 10751,
+          "name": "Phim Gia Đình"
+        },
+        {
+          "id": 35,
+          "name": "Phim Hài"
+        },
+        {
+          "id": 12,
+          "name": "Phim Phiêu Lưu"
+        },
+        {
+          "id": 14,
+          "name": "Phim Giả Tượng"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/wRrGBv4uNofBVyShxfS0iugbcm8.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/qdKGpTHVaaKaFTnRynQDg4qHdEv.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:32:02.891703",
+      "updated_at": "2025-05-16T15:32:02.891703"
+    },
+    {
+      "id": 1241436,
+      "title": "Ký Ức Chiến Tranh",
+      "original_title": "Warfare",
+      "overview": "Warfare (2025) tái hiện nhiệm vụ sinh tử của đội đặc nhiệm Navy SEAL tại Iraq vào ngày 19 tháng 11 năm 2006, khi họ chiếm giữ một ngôi nhà để giám sát khu vực. Phiến quân nhanh chóng bao vây, đẩy các binh sĩ vào cuộc giao tranh ác liệt với súng máy và lựu đạn. Bộ phim khai thác sự khắc nghiệt của chiến tranh, những hy sinh và tổn thương tâm lý mà người lính phải gánh chịu. Với cách kể chuyện chân thực, Warfare đem lại cảm giác nghẹt thở đầy ám ảnh.",
+      "release_date": "2025-04-09",
+      "vote_average": 7.1,
+      "vote_count": 296,
+      "popularity": 414.098,
+      "runtime": 95,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 10752,
+          "name": "Phim Chiến Tranh"
+        },
+        {
+          "id": 28,
+          "name": "Phim Hành Động"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/cJvUJEEQ86LSjl4gFLkYpdCJC96.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:32:03.988726",
+      "updated_at": "2025-05-16T15:32:03.988726"
+    },
+    {
+      "id": 447273,
+      "title": "Nàng Bạch Tuyết",
+      "original_title": "Snow White",
+      "overview": "Câu chuyện của Nàng Bạch Tuyết ban đầu cũng giống như cổ tích, khi nàng công chúa mới chào đời, mang niềm vui và sự ấm áp tới cả vương quốc xinh đẹp. Mẹ mất sớm, cha bao bọc nàng bằng tất cả tình yêu thương, dạy nàng phải sống không sợ hãi, công bằng, dũng cảm và chân thành. Bạch Tuyết càng lớn lên càng lay động lòng người, với vẻ đẹp thuần khiết như ánh nắng ban mai và một trái tim thiện lương, nhân hậu. Thế nhưng, những ngày tháng vui vẻ không kéo dài lâu khi cha cô cũng qua đời. Ngày hoàng hậu mới lên ngôi, bóng tối bao trùm cả vương quốc. Độc ác và đầy dã tâm, ả không có lòng khoan dung, sẵn sàng trừng phạt bất cứ ai dám làm trái lệnh. Sự ghen ghét, đố kỵ của mẹ kế đẩy Bạch Tuyết vào cảnh nguy hiểm. Nàng phải chạy trốn vào rừng sâu, nơi cuộc phiêu lưu của nàng bắt đầu với những người bạn tốt bụng mới.",
+      "release_date": "2025-03-12",
+      "vote_average": 4.351,
+      "vote_count": 752,
+      "popularity": 328.7418,
+      "runtime": 109,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 10751,
+          "name": "Phim Gia Đình"
+        },
+        {
+          "id": 14,
+          "name": "Phim Giả Tượng"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/24vmIaNTaXPXKdveylQ2C3hcWaD.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/tyfO9jHgkhypUFizRVYD0bytPjP.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:32:05.031613",
+      "updated_at": "2025-05-16T15:32:05.031613"
+    },
+    {
+      "id": 1144430,
+      "title": "Đạn Lạc 3",
+      "original_title": "Balle perdue 3",
+      "overview": "Thiên tài độ xe Lino tái xuất để dứt điểm mối thù với Areski và tên chỉ huy thối nát đã hủy hoại cuộc đời họ trong hồi kết nghẹt thở của bộ ba phim này.",
+      "release_date": "2025-05-06",
+      "vote_average": 6.738,
+      "vote_count": 101,
+      "popularity": 269.9192,
+      "runtime": 111,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 28,
+          "name": "Phim Hành Động"
+        },
+        {
+          "id": 80,
+          "name": "Phim Hình Sự"
+        },
+        {
+          "id": 53,
+          "name": "Phim Gây Cấn"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/xccJs9vGCEvch1H9SIMSjNqrLKU.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/4A5HH9HkCPqAwyYL6CnA0mxbYjn.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:32:06.113891",
+      "updated_at": "2025-05-16T15:32:06.113891"
+    },
+    {
+      "id": 1197306,
+      "title": "Mật Vụ Phụ Hồ",
+      "original_title": "A Working Man",
+      "overview": "Levon Cade - cựu biệt kích tinh nhuệ thuộc lực lượng Thủy quân Lục chiến Hoàng gia Anh. Sau khi nghỉ hưu, anh sống cuộc đời yên bình là một công nhân xây dựng tại Chicago (Mỹ). Levon có mối quan hệ rất tốt với gia đình ông chủ Joe Garcia (Michael Peña). Một ngày nọ, cô con gái tuổi teen Jenny (Arianna Rivas) của Joe bị bắt cóc khiến chàng cựu quân nhân phải sử dụng lại các kỹ năng giết chóc của mình để giúp đỡ.",
+      "release_date": "2025-03-26",
+      "vote_average": 6.511,
+      "vote_count": 665,
+      "popularity": 311.0615,
+      "runtime": 116,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 28,
+          "name": "Phim Hành Động"
+        },
+        {
+          "id": 80,
+          "name": "Phim Hình Sự"
+        },
+        {
+          "id": 53,
+          "name": "Phim Gây Cấn"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/d66EBr8bAhSbEAeTZ75YDbOToqc.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/fTrQsdMS2MUw00RnzH0r3JWHhts.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:32:07.163940",
+      "updated_at": "2025-05-16T15:32:07.163940"
+    },
+    {
+      "id": 986056,
+      "title": "Biệt Đội Sấm Sét*",
+      "original_title": "Thunderbolts*",
+      "overview": "Sau khi thấy mình bị mắc kẹt trong một cái bẫy chết người, bảy người bị bỏ rơi vỡ mộng phải bắt tay vào một nhiệm vụ nguy hiểm sẽ buộc họ phải đối mặt với những góc đen tối nhất trong quá khứ của họ.",
+      "release_date": "2025-04-30",
+      "vote_average": 7.499,
+      "vote_count": 839,
+      "popularity": 255.418,
+      "runtime": 127,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 28,
+          "name": "Phim Hành Động"
+        },
+        {
+          "id": 878,
+          "name": "Phim Khoa Học Viễn Tưởng"
+        },
+        {
+          "id": 12,
+          "name": "Phim Phiêu Lưu"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/8SHwKExQ9dkR8xEmtT3y2vrHZEY.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/rthMuZfFv4fqEU4JVbgSW9wQ8rs.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:32:09.053999",
+      "updated_at": "2025-05-16T15:32:09.053999"
+    },
+    {
+      "id": 574475,
+      "title": "Lưỡi hái tử thần: Huyết thống",
+      "original_title": "Final Destination Bloodlines",
+      "overview": "",
+      "release_date": "2025-05-09",
+      "vote_average": 7.213,
+      "vote_count": 82,
+      "popularity": 241.8773,
+      "runtime": 110,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 27,
+          "name": "Phim Kinh Dị"
+        },
+        {
+          "id": 9648,
+          "name": "Phim Bí Ẩn"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/cAoktVUBhGyULRoxV6mZ2LB3x7I.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/j0NUh5irX7q2jIRtbLo8TZyRn6y.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:32:10.124524",
+      "updated_at": "2025-05-16T15:32:10.124524"
+    },
+    {
+      "id": 1233069,
+      "title": "Ngoài lãnh thổ",
+      "original_title": "Exterritorial",
+      "overview": "Khi con trai mất tích bên trong lãnh sự quán Hoa Kỳ, cựu lính đặc nhiệm Sara đã làm mọi cách để tìm kiếm con mình... và rồi phát hiện ra một âm mưu đen tối.",
+      "release_date": "2025-04-29",
+      "vote_average": 6.575,
+      "vote_count": 321,
+      "popularity": 219.8233,
+      "runtime": 109,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 53,
+          "name": "Phim Gây Cấn"
+        },
+        {
+          "id": 28,
+          "name": "Phim Hành Động"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/wqllCospPViEt7AeYIl4ZskKdSj.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/bVm6udIB6iKsRqgMdQh6HywuEBj.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:32:11.225356",
+      "updated_at": "2025-05-16T15:32:11.225356"
+    },
+    {
+      "id": 710258,
+      "title": "Chạy Trốn Cái Chết",
+      "original_title": "Rust",
+      "overview": "\"Rust\" là phim cao bồi lấy bối cảnh năm 1882 tại Wyoming. Nhân vật chính là Harland Rust (Alec Baldwin), một tay súng sống ngoài vòng pháp luật, tìm cách cứu đứa cháu trai Lucas Hollister, 13 tuổi, khỏi án tử hình sau khi cậu bé vô tình bắn chết một người. Họ cùng nhau chạy trốn về phía Mexico, bị truy đuổi bởi cảnh sát trưởng và thợ săn tiền thưởng. Trên đường đi, cả hai phải đối mặt với những bóng ma trong quá khứ và mối liên kết gia đình được xây dựng lại trong nghịch cảnh.",
+      "release_date": "2025-05-01",
+      "vote_average": 6.411,
+      "vote_count": 45,
+      "popularity": 150.756,
+      "runtime": 0,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 37,
+          "name": "Phim Miền Tây"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/tbJ3RkA2s6X5qrBzrYHYTxvDBui.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/12tEzU0bNYKIjXXEwI5abuOotHF.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:32:12.392499",
+      "updated_at": "2025-05-16T15:32:12.392499"
+    },
+    {
+      "id": 1094473,
+      "title": "Bambi, l'histoire d'une vie dans les bois",
+      "original_title": "Bambi, l'histoire d'une vie dans les bois",
+      "overview": "",
+      "release_date": "2024-10-16",
+      "vote_average": 6.167,
+      "vote_count": 12,
+      "popularity": 182.1764,
+      "runtime": 77,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 12,
+          "name": "Phim Phiêu Lưu"
+        },
+        {
+          "id": 10751,
+          "name": "Phim Gia Đình"
+        }
+      ],
+      "images": {
+        "poster": "https://image.tmdb.org/t/p/original/nP7BaO9rObeav8SqcBcfcVoQN8g.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/bIh56F8e5EaZ3r2nD1hXAOisItZ.jpg"
+      },
+      "videos": {
+        "trailer": null
+      },
+      "created_at": "2025-05-16T15:32:13.520763",
+      "updated_at": "2025-05-16T15:32:13.520763"
+    }
+  ]
+}

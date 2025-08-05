@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phim - WBANVE</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/1179/1179120.png">
+  <link rel="stylesheet" href="mobile.css" media="(max-width: 768px)">
+  <link rel="stylesheet" href="anbottom-nav-mobile.css">
+  <style>
+    /* Copy all styles from index.html */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    .movie-card {
+      flex: 0 0 280px;
+      max-width: 280px;
+      min-width: 280px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      margin: 0;
+      height: 650px;
+      display: flex;
+      flex-direction: column;
+    }
+    .movie-card:hover {
+      transform: translateY(-5px);
+    }
+    .movie-poster {
+      position: relative;
+      overflow: hidden;
+      height: 320px;
+      flex-shrink: 0;
+    }
+    .movie-poster img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .movie-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .movie-card:hover .movie-overlay {
+      opacity: 1;
+    }
+    .btn-book, .btn-trailer {
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+    .btn-book {
+      background: #dc2626;
+      color: white;
+    }
+    .btn-trailer {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+    .filter-section {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .filter-group {
+      margin-bottom: 1rem;
+    }
+    .filter-group:last-child {
+      margin-bottom: 0;
+    }
+    .filter-label {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #374151;
+    }
+    .filter-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .filter-option {
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      background: #f3f4f6;
+      color: #4b5563;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .filter-option:hover, .filter-option.active {
+      background: #dc2626;
+      color: white;
+    }
+    .movie-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 1rem 0;
+    }
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+    .pagination-item {
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      background: white;
+      color: #4b5563;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .pagination-item:hover, .pagination-item.active {
+      background: #dc2626;
+      color: white;
+    }
+    .footer-section {
+      transition: transform 0.3s ease;
+    }
+    .footer-section:hover {
+      transform: translateY(-5px);
+    }
+    .social-links a {
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .social-links a:hover {
+      transform: translateY(-3px);
+      color: #dc2626;
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .footer-section {
+      padding: 1rem;
+    }
+    .footer-section h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    .footer-section p {
+      color: #9ca3af;
+      line-height: 1.6;
+    }
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer-section ul li {
+      margin-bottom: 0.75rem;
+    }
+    .footer-section ul li a {
+      color: #9ca3af;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer-section ul li a:hover {
+      color: #dc2626;
+    }
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .social-links a {
+      color: #9ca3af;
+      font-size: 1.25rem;
+      transition: all 0.3s ease;
+    }
+    .social-links a:hover {
+      color: #dc2626;
+      transform: translateY(-3px);
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #374151;
+      color: #9ca3af;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <!-- Header -->
+  <header class="main-header bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4">
+      <!-- Top header -->
+      <div class="flex items-center justify-between py-4 border-b border-gray-100">
+        <a href="index.html" class="logo flex items-center space-x-2">
+          <img src="https://cdn-icons-png.flaticon.com/512/1179/1179120.png" alt="Logo" class="h-10 w-auto">
+          <span class="text-2xl font-bold text-red-600 tracking-wide">WBANVE</span>
+        </a>
+
+        <div class="flex items-center space-x-4">
+          <!-- <button aria-label="Vietnamese language" class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:ring-2 hover:ring-red-600 focus:outline-none"> -->
+            <!-- <img alt="Vietnamese flag icon" class="w-5 h-auto" src="https://storage.googleapis.com/a1aa/image/c6a59d7c-4b04-4304-b74a-d43348b3c681.jpg"> -->
+          </button>
+          <a href="#" class="btn-login border border-red-600 text-red-600 px-4 py-1 rounded hover:bg-red-600 hover:text-white transition">Đăng nhập</a>
+          <a href="#" class="btn-register bg-red-600 text-white px-4 py-1 rounded hover:bg-red-700 transition">Đăng ký</a>
+        </div>
+      </div>
+
+      <!-- Bottom header -->
+      <nav class="main-nav hidden md:flex items-center justify-center py-4 space-x-8">
+        <a href="index.html" class="hover:te  xt-red-600 transition font-medium">Trang chủ</a>
+        <a href="phim.html" class="text-red-600 font-medium">Phim</a>
+        <a href="rapphim.html" class="hover:text-red-600 transition font-medium">Rạp chiếu</a>
+        <a href="tintuc.html" class="hover:text-red-600 transition font-medium">Tin tức</a>
+        <a href="khuyenmai.html" class="hover:text-red-600 transition font-medium">Khuyến mãi</a>
+        <a href="lienhe.html" class="hover:text-red-600 transition font-medium">Liên hệ</a>
+        <a href="user.html" class="hover:text-red-600 transition font-medium">Tài khoản</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="max-w-[1200px] mx-auto px-4 py-3 text-white text-sm font-normal bg-red-600">
+    <nav aria-label="Breadcrumb" class="flex items-center space-x-1">
+      <a href="index.html" class="hover:text-white/80">Trang chủ</a>
+      <span class="text-white/70">/</span>
+      <span class="font-semibold">Phim</span>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <main class="max-w-[1200px] mx-auto px-4 py-8">
+    <div class="flex flex-col lg:flex-row gap-8">
+      <!-- Filters Sidebar -->
+      <aside class="w-full lg:w-64 flex-shrink-0">
+        <div class="filter-section">
+          <div class="filter-group">
+            <h3 class="filter-label">Thể loại</h3>
+            <div class="filter-options">
+              <span class="filter-option active">Tất cả</span>
+              <span class="filter-option">Hành động</span>
+              <span class="filter-option">Hài</span>
+              <span class="filter-option">Tình cảm</span>
+              <span class="filter-option">Khoa học viễn tưởng</span>
+              <span class="filter-option">Phiêu lưu</span>
+              <span class="filter-option">Kinh dị</span>
+              <span class="filter-option">Hoạt hình</span>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h3 class="filter-label">Định dạng</h3>
+            <div class="filter-options">
+              <span class="filter-option active">Tất cả</span>
+              <span class="filter-option">2D</span>
+              <span class="filter-option">3D</span>
+              <span class="filter-option">IMAX</span>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h3 class="filter-label">Quốc gia</h3>
+            <div class="filter-options">
+              <span class="filter-option active">Tất cả</span>
+              <span class="filter-option">Việt Nam</span>
+              <span class="filter-option">Mỹ</span>
+              <span class="filter-option">Hàn Quốc</span>
+              <span class="filter-option">Trung Quốc</span>
+              <span class="filter-option">Nhật Bản</span>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h3 class="filter-label">Năm phát hành</h3>
+            <div class="filter-options">
+              <span class="filter-option active">Tất cả</span>
+              <span class="filter-option">2024</span>
+              <span class="filter-option">2023</span>
+              <span class="filter-option">2022</span>
+              <span class="filter-option">2021</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Movie Grid -->
+      <div class="flex-1">
+        <div class="flex justify-between items-center mb-6">
+          <h1 class="text-2xl font-bold">Tất cả phim</h1>
+          <div class="flex items-center space-x-4">
+            <select class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-red-500">
+              <option>Sắp xếp theo</option>
+              <option>Mới nhất</option>
+              <option>Đánh giá cao</option>
+              <option>A-Z</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="movie-grid">
+          <!-- Movie cards will be dynamically loaded here -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12 mt-12">
+    <div class="max-w-[1200px] mx-auto px-4">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Về chúng tôi</h3>
+          <p>WBANVE là hệ thống đặt vé xem phim trực tuyến hiện đại, tiện lợi và an toàn hàng đầu Việt Nam.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Liên kết</h3>
+          <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="phim.html">Phim</a></li>
+            <li><a href="#">Rạp chiếu</a></li>
+            <li><a href="#">Tin tức</a></li>
+            <li><a href="#">Khuyến mãi</a></li>
+            <li><a href="#">Liên hệ</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Hỗ trợ</h3>
+          <ul>
+            <li><a href="#">Câu hỏi thường gặp</a></li>
+            <li><a href="#">Điều khoản sử dụng</a></li>
+            <li><a href="#">Chính sách bảo mật</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Liên hệ</h3>
+          <ul>
+            <li><i class="fas fa-phone-alt mr-2"></i>Hotline: 1900 xxxx</li>
+            <li><i class="fas fa-envelope mr-2"></i>Email: support@example.com</li>
+            <li><i class="fas fa-map-marker-alt mr-2"></i>Địa chỉ: 123 Đường ABC, Quận XYZ, TP.HCM</li>
+          </ul>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 WBANVE. Tất cả quyền được bảo lưu.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold">Đăng nhập</h2>
+        <button onclick="closeModal('loginModal')" class="text-gray-500 hover:text-gray-700">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <form id="loginForm" onsubmit="handleLogin(event)">
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="loginEmail">
+            Email
+          </label>
+          <input type="email" id="loginEmail" required
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-6">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="loginPassword">
+            Mật khẩu
+          </label>
+          <input type="password" id="loginPassword" required
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="flex items-center justify-between mb-4">
+          <button type="submit" id="loginButton" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+            Đăng nhập
+          </button>
+          <div id="loginSpinner" class="hidden">
+            <i class="fas fa-spinner fa-spin text-red-600 text-xl"></i>
+          </div>
+        </div>
+        <div class="text-center">
+          <a href="#" onclick="showModal('forgotPasswordModal'); closeModal('loginModal')" class="text-red-600 hover:text-red-700 text-sm">
+            Quên mật khẩu?
+          </a>
+        </div>
+      </form>
+      <div class="mt-4 text-center">
+        <p class="text-gray-600">Chưa có tài khoản? 
+          <a href="#" onclick="showModal('registerModal'); closeModal('loginModal')" class="text-red-600 hover:text-red-700">
+            Đăng ký ngay
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Register Modal -->
+  <div id="registerModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold">Đăng ký</h2>
+        <button onclick="closeModal('registerModal')" class="text-gray-500 hover:text-gray-700">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <form id="registerForm" onsubmit="handleRegister(event)">
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="registerName">
+            Họ và tên
+          </label>
+          <input type="text" id="registerName" required
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="registerEmail">
+            Email
+          </label>
+          <input type="email" id="registerEmail" required
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="registerPassword">
+            Mật khẩu
+          </label>
+          <input type="password" id="registerPassword" required
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-6">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="registerConfirmPassword">
+            Xác nhận mật khẩu
+          </label>
+          <input type="password" id="registerConfirmPassword" required
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="flex items-center justify-between mb-4">
+          <button type="submit" id="registerButton" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+            Đăng ký
+          </button>
+          <div id="registerSpinner" class="hidden">
+            <i class="fas fa-spinner fa-spin text-red-600 text-xl"></i>
+          </div>
+        </div>
+      </form>
+      <div class="mt-4 text-center">
+        <p class="text-gray-600">Đã có tài khoản? 
+          <a href="#" onclick="showModal('loginModal'); closeModal('registerModal')" class="text-red-600 hover:text-red-700">
+            Đăng nhập
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Forgot Password Modal -->
+  <div id="forgotPasswordModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold">Quên mật khẩu</h2>
+        <button onclick="closeModal('forgotPasswordModal')" class="text-gray-500 hover:text-gray-700">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <form id="forgotPasswordForm" onsubmit="handleForgotPassword(event)">
+        <div class="mb-6">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="forgotPasswordEmail">
+            Email
+          </label>
+          <input type="email" id="forgotPasswordEmail" required
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="flex items-center justify-between mb-4">
+          <button type="submit" id="forgotPasswordButton" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+            Gửi link đặt lại mật khẩu
+          </button>
+          <div id="forgotPasswordSpinner" class="hidden">
+            <i class="fas fa-spinner fa-spin text-red-600 text-xl"></i>
+          </div>
+        </div>
+      </form>
+      <div class="mt-4 text-center">
+        <p class="text-gray-600">Đã nhớ mật khẩu? 
+          <a href="#" onclick="showModal('loginModal'); closeModal('forgotPasswordModal')" class="text-red-600 hover:text-red-700">
+            Đăng nhập
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="module">
+    // Import Firebase functions
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyATE49XCQGPrrw1zst5vBihoRuu2Ak1KHs",
+      authDomain: "webdatvexemphim-6f5a7.firebaseapp.com",
+      projectId: "webdatvexemphim-6f5a7",
+      storageBucket: "webdatvexemphim-6f5a7.firebasestorage.app",
+      messagingSenderId: "463304798196",
+      appId: "1:463304798196:web:4176c92111c925b1ca93a1",
+      measurementId: "G-J14FBB9ZBG",
+      databaseURL: "https://webdatvexemphim-6f5a7-default-rtdb.firebaseio.com"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const database = getDatabase(app);
+    const auth = getAuth(app);
+
+    // Function to create movie card HTML
+    function createMovieCard(movie) {
+      // Format release date
+      const releaseDate = new Date(movie.release_date).toLocaleDateString('vi-VN', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+      });
+
+      // Format genres
+      const genres = movie.genres || [];
+
+      return `
+        <div class="movie-card group">
+          <div class="movie-poster relative overflow-hidden">
+            <img src="${movie.images?.poster || ''}" alt="${movie.title}" class="w-full h-[400px] object-cover transform group-hover:scale-110 transition duration-500">
+            <div class="movie-overlay">
+              <div class="flex flex-col items-center justify-center h-full space-y-4">
+                <a href="#" class="btn-book" onclick="bookTicket('${movie.id}', event)">Đặt vé</a>
+                ${movie.videos?.trailer ? `
+                  <a href="${movie.videos.trailer}" class="btn-trailer">Xem trailer</a>
+                ` : ''}
+              </div>
+            </div>
+            ${movie.vote_average >= 8 ? `
+              <div class="absolute top-4 left-4 bg-yellow-400 text-black font-bold px-2 py-1 rounded">
+                HOT
+              </div>
+            ` : ''}
+            ${movie.popularity > 500 ? `
+              <div class="absolute top-4 right-4 bg-red-600 text-white font-bold px-2 py-1 rounded">
+                TRENDING
+              </div>
+            ` : ''}
+          </div>
+          <div class="movie-info p-6 bg-white">
+            <div class="flex items-start justify-between mb-2">
+              <h3 class="font-bold text-xl">${movie.title}</h3>
+              <div class="flex items-center space-x-1">
+                <i class="fas fa-star text-yellow-400"></i>
+                <span class="font-semibold">${movie.vote_average?.toFixed(1) || '0.0'}</span>
+                <span class="text-gray-500">/10</span>
+              </div>
+            </div>
+            <div class="movie-meta text-sm text-gray-600 mb-4">
+              <div class="flex items-center mb-2">
+                <i class="fas fa-clock mr-2"></i>
+                <span>${movie.runtime || 0} phút</span>
+              </div>
+              <div class="flex items-center mb-2">
+                <i class="fas fa-calendar mr-2"></i>
+                <span>Khởi chiếu: ${releaseDate}</span>
+              </div>
+              <div class="flex items-center flex-wrap gap-2">
+                ${genres.map(genre => `
+                  <span class="bg-gray-100 px-2 py-1 rounded">${genre.name}</span>
+                `).join('')}
+              </div>
+            </div>
+            <div class="border-t pt-4">
+              <div class="flex items-center justify-between">
+                <div class="showtimes text-sm">
+                  <span class="font-medium">Suất chiếu:</span>
+                  <div class="flex flex-wrap gap-2 mt-2">
+                    <a href="#" class="bg-gray-100 hover:bg-red-600 hover:text-white px-3 py-1 rounded transition">10:00</a>
+                    <a href="#" class="bg-gray-100 hover:bg-red-600 hover:text-white px-3 py-1 rounded transition">12:30</a>
+                    <a href="#" class="bg-gray-100 hover:bg-red-600 hover:text-white px-3 py-1 rounded transition">15:00</a>
+                  </div>
+                </div>
+                <a href="#" class="text-red-600 hover:text-red-700 font-medium">Chi tiết</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Phân trang động
+    let allMovies = [];
+    let filteredMovies = [];
+    let currentPage = 1;
+    const moviesPerPage = 10;
+    let totalPages = 1;
+
+    // Trạng thái filter
+    let selectedFilters = {
+      genre: 'Tất cả',
+      format: 'Tất cả',
+      country: 'Tất cả',
+      year: 'Tất cả'
+    };
+
+    let selectedSort = 'Sắp xếp theo';
+
+    function sortMovies() {
+      if (selectedSort === 'Mới nhất') {
+        filteredMovies.sort((a, b) => (b.release_date || '').localeCompare(a.release_date || ''));
+      } else if (selectedSort === 'Đánh giá cao') {
+        filteredMovies.sort((a, b) => (b.vote_average || 0) - (a.vote_average || 0));
+      } else if (selectedSort === 'A-Z') {
+        filteredMovies.sort((a, b) => (a.title || '').localeCompare(b.title || '', 'vi', {sensitivity: 'base'}));
+      }
+    }
+
+    function filterMovies() {
+      filteredMovies = allMovies.filter(movie => {
+        // Thể loại
+        const matchGenre = selectedFilters.genre === 'Tất cả' || (movie.genres && movie.genres.some(g => g.name.includes(selectedFilters.genre)));
+        // Định dạng
+        let matchFormat = true;
+        if (selectedFilters.format !== 'Tất cả') {
+          if (selectedFilters.format === 'IMAX') {
+            matchFormat = movie.title?.toLowerCase().includes('imax') || (movie.formats && movie.formats.includes('IMAX'));
+          } else {
+            matchFormat = (movie.formats && movie.formats.includes(selectedFilters.format)) || (movie.title && movie.title.includes(selectedFilters.format));
+          }
+        }
+        // Quốc gia
+        let matchCountry = true;
+        if (selectedFilters.country !== 'Tất cả') {
+          matchCountry = (movie.origin_country && movie.origin_country.includes(selectedFilters.country)) || (movie.country && movie.country.includes(selectedFilters.country));
+        }
+        // Năm phát hành
+        let matchYear = true;
+        if (selectedFilters.year !== 'Tất cả') {
+          matchYear = movie.release_date && movie.release_date.startsWith(selectedFilters.year);
+        }
+        return matchGenre && matchFormat && matchCountry && matchYear;
+      });
+      sortMovies();
+      totalPages = Math.ceil(filteredMovies.length / moviesPerPage) || 1;
+      currentPage = 1;
+      renderMoviesPage(currentPage);
+      renderPagination();
+    }
+
+    function renderMoviesPage(page) {
+      const movieGrid = document.querySelector('.movie-grid');
+      const start = (page - 1) * moviesPerPage;
+      const end = start + moviesPerPage;
+      const moviesToShow = filteredMovies.slice(start, end);
+      movieGrid.innerHTML = moviesToShow.map(movie => createMovieCard(movie)).join('');
+    }
+
+    function renderPagination() {
+      const pagination = document.querySelector('.pagination');
+      let html = '';
+      // Previous button
+      html += `<span class="pagination-item" data-page="prev" ${currentPage === 1 ? 'style=\"pointer-events:none;opacity:0.5\"' : ''}><i class="fas fa-chevron-left"></i></span>`;
+      // Page numbers
+      for (let i = 1; i <= totalPages; i++) {
+        html += `<span class="pagination-item${i === currentPage ? ' active' : ''}" data-page="${i}">${i}</span>`;
+      }
+      // Next button
+      html += `<span class="pagination-item" data-page="next" ${currentPage === totalPages ? 'style=\"pointer-events:none;opacity:0.5\"' : ''}><i class="fas fa-chevron-right"></i></span>`;
+      pagination.innerHTML = html;
+      // Add event listeners
+      pagination.querySelectorAll('.pagination-item').forEach(item => {
+        item.addEventListener('click', function() {
+          const page = this.getAttribute('data-page');
+          if (page === 'prev' && currentPage > 1) {
+            currentPage--;
+          } else if (page === 'next' && currentPage < totalPages) {
+            currentPage++;
+          } else if (!isNaN(page)) {
+            currentPage = parseInt(page);
+          }
+          renderMoviesPage(currentPage);
+          renderPagination();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      });
+    }
+
+    // Gắn sự kiện cho filter
+    function setupFilterEvents() {
+      // Thể loại
+      document.querySelectorAll('.filter-group:nth-child(1) .filter-option').forEach(option => {
+        option.addEventListener('click', function() {
+          document.querySelectorAll('.filter-group:nth-child(1) .filter-option').forEach(o => o.classList.remove('active'));
+          this.classList.add('active');
+          selectedFilters.genre = this.textContent;
+          filterMovies();
+        });
+      });
+      // Định dạng
+      document.querySelectorAll('.filter-group:nth-child(2) .filter-option').forEach(option => {
+        option.addEventListener('click', function() {
+          document.querySelectorAll('.filter-group:nth-child(2) .filter-option').forEach(o => o.classList.remove('active'));
+          this.classList.add('active');
+          selectedFilters.format = this.textContent;
+          filterMovies();
+        });
+      });
+      // Quốc gia
+      document.querySelectorAll('.filter-group:nth-child(3) .filter-option').forEach(option => {
+        option.addEventListener('click', function() {
+          document.querySelectorAll('.filter-group:nth-child(3) .filter-option').forEach(o => o.classList.remove('active'));
+          this.classList.add('active');
+          selectedFilters.country = this.textContent;
+          filterMovies();
+        });
+      });
+      // Năm phát hành
+      document.querySelectorAll('.filter-group:nth-child(4) .filter-option').forEach(option => {
+        option.addEventListener('click', function() {
+          document.querySelectorAll('.filter-group:nth-child(4) .filter-option').forEach(o => o.classList.remove('active'));
+          this.classList.add('active');
+          selectedFilters.year = this.textContent;
+          filterMovies();
+        });
+      });
+    }
+
+    // Gắn sự kiện cho dropdown sắp xếp
+    function setupSortEvent() {
+      const sortSelect = document.querySelector('select');
+      sortSelect.addEventListener('change', function() {
+        selectedSort = this.value;
+        sortMovies();
+        renderMoviesPage(1);
+        renderPagination();
+      });
+    }
+
+    // Load movies from Firebase
+    async function loadMovies() {
+      try {
+        const moviesRef = ref(database, 'popular');
+        onValue(moviesRef, (snapshot) => {
+          const data = snapshot.val();
+          console.log('Raw data from Firebase:', data);
+          
+          // Data is already an array, no need to access .popular
+          const popularMovies = Array.isArray(data) ? data : [];
+          console.log('Popular movies:', popularMovies);
+          
+          // Remove duplicate movies based on ID
+          const uniqueMovies = popularMovies.reduce((acc, current) => {
+            const x = acc.find(item => item.id === current.id);
+            if (!x) {
+              return acc.concat([current]);
+            } else {
+              return acc;
+            }
+          }, []);
+          
+          // Sort movies by popularity
+          allMovies = uniqueMovies.sort((a, b) => (b.popularity || 0) - (a.popularity || 0));
+          filteredMovies = [...allMovies];
+          
+          console.log('Unique movies:', allMovies);
+          
+          sortMovies();
+          totalPages = Math.ceil(filteredMovies.length / moviesPerPage) || 1;
+          currentPage = 1;
+          renderMoviesPage(currentPage);
+          renderPagination();
+        });
+      } catch (error) {
+        console.error('Error loading movies:', error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: 'Không thể tải dữ liệu phim. Vui lòng thử lại sau.',
+          confirmButtonColor: '#dc2626'
+        });
+      }
+    }
+
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      loadMovies();
+      setupFilterEvents();
+      setupSortEvent();
+    });
+
+    // Modal functions
+    window.showModal = function(modalId) {
+      document.getElementById(modalId).classList.remove('hidden');
+      document.getElementById(modalId).classList.add('flex');
+    }
+
+    window.closeModal = function(modalId) {
+      document.getElementById(modalId).classList.add('hidden');
+      document.getElementById(modalId).classList.remove('flex');
+    }
+
+    // Show/hide spinner and button
+    function toggleLoading(buttonId, spinnerId, isLoading) {
+      const button = document.getElementById(buttonId);
+      const spinner = document.getElementById(spinnerId);
+      
+      if (isLoading) {
+        button.classList.add('hidden');
+        spinner.classList.remove('hidden');
+      } else {
+        button.classList.remove('hidden');
+        spinner.classList.add('hidden');
+      }
+    }
+
+    // Handle Register
+    window.handleRegister = async function(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('registerName').value;
+      const email = document.getElementById('registerEmail').value;
+      const password = document.getElementById('registerPassword').value;
+      const confirmPassword = document.getElementById('registerConfirmPassword').value;
+
+      if (password !== confirmPassword) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: 'Mật khẩu xác nhận không khớp!',
+          confirmButtonColor: '#dc2626'
+        });
+        return;
+      }
+
+      try {
+        toggleLoading('registerButton', 'registerSpinner', true);
+        
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        
+        // Store additional user data in Realtime Database
+        const userRef = ref(database, 'users/' + user.uid);
+        await set(userRef, {
+          name: name,
+          email: email,
+          createdAt: new Date().toISOString()
+        });
+
+        await Swal.fire({
+          icon: 'success',
+          title: 'Thành công!',
+          text: 'Đăng ký tài khoản thành công!',
+          confirmButtonColor: '#dc2626'
+        });
+        
+        closeModal('registerModal');
+        showModal('loginModal');
+      } catch (error) {
+        let errorMessage = 'Đăng ký thất bại!';
+        switch (error.code) {
+          case 'auth/email-already-in-use':
+            errorMessage = 'Email đã được sử dụng!';
+            break;
+          case 'auth/invalid-email':
+            errorMessage = 'Email không hợp lệ!';
+            break;
+          case 'auth/weak-password':
+            errorMessage = 'Mật khẩu quá yếu!';
+            break;
+        }
+        Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: errorMessage,
+          confirmButtonColor: '#dc2626'
+        });
+      } finally {
+        toggleLoading('registerButton', 'registerSpinner', false);
+      }
+    }
+
+    // Handle Login
+    window.handleLogin = async function(event) {
+      event.preventDefault();
+      
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+
+      try {
+        toggleLoading('loginButton', 'loginSpinner', true);
+        
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        
+        await Swal.fire({
+          icon: 'success',
+          title: 'Thành công!',
+          text: 'Đăng nhập thành công!',
+          confirmButtonColor: '#dc2626'
+        });
+        
+        closeModal('loginModal');
+        
+        // Update UI for logged in user
+        document.querySelector('.btn-login').classList.add('hidden');
+        document.querySelector('.btn-register').classList.add('hidden');
+        
+        // Add user menu
+        const userMenu = document.createElement('div');
+        userMenu.className = 'relative user-menu';
+        userMenu.innerHTML = `
+          <button onclick="toggleUserMenu()" class="flex items-center space-x-2 text-gray-700 hover:text-red-600">
+            <i class="fas fa-user-circle text-xl"></i>
+            <span>${user.email}</span>
+            <i class="fas fa-chevron-down text-sm"></i>
+          </button>
+          <div id="userDropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden z-50">
+            <button onclick="handleLogout()" class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
+              <i class="fas fa-sign-out-alt mr-2"></i>Đăng xuất
+            </button>
+          </div>
+        `;
+        document.querySelector('.flex.items-center.space-x-4').appendChild(userMenu);
+        
+      } catch (error) {
+        let errorMessage = 'Đăng nhập thất bại!';
+        switch (error.code) {
+          case 'auth/user-not-found':
+          case 'auth/wrong-password':
+            errorMessage = 'Email hoặc mật khẩu không đúng!';
+            break;
+          case 'auth/invalid-email':
+            errorMessage = 'Email không hợp lệ!';
+            break;
+        }
+        Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: errorMessage,
+          confirmButtonColor: '#dc2626'
+        });
+      } finally {
+        toggleLoading('loginButton', 'loginSpinner', false);
+      }
+    }
+
+    // Handle Forgot Password
+    window.handleForgotPassword = async function(event) {
+      event.preventDefault();
+      
+      const email = document.getElementById('forgotPasswordEmail').value;
+
+      try {
+        toggleLoading('forgotPasswordButton', 'forgotPasswordSpinner', true);
+        
+        await sendPasswordResetEmail(auth, email);
+        
+        await Swal.fire({
+          icon: 'success',
+          title: 'Thành công!',
+          text: 'Link đặt lại mật khẩu đã được gửi đến email của bạn!',
+          confirmButtonColor: '#dc2626'
+        });
+        
+        closeModal('forgotPasswordModal');
+        showModal('loginModal');
+      } catch (error) {
+        let errorMessage = 'Gửi email thất bại!';
+        switch (error.code) {
+          case 'auth/user-not-found':
+            errorMessage = 'Không tìm thấy tài khoản với email này!';
+            break;
+          case 'auth/invalid-email':
+            errorMessage = 'Email không hợp lệ!';
+            break;
+        }
+        Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: errorMessage,
+          confirmButtonColor: '#dc2626'
+        });
+      } finally {
+        toggleLoading('forgotPasswordButton', 'forgotPasswordSpinner', false);
+      }
+    }
+
+    // Handle Logout
+    window.handleLogout = async function() {
+      try {
+        await signOut(auth);
+        await Swal.fire({
+          icon: 'success',
+          title: 'Thành công!',
+          text: 'Đăng xuất thành công!',
+          confirmButtonColor: '#dc2626'
+        });
+        location.reload();
+      } catch (error) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: 'Đăng xuất thất bại!',
+          confirmButtonColor: '#dc2626'
+        });
+      }
+    }
+
+    // Add click event listeners to login/register buttons
+    document.querySelector('.btn-login').addEventListener('click', () => showModal('loginModal'));
+    document.querySelector('.btn-register').addEventListener('click', () => showModal('registerModal'));
+
+    // Add toggle user menu function
+    window.toggleUserMenu = function() {
+      const dropdown = document.getElementById('userDropdown');
+      dropdown.classList.toggle('hidden');
+      
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function closeDropdown(e) {
+        if (!e.target.closest('.relative')) {
+          dropdown.classList.add('hidden');
+          document.removeEventListener('click', closeDropdown);
+        }
+      });
+    }
+
+    // Thêm kiểm tra trạng thái đăng nhập khi load lại trang
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // Đã đăng nhập, cập nhật UI
+        document.querySelector('.btn-login').classList.add('hidden');
+        document.querySelector('.btn-register').classList.add('hidden');
+        // Thêm menu người dùng nếu chưa có
+        if (!document.querySelector('.user-menu')) {
+          const userMenu = document.createElement('div');
+          userMenu.className = 'relative user-menu';
+          userMenu.innerHTML = `
+            <button onclick="toggleUserMenu()" class="flex items-center space-x-2 text-gray-700 hover:text-red-600">
+              <i class="fas fa-user-circle text-xl"></i>
+              <span>${user.email}</span>
+              <i class="fas fa-chevron-down text-sm"></i>
+            </button>
+            <div id="userDropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden z-50">
+              <button onclick="handleLogout()" class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
+                <i class="fas fa-sign-out-alt mr-2"></i>Đăng xuất
+              </button>
+            </div>
+          `;
+          document.querySelector('.flex.items-center.space-x-4').appendChild(userMenu);
+        }
+      } else {
+        // Chưa đăng nhập, đảm bảo nút hiện lại
+        document.querySelector('.btn-login').classList.remove('hidden');
+        document.querySelector('.btn-register').classList.remove('hidden');
+        // Xóa menu người dùng nếu có
+        const userMenu = document.querySelector('.user-menu');
+        if (userMenu) userMenu.remove();
+      }
+    });
+
+    // Thêm script sau khi loadMovies và render xong:
+    window.bookTicket = function(movieId, event) {
+      event.preventDefault();
+      // Hiệu ứng fade out
+      document.body.style.transition = 'opacity 0.5s';
+      document.body.style.opacity = 0.3;
+      // Lấy dữ liệu phim từ Firebase
+      const db = getDatabase();
+      const movieRef = ref(db, 'popular');
+      onValue(movieRef, (snapshot) => {
+        const movies = snapshot.val() || [];
+        const movie = movies.find(m => m.id == movieId);
+        if (movie) {
+          localStorage.setItem('selectedMovie', JSON.stringify(movie));
+          setTimeout(() => { window.location.href = 'datve.html'; }, 400);
+        } else {
+          Swal.fire({icon:'error',title:'Lỗi',text:'Không tìm thấy phim!',confirmButtonColor:'#dc2626'});
+          document.body.style.opacity = 1;
+        }
+      }, {onlyOnce:true});
+    }
+  </script>
+    <!-- Bottom Navigation cho mobile -->
+    <nav class="bottom-nav-mobile">
+      <a href="index.html" class="nav-item">
+        <i class="fas fa-home"></i>
+        <span>Trang chủ</span>
+      </a>
+      <a href="phim.html" class="nav-item">
+        <i class="fas fa-film"></i>
+        <span>Phim</span>
+      </a>
+      <a href="rapphim.html" class="nav-item">
+        <i class="fas fa-theater-masks"></i>
+        <span>Rạp</span>
+      </a>
+      <a href="tintuc.html" class="nav-item">
+        <i class="fas fa-newspaper"></i>
+        <span>Tin tức</span>
+      </a>
+      <a href="user.html" class="nav-item">
+        <i class="fas fa-user"></i>
+        <span>Tài khoản</span>
+      </a>
+    </nav>
+</body>
+</html> 

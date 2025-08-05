@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tin tức điện ảnh - WBANVE</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/1179/1179120.png">
+  <link rel="stylesheet" href="mobile.css" media="(max-width: 768px)">
+  <link rel="stylesheet" href="anbottom-nav-mobile.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    .news-card {
+      transition: transform 0.3s ease;
+    }
+    .news-card:hover {
+      transform: translateY(-5px);
+    }
+    .news-image {
+      position: relative;
+      overflow: hidden;
+    }
+    .news-image img {
+      transition: transform 0.5s ease;
+    }
+    .news-card:hover .news-image img {
+      transform: scale(1.1);
+    }
+    .news-category {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: rgba(220, 38, 38, 0.9);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+    .news-date {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 0.875rem;
+    }
+    .featured-news {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .featured-news img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+    }
+    .featured-news-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+      color: white;
+    }
+    .sidebar-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .sidebar-title {
+      border-bottom: 2px solid #dc2626;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .pagination-item {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    .pagination-item:hover {
+      background: #dc2626;
+      color: white;
+    }
+    .pagination-item.active {
+      background: #dc2626;
+      color: white;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <!-- Header -->
+  <header class="main-header bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4">
+      <!-- Top header -->
+      <div class="flex items-center justify-between py-4 border-b border-gray-100">
+        <a href="index.html" class="logo flex items-center space-x-2">
+          <img src="https://cdn-icons-png.flaticon.com/512/1179/1179120.png" alt="Logo" class="h-10 w-auto">
+          <span class="text-2xl font-bold text-red-600 tracking-wide">WBANVE</span>
+        </a>
+
+        <div class="flex items-center space-x-4">
+          <!-- <button aria-label="Vietnamese language" class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:ring-2 hover:ring-red-600 focus:outline-none"> -->
+            <!-- <img alt="Vietnamese flag icon" class="w-5 h-auto" src="https://storage.googleapis.com/a1aa/image/c6a59d7c-4b04-4304-b74a-d43348b3c681.jpg"> -->
+          </button>
+          <a href="#" class="btn-login border border-red-600 text-red-600 px-4 py-1 rounded hover:bg-red-600 hover:text-white transition">Đăng nhập</a>
+          <a href="#" class="btn-register bg-red-600 text-white px-4 py-1 rounded hover:bg-red-700 transition">Đăng ký</a>
+        </div>
+      </div>
+
+      <!-- Bottom header -->
+      <nav class="main-nav hidden md:flex items-center justify-center py-4 space-x-8">
+        <a href="index.html" class="hover:text-red-600 transition font-medium">Trang chủ</a>
+        <a href="phim.html" class="hover:text-red-600 transition font-medium">Phim</a>
+        <a href="rapphim.html" class="hover:text-red-600 transition font-medium">Rạp chiếu</a>
+        <a href="tintuc.html" class="hover:text-red-600 transition font-medium">Tin tức</a>
+        <a href="khuyenmai.html" class="hover:text-red-600 transition font-medium">Khuyến mãi</a>
+        <a href="lienhe.html" class="hover:text-red-600 transition font-medium">Liên hệ</a>
+        <a href="user.html" class="hover:text-red-600 transition font-medium">Tài khoản</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="max-w-[1200px] mx-auto px-4 py-3 text-white text-sm font-normal bg-red-600">
+    <nav aria-label="Breadcrumb" class="flex items-center space-x-1">
+      <a href="index.html" class="hover:text-white/80">Trang chủ</a>
+      <span class="text-white/70">/</span>
+      <span class="font-semibold">Tin tức điện ảnh</span>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <main class="max-w-[1200px] mx-auto px-4 py-8">
+    <!-- Featured News -->
+    <div class="featured-news mb-12">
+      <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1200&q=80" alt="Tin tức nổi bật">
+      <div class="featured-news-content">
+        <span class="bg-red-600 text-white px-3 py-1 rounded-full text-sm font-medium mb-4 inline-block">Tin nổi bật</span>
+        <h1 class="text-4xl font-bold mb-4">Oscar 2024: Những bộ phim được đề cử và dự đoán chiến thắng</h1>
+        <p class="text-lg mb-4">Cập nhật danh sách đề cử và phân tích cơ hội chiến thắng của các bộ phim tại lễ trao giải Oscar lần thứ 96.</p>
+        <div class="flex items-center text-sm">
+          <span class="mr-4"><i class="far fa-calendar-alt mr-2"></i>01/03/2024</span>
+          <span class="mr-4"><i class="far fa-eye mr-2"></i>15,234 lượt xem</span>
+          <span><i class="far fa-comment mr-2"></i>128 bình luận</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <!-- Main Content -->
+      <div class="lg:col-span-3">
+        <!-- News Categories -->
+        <div class="flex space-x-4 mb-8 overflow-x-auto pb-2">
+          <button class="px-4 py-2 bg-red-600 text-white rounded-full text-sm font-medium">Tất cả</button>
+          <button class="px-4 py-2 bg-white text-gray-700 rounded-full text-sm font-medium hover:bg-red-600 hover:text-white transition">Tin điện ảnh</button>
+          <button class="px-4 py-2 bg-white text-gray-700 rounded-full text-sm font-medium hover:bg-red-600 hover:text-white transition">Phỏng vấn</button>
+          <button class="px-4 py-2 bg-white text-gray-700 rounded-full text-sm font-medium hover:bg-red-600 hover:text-white transition">Sự kiện</button>
+          <button class="px-4 py-2 bg-white text-gray-700 rounded-full text-sm font-medium hover:bg-red-600 hover:text-white transition">Review phim</button>
+          <button class="px-4 py-2 bg-white text-gray-700 rounded-full text-sm font-medium hover:bg-red-600 hover:text-white transition">Khuyến mãi</button>
+        </div>
+
+        <!-- News Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- News Card 1 -->
+          <div class="news-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="news-image">
+              <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80" alt="Tin tức" class="w-full h-48 object-cover">
+              <span class="news-category">Tin điện ảnh</span>
+              <span class="news-date">28/02/2024</span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-xl mb-3 line-clamp-2">
+                <a href="#" class="hover:text-red-600 transition">Top 10 bộ phim đáng mong đợi nhất năm 2024</a>
+              </h3>
+              <p class="text-gray-600 mb-4 line-clamp-3">Điểm qua những bộ phim bom tấn được mong đợi nhất trong năm 2024 với sự góp mặt của các ngôi sao hàng đầu Hollywood.</p>
+              <div class="flex items-center justify-between text-sm text-gray-500">
+                <span><i class="far fa-eye mr-2"></i>8,234 lượt xem</span>
+                <span><i class="far fa-comment mr-2"></i>45 bình luận</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- News Card 2 -->
+          <div class="news-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="news-image">
+              <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80" alt="Tin tức" class="w-full h-48 object-cover">
+              <span class="news-category">Phỏng vấn</span>
+              <span class="news-date">27/02/2024</span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-xl mb-3 line-clamp-2">
+                <a href="#" class="hover:text-red-600 transition">Phỏng vấn độc quyền đạo diễn phim bom tấn mới</a>
+              </h3>
+              <p class="text-gray-600 mb-4 line-clamp-3">Cuộc trò chuyện thú vị với đạo diễn về quá trình sản xuất và những thách thức trong việc thực hiện bộ phim.</p>
+              <div class="flex items-center justify-between text-sm text-gray-500">
+                <span><i class="far fa-eye mr-2"></i>6,789 lượt xem</span>
+                <span><i class="far fa-comment mr-2"></i>32 bình luận</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- News Card 3 -->
+          <div class="news-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="news-image">
+              <img src="https://images.unsplash.com/photo-1535016120720-40c646be5580?auto=format&fit=crop&w=800&q=80" alt="Tin tức" class="w-full h-48 object-cover">
+              <span class="news-category">Sự kiện</span>
+              <span class="news-date">26/02/2024</span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-xl mb-3 line-clamp-2">
+                <a href="#" class="hover:text-red-600 transition">Lễ ra mắt phim mới với sự tham gia của dàn sao hạng A</a>
+              </h3>
+              <p class="text-gray-600 mb-4 line-clamp-3">Sự kiện ra mắt phim mới đã thu hút sự chú ý của giới truyền thông với sự xuất hiện của nhiều ngôi sao nổi tiếng.</p>
+              <div class="flex items-center justify-between text-sm text-gray-500">
+                <span><i class="far fa-eye mr-2"></i>5,678 lượt xem</span>
+                <span><i class="far fa-comment mr-2"></i>28 bình luận</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- News Card 4 -->
+          <div class="news-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="news-image">
+              <img src="https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?auto=format&fit=crop&w=800&q=80" alt="Tin tức" class="w-full h-48 object-cover">
+              <span class="news-category">Review phim</span>
+              <span class="news-date">25/02/2024</span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-xl mb-3 line-clamp-2">
+                <a href="#" class="hover:text-red-600 transition">Review: Phim mới đạt doanh thu kỷ lục tuần đầu công chiếu</a>
+              </h3>
+              <p class="text-gray-600 mb-4 line-clamp-3">Phân tích chi tiết về bộ phim mới đang gây sốt tại các rạp chiếu phim trên toàn quốc.</p>
+              <div class="flex items-center justify-between text-sm text-gray-500">
+                <span><i class="far fa-eye mr-2"></i>7,890 lượt xem</span>
+                <span><i class="far fa-comment mr-2"></i>56 bình luận</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex justify-center items-center space-x-2 mt-12">
+          <button class="pagination-item">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="pagination-item active">1</button>
+          <button class="pagination-item">2</button>
+          <button class="pagination-item">3</button>
+          <button class="pagination-item">4</button>
+          <button class="pagination-item">5</button>
+          <button class="pagination-item">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="lg:col-span-1">
+        <!-- Popular News -->
+        <div class="sidebar-card p-6 mb-8">
+          <h3 class="text-xl font-bold sidebar-title">Tin xem nhiều</h3>
+          <div class="space-y-4">
+            <a href="#" class="flex items-start space-x-4 group">
+              <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=100&q=80" alt="Tin tức" class="w-20 h-20 object-cover rounded">
+              <div>
+                <h4 class="font-medium group-hover:text-red-600 transition line-clamp-2">Top 10 bộ phim đáng mong đợi nhất năm 2024</h4>
+                <span class="text-sm text-gray-500">28/02/2024</span>
+              </div>
+            </a>
+            <a href="#" class="flex items-start space-x-4 group">
+              <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=100&q=80" alt="Tin tức" class="w-20 h-20 object-cover rounded">
+              <div>
+                <h4 class="font-medium group-hover:text-red-600 transition line-clamp-2">Phỏng vấn độc quyền đạo diễn phim bom tấn mới</h4>
+                <span class="text-sm text-gray-500">27/02/2024</span>
+              </div>
+            </a>
+            <a href="#" class="flex items-start space-x-4 group">
+              <img src="https://images.unsplash.com/photo-1535016120720-40c646be5580?auto=format&fit=crop&w=100&q=80" alt="Tin tức" class="w-20 h-20 object-cover rounded">
+              <div>
+                <h4 class="font-medium group-hover:text-red-600 transition line-clamp-2">Lễ ra mắt phim mới với sự tham gia của dàn sao hạng A</h4>
+                <span class="text-sm text-gray-500">26/02/2024</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Categories -->
+        <div class="sidebar-card p-6 mb-8">
+          <h3 class="text-xl font-bold sidebar-title">Danh mục</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="#" class="flex items-center justify-between py-2 hover:text-red-600 transition">
+                <span>Tin điện ảnh</span>
+                <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded-full text-sm">24</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center justify-between py-2 hover:text-red-600 transition">
+                <span>Phỏng vấn</span>
+                <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded-full text-sm">18</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center justify-between py-2 hover:text-red-600 transition">
+                <span>Sự kiện</span>
+                <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded-full text-sm">15</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center justify-between py-2 hover:text-red-600 transition">
+                <span>Review phim</span>
+                <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded-full text-sm">32</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center justify-between py-2 hover:text-red-600 transition">
+                <span>Khuyến mãi</span>
+                <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded-full text-sm">12</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Tags -->
+        <div class="sidebar-card p-6">
+          <h3 class="text-xl font-bold sidebar-title">Tags</h3>
+          <div class="flex flex-wrap gap-2">
+            <a href="#" class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-red-600 hover:text-white transition">Oscar</a>
+            <a href="#" class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-red-600 hover:text-white transition">Phim bom tấn</a>
+            <a href="#" class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-red-600 hover:text-white transition">Hollywood</a>
+            <a href="#" class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-red-600 hover:text-white transition">Đạo diễn</a>
+            <a href="#" class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-red-600 hover:text-white transition">Diễn viên</a>
+            <a href="#" class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-red-600 hover:text-white transition">Phim mới</a>
+            <a href="#" class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-red-600 hover:text-white transition">Review</a>
+            <a href="#" class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-red-600 hover:text-white transition">Sự kiện</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12 mt-12">
+    <div class="max-w-[1200px] mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">Về chúng tôi</h3>
+          <p class="text-gray-400">WBANVE là hệ thống đặt vé xem phim trực tuyến hiện đại, tiện lợi và an toàn hàng đầu Việt Nam.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Liên kết</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-400 hover:text-white transition">Trang chủ</a></li>
+            <li><a href="phim.html" class="text-gray-400 hover:text-white transition">Phim</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Rạp chiếu</a></li>
+            <li><a href="tintuc.html" class="text-gray-400 hover:text-white transition">Tin tức</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Khuyến mãi</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Liên hệ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Hỗ trợ</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Câu hỏi thường gặp</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Điều khoản sử dụng</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Chính sách bảo mật</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Liên hệ</h3>
+          <ul class="space-y-2">
+            <li class="flex items-center text-gray-400">
+              <i class="fas fa-phone-alt mr-2"></i>
+              <span>Hotline: 1900 xxxx</span>
+            </li>
+            <li class="flex items-center text-gray-400">
+              <i class="fas fa-envelope mr-2"></i>
+              <span>Email: support@example.com</span>
+            </li>
+            <li class="flex items-center text-gray-400">
+              <i class="fas fa-map-marker-alt mr-2"></i>
+              <span>Địa chỉ: 123 Đường ABC, Quận XYZ, TP.HCM</span>
+            </li>
+          </ul>
+          <div class="flex space-x-4 mt-4">
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+        <p>&copy; 2024 WBANVE. Tất cả quyền được bảo lưu.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- News Detail Modal -->
+  <div id="newsDetailModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+    <div class="min-h-screen px-4 text-center">
+      <div class="fixed inset-0" aria-hidden="true">
+        <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+      </div>
+      <span class="inline-block h-screen align-middle" aria-hidden="true">&#8203;</span>
+      <div class="inline-block w-full max-w-4xl p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+        <div class="flex justify-between items-start">
+          <h3 class="text-2xl font-bold text-gray-900 mb-4"></h3>
+          <button type="button" class="text-gray-400 hover:text-gray-500" onclick="closeNewsDetail()">
+            <i class="fas fa-times text-xl"></i>
+          </button>
+        </div>
+        <div class="mt-2">
+          <div class="news-detail-content">
+            <img src="" alt="" class="w-full h-96 object-cover rounded-lg mb-6">
+            <div class="flex items-center text-sm text-gray-500 mb-4">
+              <span class="mr-4"><i class="far fa-calendar-alt mr-2"></i><span class="news-date"></span></span>
+              <span class="mr-4"><i class="far fa-eye mr-2"></i><span class="news-views"></span> lượt xem</span>
+              <span><i class="far fa-comment mr-2"></i><span class="news-comments"></span> bình luận</span>
+            </div>
+            <div class="prose max-w-none">
+              <p class="news-description text-lg text-gray-600 mb-6"></p>
+              <div class="news-content text-gray-700"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+    <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold">Đăng nhập</h2>
+        <button onclick="closeModal('loginModal')" class="text-gray-500 hover:text-gray-700">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <form id="loginForm" onsubmit="handleLogin(event)">
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="loginEmail">
+            Email
+          </label>
+          <input type="email" id="loginEmail" required
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-6">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="loginPassword">
+            Mật khẩu
+          </label>
+          <input type="password" id="loginPassword" required
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="flex items-center justify-between mb-4">
+          <button type="submit" id="loginButton" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+            Đăng nhập
+          </button>
+          <div id="loginSpinner" class="hidden">
+            <i class="fas fa-spinner fa-spin text-red-600 text-xl"></i>
+          </div>
+        </div>
+        <div class="text-center">
+          <a href="#" onclick="showModal('forgotPasswordModal'); closeModal('loginModal')" class="text-red-600 hover:text-red-700 text-sm">
+            Quên mật khẩu?
+          </a>
+        </div>
+      </form>
+      <div class="mt-4 text-center">
+        <p class="text-gray-600">Chưa có tài khoản? 
+          <a href="#" onclick="showModal('registerModal'); closeModal('loginModal')" class="text-red-600 hover:text-red-700">
+            Đăng ký ngay
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Register Modal -->
+  <div id="registerModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+    <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold">Đăng ký</h2>
+        <button onclick="closeModal('registerModal')" class="text-gray-500 hover:text-gray-700">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <form id="registerForm" onsubmit="handleRegister(event)">
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="registerName">
+            Họ và tên
+          </label>
+          <input type="text" id="registerName" required
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="registerEmail">
+            Email
+          </label>
+          <input type="email" id="registerEmail" required
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="registerPassword">
+            Mật khẩu
+          </label>
+          <input type="password" id="registerPassword" required
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-6">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="registerConfirmPassword">
+            Xác nhận mật khẩu
+          </label>
+          <input type="password" id="registerConfirmPassword" required
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="flex items-center justify-between mb-4">
+          <button type="submit" id="registerButton" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+            Đăng ký
+          </button>
+          <div id="registerSpinner" class="hidden">
+            <i class="fas fa-spinner fa-spin text-red-600 text-xl"></i>
+          </div>
+        </div>
+      </form>
+      <div class="mt-4 text-center">
+        <p class="text-gray-600">Đã có tài khoản? 
+          <a href="#" onclick="showModal('loginModal'); closeModal('registerModal')" class="text-red-600 hover:text-red-700">
+            Đăng nhập
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Forgot Password Modal -->
+  <div id="forgotPasswordModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+    <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold">Quên mật khẩu</h2>
+        <button onclick="closeModal('forgotPasswordModal')" class="text-gray-500 hover:text-gray-700">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <form id="forgotPasswordForm" onsubmit="handleForgotPassword(event)">
+        <div class="mb-6">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="forgotPasswordEmail">
+            Email
+          </label>
+          <input type="email" id="forgotPasswordEmail" required
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="flex items-center justify-between mb-4">
+          <button type="submit" id="forgotPasswordButton" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+            Gửi link đặt lại mật khẩu
+          </button>
+          <div id="forgotPasswordSpinner" class="hidden">
+            <i class="fas fa-spinner fa-spin text-red-600 text-xl"></i>
+          </div>
+        </div>
+      </form>
+      <div class="mt-4 text-center">
+        <p class="text-gray-600">Đã nhớ mật khẩu? 
+          <a href="#" onclick="showModal('loginModal'); closeModal('forgotPasswordModal')" class="text-red-600 hover:text-red-700">
+            Đăng nhập
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+    import { getAuth, signOut, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyATE49XCQGPrrw1zst5vBihoRuu2Ak1KHs",
+      authDomain: "webdatvexemphim-6f5a7.firebaseapp.com",
+      projectId: "webdatvexemphim-6f5a7",
+      storageBucket: "webdatvexemphim-6f5a7.firebasestorage.app",
+      messagingSenderId: "463304798196",
+      appId: "1:463304798196:web:4176c92111c925b1ca93a1",
+      measurementId: "G-J14FBB9ZBG",
+      databaseURL: "https://webdatvexemphim-6f5a7-default-rtdb.firebaseio.com"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const database = getDatabase(app);
+    const auth = getAuth(app);
+
+    // Kiểm tra trạng thái đăng nhập khi load lại trang
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        document.querySelector('.btn-login').classList.add('hidden');
+        document.querySelector('.btn-register').classList.add('hidden');
+        if (!document.querySelector('.user-menu')) {
+          const userMenu = document.createElement('div');
+          userMenu.className = 'relative user-menu';
+          userMenu.innerHTML = `
+            <button onclick="toggleUserMenu()" class="flex items-center space-x-2 text-gray-700 hover:text-red-600">
+              <i class="fas fa-user-circle text-xl"></i>
+              <span>${user.email}</span>
+              <i class="fas fa-chevron-down text-sm"></i>
+            </button>
+            <div id="userDropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden z-50">
+              <button onclick="handleLogout()" class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
+                <i class="fas fa-sign-out-alt mr-2"></i>Đăng xuất
+              </button>
+            </div>
+          `;
+          document.querySelector('.flex.items-center.space-x-4').appendChild(userMenu);
+        }
+      } else {
+        document.querySelector('.btn-login').classList.remove('hidden');
+        document.querySelector('.btn-register').classList.remove('hidden');
+        const userMenu = document.querySelector('.user-menu');
+        if (userMenu) userMenu.remove();
+      }
+    });
+
+    // Toggle user menu
+    window.toggleUserMenu = function() {
+      const dropdown = document.getElementById('userDropdown');
+      dropdown.classList.toggle('hidden');
+      document.addEventListener('click', function closeDropdown(e) {
+        if (!e.target.closest('.relative')) {
+          dropdown.classList.add('hidden');
+          document.removeEventListener('click', closeDropdown);
+        }
+      });
+    }
+
+    // Đăng xuất
+    window.handleLogout = async function() {
+      try {
+        await signOut(auth);
+        await Swal.fire({
+          icon: 'success',
+          title: 'Thành công!',
+          text: 'Đăng xuất thành công!',
+          confirmButtonColor: '#dc2626'
+        });
+        location.reload();
+      } catch (error) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: 'Đăng xuất thất bại!',
+          confirmButtonColor: '#dc2626'
+        });
+      }
+    }
+
+    // Global variables
+    let allNews = [];
+    let currentCategory = 'Tất cả';
+    let currentPage = 1;
+    const itemsPerPage = 4;
+
+    // Make showNewsDetail globally accessible
+    window.showNewsDetail = function(news) {
+      console.log('Showing news detail:', news); // Debug log
+      const modal = document.getElementById('newsDetailModal');
+      const title = modal.querySelector('h3');
+      const image = modal.querySelector('img');
+      const date = modal.querySelector('.news-date');
+      const views = modal.querySelector('.news-views');
+      const comments = modal.querySelector('.news-comments');
+      const description = modal.querySelector('.news-description');
+      const content = modal.querySelector('.news-content');
+
+      title.textContent = news.title;
+      image.src = news.image;
+      image.alt = news.title;
+      date.textContent = formatDate(news.date);
+      views.textContent = formatNumber(news.views);
+      comments.textContent = formatNumber(news.comments);
+      description.textContent = news.description;
+      content.innerHTML = news.content.replace(/\n/g, '<br>');
+
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Make closeNewsDetail globally accessible
+    window.closeNewsDetail = function() {
+      const modal = document.getElementById('newsDetailModal');
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Update news grid with click handlers
+    function updateNewsGrid() {
+      const newsGrid = document.querySelector('.grid.grid-cols-1.md\\:grid-cols-2.gap-8');
+      if (newsGrid) {
+        let filteredNews = allNews;
+        if (currentCategory !== 'Tất cả') {
+          filteredNews = allNews.filter(news => news.category === currentCategory);
+        }
+
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const paginatedNews = filteredNews.slice(startIndex, endIndex);
+
+        if (paginatedNews.length === 0) {
+          newsGrid.innerHTML = '<div class="col-span-2 text-center py-8 text-gray-500">Không có tin tức nào trong danh mục này</div>';
+          return;
+        }
+
+        const newsHTML = paginatedNews.map(news => `
+          <div class="news-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="news-image">
+              <img src="${news.image}" alt="${news.title}" class="w-full h-48 object-cover">
+              <span class="news-category">${news.category}</span>
+              <span class="news-date">${formatDate(news.date)}</span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-xl mb-3 line-clamp-2">
+                <a href="javascript:void(0)" onclick='showNewsDetail(${JSON.stringify(news)})' class="hover:text-red-600 transition">${news.title}</a>
+              </h3>
+              <p class="text-gray-600 mb-4 line-clamp-3">${news.description}</p>
+              <div class="flex items-center justify-between text-sm text-gray-500">
+                <span><i class="far fa-eye mr-2"></i>${formatNumber(news.views)} lượt xem</span>
+                <span><i class="far fa-comment mr-2"></i>${formatNumber(news.comments)} bình luận</span>
+              </div>
+            </div>
+          </div>
+        `).join('');
+        newsGrid.innerHTML = newsHTML;
+      }
+    }
+
+    // Update popular news with click handlers
+    function updatePopularNews() {
+      const popularNews = document.querySelector('.sidebar-card .space-y-4');
+      if (popularNews) {
+        const popularNewsHTML = allNews
+          .sort((a, b) => b.views - a.views)
+          .slice(0, 3)
+          .map(news => `
+            <a href="javascript:void(0)" onclick='showNewsDetail(${JSON.stringify(news)})' class="flex items-start space-x-4 group">
+              <img src="${news.image}" alt="${news.title}" class="w-20 h-20 object-cover rounded">
+              <div>
+                <h4 class="font-medium group-hover:text-red-600 transition line-clamp-2">${news.title}</h4>
+                <span class="text-sm text-gray-500">${formatDate(news.date)}</span>
+              </div>
+            </a>
+          `).join('');
+        popularNews.innerHTML = popularNewsHTML;
+      }
+    }
+
+    // Load news data from Firebase
+    async function loadNews() {
+      try {
+        const newsRef = ref(database, 'news');
+        onValue(newsRef, (snapshot) => {
+          const newsData = snapshot.val();
+          if (newsData) {
+            // Convert object to array and sort by date
+            allNews = Object.entries(newsData).map(([id, news]) => ({
+              id,
+              title: news.title || '',
+              category: news.category || 'Tin điện ảnh',
+              description: news.description || '',
+              content: news.content || '',
+              date: news.date || new Date().toISOString().split('T')[0],
+              image: news.image || 'https://via.placeholder.com/800x400',
+              isFeatured: news.isFeatured || false,
+              views: news.views || 0,
+              comments: news.comments || 0,
+              createdAt: news.createdAt || new Date().toISOString()
+            })).sort((a, b) => new Date(b.date) - new Date(a.date));
+
+            console.log('Loaded news:', allNews); // Debug log
+
+            // Update featured news
+            const featuredNews = allNews.find(news => news.isFeatured);
+            if (featuredNews) {
+              updateFeaturedNews(featuredNews);
+            }
+
+            // Update news grid with current category and page
+            updateNewsGrid();
+
+            // Update popular news
+            updatePopularNews();
+
+            // Update categories count
+            updateCategoriesCount();
+
+            // Update pagination
+            updatePagination();
+          } else {
+            console.log('No news data available');
+          }
+        });
+      } catch (error) {
+        console.error('Error loading news:', error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: 'Không thể tải dữ liệu tin tức. Vui lòng thử lại sau.',
+          confirmButtonColor: '#dc2626'
+        });
+      }
+    }
+
+    // Update featured news section
+    function updateFeaturedNews(news) {
+      const featuredSection = document.querySelector('.featured-news');
+      if (featuredSection) {
+        featuredSection.innerHTML = `
+          <img src="${news.image}" alt="${news.title}">
+          <div class="featured-news-content">
+            <span class="bg-red-600 text-white px-3 py-1 rounded-full text-sm font-medium mb-4 inline-block">Tin nổi bật</span>
+            <h1 class="text-4xl font-bold mb-4">${news.title}</h1>
+            <p class="text-lg mb-4">${news.description}</p>
+            <div class="flex items-center text-sm">
+              <span class="mr-4"><i class="far fa-calendar-alt mr-2"></i>${formatDate(news.date)}</span>
+              <span class="mr-4"><i class="far fa-eye mr-2"></i>${formatNumber(news.views)} lượt xem</span>
+              <span><i class="far fa-comment mr-2"></i>${formatNumber(news.comments)} bình luận</span>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    // Update categories count
+    function updateCategoriesCount() {
+      const categories = {};
+      allNews.forEach(news => {
+        if (news.category) {
+          categories[news.category] = (categories[news.category] || 0) + 1;
+        }
+      });
+
+      const categoriesList = document.querySelector('.sidebar-card ul.space-y-2');
+      if (categoriesList) {
+        const categoriesHTML = Object.entries(categories).map(([category, count]) => `
+          <li>
+            <a href="#" class="flex items-center justify-between py-2 hover:text-red-600 transition" data-category="${category}">
+              <span>${category}</span>
+              <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded-full text-sm">${count}</span>
+            </a>
+          </li>
+        `).join('');
+        categoriesList.innerHTML = categoriesHTML;
+
+        // Add click event listeners to category links
+        const categoryLinks = categoriesList.querySelectorAll('a[data-category]');
+        categoryLinks.forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const category = link.getAttribute('data-category');
+            
+            // Update active state in sidebar
+            categoryLinks.forEach(l => l.classList.remove('text-red-600'));
+            link.classList.add('text-red-600');
+
+            // Update active state in category buttons
+            const categoryButtons = document.querySelectorAll('.flex.space-x-4.mb-8 button');
+            categoryButtons.forEach(btn => {
+              if (btn.textContent === category) {
+                btn.classList.remove('bg-white', 'text-gray-700');
+                btn.classList.add('bg-red-600', 'text-white');
+              } else {
+                btn.classList.remove('bg-red-600', 'text-white');
+                btn.classList.add('bg-white', 'text-gray-700');
+              }
+            });
+
+            // Update current category and reset page
+            currentCategory = category;
+            currentPage = 1;
+
+            // Update news grid and pagination
+            updateNewsGrid();
+            updatePagination();
+          });
+        });
+      }
+    }
+
+    // Update pagination
+    function updatePagination() {
+      const paginationContainer = document.querySelector('.flex.justify-center.items-center.space-x-2.mt-12');
+      if (paginationContainer) {
+        // Filter news by category
+        let filteredNews = allNews;
+        if (currentCategory !== 'Tất cả') {
+          filteredNews = allNews.filter(news => news.category === currentCategory);
+        }
+
+        // Calculate total pages
+        const totalPages = Math.ceil(filteredNews.length / itemsPerPage);
+        
+        // Generate pagination HTML
+        let paginationHTML = `
+          <button class="pagination-item" ${currentPage === 1 ? 'disabled' : ''}>
+            <i class="fas fa-chevron-left"></i>
+          </button>
+        `;
+
+        for (let i = 1; i <= totalPages; i++) {
+          paginationHTML += `
+            <button class="pagination-item ${i === currentPage ? 'active' : ''}" data-page="${i}">
+              ${i}
+            </button>
+          `;
+        }
+
+        paginationHTML += `
+          <button class="pagination-item" ${currentPage === totalPages ? 'disabled' : ''}>
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        `;
+
+        paginationContainer.innerHTML = paginationHTML;
+
+        // Add click event listeners
+        const paginationButtons = paginationContainer.querySelectorAll('.pagination-item');
+        paginationButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            if (button.hasAttribute('data-page')) {
+              currentPage = parseInt(button.getAttribute('data-page'));
+              updateNewsGrid();
+              updatePagination();
+            } else if (button.querySelector('.fa-chevron-left')) {
+              if (currentPage > 1) {
+                currentPage--;
+                updateNewsGrid();
+                updatePagination();
+              }
+            } else if (button.querySelector('.fa-chevron-right')) {
+              if (currentPage < totalPages) {
+                currentPage++;
+                updateNewsGrid();
+                updatePagination();
+              }
+            }
+          });
+        });
+      }
+    }
+
+    // Helper function to format date
+    function formatDate(dateString) {
+      const date = new Date(dateString);
+      return date.toLocaleDateString('vi-VN', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+      });
+    }
+
+    // Helper function to format numbers
+    function formatNumber(num) {
+      return new Intl.NumberFormat('vi-VN').format(num);
+    }
+
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      loadNews();
+      
+      // Add click event listeners for category buttons
+      const categoryButtons = document.querySelectorAll('.flex.space-x-4.mb-8 button');
+      categoryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Update active state
+          categoryButtons.forEach(btn => {
+            btn.classList.remove('bg-red-600', 'text-white');
+            btn.classList.add('bg-white', 'text-gray-700');
+          });
+          button.classList.remove('bg-white', 'text-gray-700');
+          button.classList.add('bg-red-600', 'text-white');
+
+          // Update current category and reset page
+          currentCategory = button.textContent;
+          currentPage = 1;
+
+          // Update news grid and pagination
+          updateNewsGrid();
+          updatePagination();
+
+          // Update active state in sidebar
+          const categoryLinks = document.querySelectorAll('.sidebar-card ul.space-y-2 a[data-category]');
+          categoryLinks.forEach(link => {
+            if (link.getAttribute('data-category') === currentCategory) {
+              link.classList.add('text-red-600');
+            } else {
+              link.classList.remove('text-red-600');
+            }
+          });
+        });
+      });
+    });
+
+    // Định nghĩa các hàm xử lý modal trong phạm vi global
+    window.showModal = function(modalId) {
+      document.getElementById(modalId).classList.remove('hidden');
+    }
+    window.closeModal = function(modalId) {
+      document.getElementById(modalId).classList.add('hidden');
+    }
+    document.querySelector('.btn-login').addEventListener('click', () => showModal('loginModal'));
+    document.querySelector('.btn-register').addEventListener('click', () => showModal('registerModal'));
+
+    // Login form submission
+    document.getElementById('loginForm').onsubmit = async function(e) {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+      // Show loading state
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang xử lý...';
+      submitBtn.disabled = true;
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        await Swal.fire({
+          icon: 'success',
+          title: 'Thành công!',
+          text: 'Đăng nhập thành công!',
+          confirmButtonColor: '#dc2626'
+        });
+        closeModal('loginModal');
+        location.reload();
+      } catch (err) {
+        let errorMessage = 'Đăng nhập thất bại!';
+        if (err.code === 'auth/user-not-found') {
+          errorMessage = 'Email không tồn tại!';
+        } else if (err.code === 'auth/wrong-password') {
+          errorMessage = 'Mật khẩu không đúng!';
+        } else if (err.code === 'auth/invalid-email') {
+          errorMessage = 'Email không hợp lệ!';
+        }
+        await Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: errorMessage,
+          confirmButtonColor: '#dc2626'
+        });
+      } finally {
+        // Reset button state
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
+    }
+
+    // Register form submission
+    document.getElementById('registerForm').onsubmit = async function(e) {
+      e.preventDefault();
+      const email = document.getElementById('registerEmail').value;
+      const password = document.getElementById('registerPassword').value;
+      const password2 = document.getElementById('registerConfirmPassword').value;
+
+      // Validate password
+      if (password.length < 6) {
+        await Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: 'Mật khẩu phải có ít nhất 6 ký tự!',
+          confirmButtonColor: '#dc2626'
+        });
+        return;
+      }
+
+      if (password !== password2) {
+        await Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: 'Mật khẩu không khớp!',
+          confirmButtonColor: '#dc2626'
+        });
+        return;
+      }
+
+      // Show loading state
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang xử lý...';
+      submitBtn.disabled = true;
+
+      try {
+        await createUserWithEmailAndPassword(auth, email, password);
+        await Swal.fire({
+          icon: 'success',
+          title: 'Thành công!',
+          text: 'Đăng ký thành công!',
+          confirmButtonColor: '#dc2626'
+        });
+        closeModal('registerModal');
+        location.reload();
+      } catch (err) {
+        let errorMessage = 'Đăng ký thất bại!';
+        if (err.code === 'auth/email-already-in-use') {
+          errorMessage = 'Email đã được sử dụng!';
+        } else if (err.code === 'auth/invalid-email') {
+          errorMessage = 'Email không hợp lệ!';
+        } else if (err.code === 'auth/weak-password') {
+          errorMessage = 'Mật khẩu quá yếu!';
+        }
+        await Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: errorMessage,
+          confirmButtonColor: '#dc2626'
+        });
+      } finally {
+        // Reset button state
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
+    }
+
+    // Forgot password form submission
+    document.getElementById('forgotPasswordForm').onsubmit = async function(e) {
+      e.preventDefault();
+      const email = document.getElementById('forgotPasswordEmail').value;
+
+      // Show loading state
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang xử lý...';
+      submitBtn.disabled = true;
+
+      try {
+        await sendPasswordResetEmail(auth, email);
+        await Swal.fire({
+          icon: 'success',
+          title: 'Thành công!',
+          text: 'Đã gửi liên kết đặt lại mật khẩu vào email của bạn!',
+          confirmButtonColor: '#dc2626'
+        });
+        closeModal('forgotPasswordModal');
+      } catch (err) {
+        let errorMessage = 'Không gửi được email!';
+        if (err.code === 'auth/user-not-found') {
+          errorMessage = 'Email không tồn tại!';
+        } else if (err.code === 'auth/invalid-email') {
+          errorMessage = 'Email không hợp lệ!';
+        }
+        await Swal.fire({
+          icon: 'error',
+          title: 'Lỗi!',
+          text: errorMessage,
+          confirmButtonColor: '#dc2626'
+        });
+      } finally {
+        // Reset button state
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
+    }
+  </script>
+    <!-- Bottom Navigation cho mobile -->
+    <nav class="bottom-nav-mobile">
+      <a href="index.html" class="nav-item">
+        <i class="fas fa-home"></i>
+        <span>Trang chủ</span>
+      </a>
+      <a href="phim.html" class="nav-item">
+        <i class="fas fa-film"></i>
+        <span>Phim</span>
+      </a>
+      <a href="rapphim.html" class="nav-item">
+        <i class="fas fa-theater-masks"></i>
+        <span>Rạp</span>
+      </a>
+      <a href="tintuc.html" class="nav-item">
+        <i class="fas fa-newspaper"></i>
+        <span>Tin tức</span>
+      </a>
+      <a href="user.html" class="nav-item">
+        <i class="fas fa-user"></i>
+        <span>Tài khoản</span>
+      </a>
+    </nav>
+</body>
+</html> 

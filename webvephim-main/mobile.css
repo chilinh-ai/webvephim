@@ -1,0 +1,314 @@
+/* Ẩn menu desktop, hiện menu mobile */
+@media (max-width: 768px) {
+    .main-nav {
+      display: none !important;
+    }
+    .mobile-menu {
+      display: flex !important;
+    }
+  
+    /* Header: logo và nút đăng nhập/đăng ký căn giữa */
+    .main-header .flex.items-center.justify-between {
+      flex-direction: column !important;
+      gap: 8px !important;
+      align-items: stretch !important;
+    }
+  
+    /* Banner hero: giảm chiều cao */
+    .banner-hero img,
+    .banner-hero-swiper {
+      height: 160px !important;
+      min-height: 120px !important;
+      object-fit: cover !important;
+    }
+  
+    /* Movie card: nhỏ lại, xếp dọc */
+    .movie-card {
+      min-width: 160px !important;
+      max-width: 160px !important;
+      height: 320px !important;
+      margin-right: 12px !important;
+    }
+    .movie-poster {
+      height: 100px !important;
+    }
+    .movie-info {
+      padding: 8px !important;
+    }
+    .movie-info h3 {
+      font-size: 1rem !important;
+    }
+    .movie-meta,
+    .movie-genres {
+      font-size: 0.85rem !important;
+    }
+  
+    /* Movie slider: padding nhỏ lại */
+    .movie-grid {
+      gap: 1rem !important;
+      padding: 0.5rem 0 !important;
+    }
+  
+    /* Nút điều hướng slider nhỏ lại */
+    .nav-btn {
+      width: 32px !important;
+      height: 32px !important;
+      font-size: 1rem !important;
+    }
+  
+    /* Footer: xếp dọc, căn giữa */
+    .footer-content {
+      grid-template-columns: 1fr !important;
+      text-align: center !important;
+      gap: 1rem !important;
+    }
+    .footer-section {
+      padding: 0.5rem !important;
+    }
+  
+    /* Breadcrumb: font nhỏ hơn */
+    .max-w-\[1200px\].mx-auto.px-4.py-3.text-white.text-sm.font-normal.bg-red-600 {
+      font-size: 0.9rem !important;
+      padding: 0.5rem !important;
+    }
+  
+    /* Ẩn một số hình ảnh lớn nếu cần */
+    /* .banner-hero { display: none !important; } */
+  
+    /* Modal: căn giữa, padding nhỏ */
+    .fixed.inset-0.bg-black.bg-opacity-50.flex.items-center.justify-center.z-50 {
+      padding: 0 !important;
+    }
+    .max-w-md,
+    .max-w-4xl {
+      max-width: 95vw !important;
+      padding: 8px !important;
+    }
+
+    .bottom-nav-mobile {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 60px;
+      background: #fff;
+      border-top: 1px solid #e5e7eb;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 100;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+    }
+    .bottom-nav-mobile .nav-item {
+      flex: 1;
+      text-align: center;
+      color: #6b7280;
+      text-decoration: none;
+      font-size: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 0;
+      transition: color 0.2s;
+    }
+    .bottom-nav-mobile .nav-item i {
+      font-size: 1.3rem;
+      margin-bottom: 2px;
+      display: block;
+    }
+    .bottom-nav-mobile .nav-item:active,
+    .bottom-nav-mobile .nav-item:focus,
+    .bottom-nav-mobile .nav-item:hover {
+      color: #dc2626;
+    }
+
+    /* Ẩn logo */
+    .logo,
+    /* Ẩn nút đăng nhập, đăng ký */
+    .btn-login,
+    .btn-register,
+    /* Ẩn menu tài khoản khi đã đăng nhập */
+    .user-menu {
+      display: none !important;
+    }
+
+    /* Main content padding nhỏ lại */
+    main.max-w-\[1200px\].mx-auto.px-4.py-8 {
+      padding: 8px 0 !important;
+    }
+
+    /* Filter sidebar chuyển thành xếp dọc, full width */
+    aside.w-full.lg\:w-64.flex-shrink-0 {
+      width: 100% !important;
+      margin-bottom: 12px !important;
+    }
+    .filter-section {
+      padding: 10px !important;
+      margin-bottom: 10px !important;
+      border-radius: 8px !important;
+    }
+    .filter-group {
+      margin-bottom: 8px !important;
+    }
+    .filter-label {
+      font-size: 1rem !important;
+      margin-bottom: 4px !important;
+    }
+    .filter-options {
+      gap: 4px !important;
+    }
+    .filter-option {
+      padding: 4px 10px !important;
+      font-size: 0.95rem !important;
+    }
+
+    /* Movie grid 1 cột, card nhỏ lại */
+    .movie-grid {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 12px !important;
+      padding: 0 !important;
+    }
+    .movie-card {
+      min-width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      margin: 0 !important;
+      border-radius: 8px !important;
+    }
+    .movie-poster {
+      height: 160px !important;
+    }
+    .movie-info {
+      padding: 10px !important;
+    }
+    .movie-info h3 {
+      font-size: 1.1rem !important;
+    }
+    .movie-meta,
+    .movie-genres {
+      font-size: 0.95rem !important;
+    }
+
+    /* Pagination nhỏ lại */
+    .pagination {
+      gap: 2px !important;
+      margin-top: 10px !important;
+    }
+    .pagination-item {
+      padding: 4px 8px !important;
+      font-size: 0.95rem !important;
+    }
+
+    /* Footer xếp dọc, căn giữa */
+    .footer-content {
+      grid-template-columns: 1fr !important;
+      text-align: center !important;
+      gap: 1rem !important;
+    }
+    .footer-section {
+      padding: 0.5rem !important;
+    }
+
+    /* Breadcrumb nhỏ lại */
+    .max-w-\[1200px\].mx-auto.px-4.py-3.text-white.text-sm.font-normal.bg-red-600 {
+      font-size: 0.9rem !important;
+      padding: 0.5rem !important;
+    }
+
+    /* Card phim hiển thị đầy đủ nội dung */
+    .movie-card {
+      min-width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      margin: 0 !important;
+      border-radius: 8px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      overflow: visible !important;
+    }
+    .movie-poster {
+      height: 200px !important;
+      min-height: 150px !important;
+      max-height: 220px !important;
+    }
+    .movie-info {
+      padding: 10px !important;
+      font-size: 1rem !important;
+      overflow: visible !important;
+    }
+    .movie-info h3 {
+      font-size: 1.1rem !important;
+      white-space: normal !important;
+      overflow: visible !important;
+      text-overflow: unset !important;
+    }
+    .movie-meta,
+    .movie-genres {
+      font-size: 0.95rem !important;
+      flex-wrap: wrap !important;
+      overflow: visible !important;
+    }
+    .movie-genres span {
+      margin-bottom: 2px !important;
+    }
+    .showtimes .flex {
+      flex-wrap: wrap !important;
+      gap: 4px !important;
+    }
+    /* Badge không che nút */
+    .movie-card .absolute {
+      z-index: 1 !important;
+    }
+    .btn-book, .btn-trailer {
+      min-width: 90px !important;
+      font-size: 0.95rem !important;
+      padding: 0.5rem 1rem !important;
+    }
+
+    /* Footer xếp dọc, căn giữa, padding nhỏ */
+    footer .max-w-\[1200px\] {
+      padding-left: 8px !important;
+      padding-right: 8px !important;
+    }
+    footer .grid,
+    .footer-content {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 1rem !important;
+      text-align: center !important;
+    }
+    footer .mb-4,
+    .footer-section {
+      padding: 0.5rem !important;
+    }
+    footer ul,
+    .footer-section ul {
+      padding: 0 !important;
+      margin: 0 auto !important;
+      list-style: none !important;
+    }
+    .footer-bottom {
+      padding-top: 1rem !important;
+      font-size: 0.95rem !important;
+    }
+
+    /* Căn giữa nội dung liên hệ trong footer */
+    footer .flex.items-center.text-gray-400,
+    footer .flex.items-center {
+      justify-content: center !important;
+      text-align: center !important;
+      width: 100% !important;
+      margin: 0 auto !important;
+    }
+    footer .flex.space-x-4.mt-4 {
+      justify-content: center !important;
+    }
+}
+
+@media (min-width: 769px) {
+  .bottom-nav-mobile {
+    display: none !important;
+  }
+}
